@@ -21,6 +21,12 @@
   --color-warning: #F59E0B;
   --color-error: #EF4444;
 
+  /* Google brand colors */
+  --color-google-blue: #4285F4;
+  --color-google-red: #EA4335;
+  --color-google-yellow: #FBBC05;
+  --color-google-green: #34A853;
+
   /* Custom shadows */
   --shadow-glow-sm: 0 0 10px rgba(0, 214, 198, 0.2);
   --shadow-glow-md: 0 0 20px rgba(0, 214, 198, 0.25);

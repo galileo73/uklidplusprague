@@ -135,3 +135,47 @@ export interface SEOConfig {
   siteUrl: string;
   locale: string;
 }
+
+// JSON-LD Schema types
+export interface JSONLDSchema {
+  "@context": string;
+  "@type": string;
+  [key: string]: unknown;
+}
+
+export interface OrganizationSchema extends JSONLDSchema {
+  "@type": "Organization";
+  name: string;
+  url: string;
+  logo: string;
+  contactPoint: {
+    "@type": "ContactPoint";
+    telephone: string;
+    contactType: string;
+    availableLanguage: string[];
+  };
+  sameAs: string[];
+}
+
+export interface LocalBusinessSchema extends JSONLDSchema {
+  "@type": "LocalBusiness";
+  name: string;
+  url: string;
+  telephone: string;
+  address: {
+    "@type": "PostalAddress";
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+  areaServed: string[];
+  priceRange: string;
+}
+
+// Why Uklid section type
+export interface WhyUklidItem {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+}

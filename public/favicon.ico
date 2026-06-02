@@ -1,0 +1,20 @@
+FAVICON PLACEHOLDER
+===================
+
+This is a placeholder file. Replace with an actual favicon.ico file before production.
+
+Recommended favicon sizes:
+- 16x16 pixels (browser tab)
+- 32x32 pixels (browser tab, Windows)
+- 48x48 pixels (Windows site icon)
+- 180x180 pixels (Apple Touch Icon)
+
+To generate favicons:
+1. Create a 512x512 PNG logo
+2. Use a tool like https://realfavicongenerator.net/ or https://favicon.io/
+3. Replace this file with the generated favicon.ico
+4. Add additional favicon files to the public folder as needed:
+   - apple-touch-icon.png (180x180)
+   - favicon-32x32.png
+   - favicon-16x16.png
+   - site.webmanifest
