@@ -1,3 +1,145 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Custom Theme Configuration */
+@theme {
+  /* Dark theme colors */
+  --color-dark-primary: #050505;
+  --color-dark-secondary: #0A0A0A;
+
+  /* Accent colors (turquoise) */
+  --color-accent: #00D6C6;
+  --color-accent-primary: #00D6C6;
+  --color-accent-secondary: #17F1E1;
+
+  /* Text colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B8B8B8;
+  --color-text-muted: #6B7280;
+
+  /* Semantic colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* Custom shadows */
+  --shadow-glow-sm: 0 0 10px rgba(0, 214, 198, 0.2);
+  --shadow-glow-md: 0 0 20px rgba(0, 214, 198, 0.25);
+  --shadow-glow-lg: 0 0 40px rgba(0, 214, 198, 0.3);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+
+  /* Custom animations */
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 214, 198, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(0, 214, 198, 0.4); }
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-primary text-text-primary antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-accent-primary/30 text-white;
+  }
+}
+
+/* Component Classes */
+@layer components {
+  /* Primary Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-primary text-dark-primary font-semibold rounded-lg transition-all duration-300 hover:bg-accent-secondary hover:shadow-glow-md active:scale-95;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-accent-primary text-accent-primary font-semibold rounded-lg transition-all duration-300 hover:bg-accent-primary hover:text-dark-primary hover:shadow-glow-md active:scale-95;
+  }
+
+  /* WhatsApp Button */
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#128C7E] hover:shadow-lg active:scale-95;
+  }
+
+  /* Card Component */
+  .card {
+    @apply bg-dark-secondary border border-white/5 rounded-2xl p-6 transition-all duration-300 hover:border-accent-primary/20 hover:shadow-card-hover;
+  }
+
+  /* Section Container */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Custom Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Heading Styles */
+  .heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .heading-2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .heading-3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent;
+  }
+}
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-text-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-secondary;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #6B7280 #0A0A0A;
+  }
+}
