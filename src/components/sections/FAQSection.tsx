@@ -79,7 +79,7 @@ export function FAQSection() {
             className="text-center mt-12"
           >
             <p className="text-text-secondary mb-4">
-              Still have questions? We're here to help!
+              Still have questions? We&apos;re here to help!
             </p>
             <Button href={whatsappLink} variant="whatsapp">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

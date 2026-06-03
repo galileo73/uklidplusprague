@@ -5,7 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules', 'tests'] },
+  { ignores: ['dist', 'node_modules', 'tests', '.remember'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
@@ -30,6 +30,7 @@ export default tseslint.config(
       ],
       'react/react-in-jsx-scope': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'react/no-unknown-property': ['error', { ignore: ['netlify-honeypot', 'netlify-name'] }],
     },
   }
 );

@@ -120,7 +120,7 @@ export function ExpatsSection() {
                 Trusted by Expats &amp; Professionals
               </h2>
               <p className="text-lg md:text-xl text-text-secondary">
-                Why Prague's international community chooses UKLID PLUS PRAHA
+                Why Prague&apos;s international community chooses UKLID PLUS PRAHA
               </p>
             </motion.div>
 

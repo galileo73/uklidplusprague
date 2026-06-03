@@ -66,7 +66,7 @@ export function WhyUklidSection() {
             Why UKLID PLUS PRAHA
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Prague's trusted cleaning partner for expats, professionals, and Airbnb hosts
+            Prague&apos;s trusted cleaning partner for expats, professionals, and Airbnb hosts
           </p>
         </motion.div>
 

@@ -180,7 +180,7 @@ export function ReviewsSection() {
 
               {/* Review Text */}
               <p className="text-text-secondary text-sm leading-relaxed mb-3">
-                "{review.text}"
+                &ldquo;{review.text}&rdquo;
               </p>
 
               {/* Date */}
