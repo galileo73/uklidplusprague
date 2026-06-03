@@ -8,13 +8,15 @@ test.describe('Navigation', () => {
   test('should navigate to privacy page', async ({ page }) => {
     await page.goto('/privacy');
     await expect(page).toHaveURL(/privacy/);
-    await expect(page.locator('h1, h2').first()).toContainText(/ochrana|soukrom/i);
+    // Site uses English: "Privacy Policy"
+    await expect(page.locator('h1').first()).toContainText(/privacy/i);
   });
 
   test('should navigate to terms page', async ({ page }) => {
     await page.goto('/terms');
     await expect(page).toHaveURL(/terms/);
-    await expect(page.locator('h1, h2').first()).toContainText(/podmínk|terms/i);
+    // Site uses English: "Terms of Service"
+    await expect(page.locator('h1').first()).toContainText(/terms/i);
   });
 
   test('should have working logo link', async ({ page }) => {

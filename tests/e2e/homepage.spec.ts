@@ -20,13 +20,13 @@ test.describe('Homepage', () => {
   });
 
   test('should display services section', async ({ page }) => {
-    // Scroll to services section
-    await page.locator('text=Služby').first().click();
+    // Navigate to services section
+    await page.goto('/#services');
     await page.waitForTimeout(500);
 
-    // Check that services content is visible
-    const servicesSection = page.locator('section').filter({ hasText: /čistění|úklid/i });
-    await expect(servicesSection.first()).toBeVisible();
+    // Check that services content is visible (English: "Services" heading)
+    const servicesSection = page.locator('#services');
+    await expect(servicesSection).toBeVisible();
   });
 
   test('should have contact information', async ({ page }) => {
@@ -36,7 +36,8 @@ test.describe('Homepage', () => {
   });
 
   test('should have call-to-action buttons', async ({ page }) => {
-    const ctaButtons = page.locator('button, a').filter({ hasText: /kontakt|objedn|poptáv/i });
+    // Check for CTA buttons (English: "Book Now", "Contact", etc.)
+    const ctaButtons = page.locator('button, a').filter({ hasText: /book|contact|whatsapp/i });
     await expect(ctaButtons.first()).toBeVisible();
   });
 });
