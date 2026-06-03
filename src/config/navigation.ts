@@ -6,8 +6,7 @@ import type { NavItem } from '../types';
 export const mainNavItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/' },
   { id: 'services', label: 'Services', href: '/#services' },
-  { id: 'pricing', label: 'Pricing', href: '/pricing' },
-  { id: 'airbnb', label: 'Airbnb Hosts', href: '/airbnb-hosts' },
+  { id: 'pricing', label: 'Pricing', href: '/#pricing' },
   { id: 'about', label: 'About', href: '/#about' },
   { id: 'contact', label: 'Contact', href: '/#contact' },
 ];
@@ -18,21 +17,23 @@ export const mainNavItems: NavItem[] = [
 export const footerNavItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/' },
   { id: 'services', label: 'Services', href: '/#services' },
-  { id: 'pricing', label: 'Pricing', href: '/pricing' },
-  { id: 'airbnb', label: 'Airbnb Hosts', href: '/airbnb-hosts' },
+  { id: 'pricing', label: 'Pricing', href: '/#pricing' },
   { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
   { id: 'terms', label: 'Terms of Service', href: '/terms' },
 ];
 
 /**
  * Service navigation (for dropdown or sub-menu)
+ * NOTE: Disabled until dedicated pages are created
+ * - Standard and Deep cleaning are on homepage #services section
+ * - Airbnb service page is a future placeholder
  */
-export const serviceNavItems: NavItem[] = [
-  { id: 'standard', label: 'Standard Cleaning', href: '/pricing#standard' },
-  { id: 'deep', label: 'Deep Cleaning', href: '/pricing#deep' },
-  { id: 'airbnb', label: 'Airbnb Turnover', href: '/airbnb-hosts' },
-  { id: 'recurring', label: 'Recurring Plans', href: '/pricing#plans' },
-];
+// export const serviceNavItems: NavItem[] = [
+//   { id: 'standard', label: 'Standard Cleaning', href: '/#services' },
+//   { id: 'deep', label: 'Deep Cleaning', href: '/#services' },
+//   { id: 'airbnb', label: 'Airbnb Turnover', href: '/airbnb-hosts' },
+//   { id: 'recurring', label: 'Recurring Plans', href: '/#pricing' },
+// ];
 
 /**
  * CTA buttons in navigation
