@@ -77,7 +77,7 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
         {/* Right Section */}
         <div className="flex items-center gap-4">
           {/* Language Selector - Desktop */}
-          <div className="hidden md:relative">
+          <div className="hidden md:block md:relative">
             <button
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
               className="flex items-center gap-2 px-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
