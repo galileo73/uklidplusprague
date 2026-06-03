@@ -1,4 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { mainNavItems, languages, whatsappLink } from '../../config';
 import { Button } from '../ui/Button';
 
@@ -15,21 +17,36 @@ export function MobileMenu({
   currentLang = 'en',
   onLanguageChange,
 }: MobileMenuProps) {
+  const location = useLocation();
+
+  // Close menu on route change
+  useEffect(() => {
+    onClose();
+  }, [location.pathname, onClose]);
+
   const handleLanguageChange = (langCode: string) => {
     if (onLanguageChange) {
       onLanguageChange(langCode);
     }
   };
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     onClose();
-    // Smooth scroll to section after menu closes
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300);
+
+    if (href.startsWith('/#')) {
+      // Hash link - scroll to section
+      const sectionId = href.substring(2);
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else if (href.startsWith('/') && !href.startsWith('/#')) {
+      // Page route - navigation handled by Link/Router, just close menu
+      // The route change will trigger the useEffect above
+    }
   };
 
   return (
@@ -95,14 +112,7 @@ export function MobileMenu({
                   >
                     <a
                       href={item.href}
-                      onClick={(e) => {
-                        if (item.href.startsWith('/#')) {
-                          e.preventDefault();
-                          handleNavClick(item.href.substring(1));
-                        } else {
-                          onClose();
-                        }
-                      }}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       className="block py-3 text-xl font-medium text-text-secondary hover:text-accent-primary transition-colors"
                     >
                       {item.label}
