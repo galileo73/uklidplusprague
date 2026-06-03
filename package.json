@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report",
+    "test:screenshots": "playwright test tests/e2e/screenshots.spec.ts"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
