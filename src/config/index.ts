@@ -12,6 +12,9 @@ export {
   socialLinks,
 } from './business';
 
+// WhatsApp helper
+export { getWhatsAppLink } from '../utils/whatsapp';
+
 // Services configuration
 export {
   services,
