@@ -127,7 +127,7 @@ export function MobileMenu({
               <p className="text-sm text-text-muted mb-3 font-medium uppercase tracking-wide">
                 Language
               </p>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="flex gap-2">
                 {languages.map((lang, index) => (
                   <motion.button
                     key={lang.code}
@@ -135,15 +135,15 @@ export function MobileMenu({
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 + 0.2 }}
                     onClick={() => handleLanguageChange(lang.code)}
-                    className={`flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                       currentLang === lang.code
                         ? 'bg-accent-primary/20 text-accent-primary border border-accent-primary/50'
                         : 'bg-white/5 text-text-secondary hover:bg-white/10 hover:text-text-primary border border-transparent'
                     }`}
                     aria-pressed={currentLang === lang.code}
+                    aria-label={lang.name}
                   >
-                    <span className="text-lg">{lang.flag}</span>
-                    <span className="font-medium">{lang.name}</span>
+                    {lang.label}
                   </motion.button>
                 ))}
               </div>

@@ -7,36 +7,40 @@ export const businessInfo: BusinessInfo = {
   name: 'UKLID PLUS PRAHA',
   tagline: 'Premium Cleaning Services for Expats in Prague',
   description:
-    'Professional cleaning agency serving Prague\'s international community. Trusted by expats, embassies, and businesses since 2015. Multilingual support in English, Czech, Russian, and Ukrainian.',
+    'Professional cleaning agency serving Prague\'s international community. Multilingual support in English, Czech, Russian, and Ukrainian.',
   logo: '/images/logo.svg',
   founded: '2015',
 };
 
 /**
  * Contact information
- * Note: Replace placeholder phone numbers with actual values before production
+ * Note: Contact details will be provided at launch
  */
 export const contactInfo: ContactInfo = {
-  phone: '+420 XXX XXX XXX', // Replace with actual phone
-  whatsapp: '+420XXXXXXXXX', // Replace with actual WhatsApp number
+  phone: '', // Contact details available at launch
+  whatsapp: '', // Contact details available at launch
   messenger: 'https://m.me/uklidpluspraha',
-  instagram: 'https://instagram.com/uklidpluspraha',
+  instagram: 'https://www.instagram.com/uklid.plus.praha/',
   email: 'info@uklidpluspraha.cz',
 };
 
 /**
  * WhatsApp link for direct messaging
+ * Note: Will be functional once WhatsApp number is provided
  */
-export const whatsappLink = `https://wa.me/${contactInfo.whatsapp.replace(/\+/g, '')}`;
+export const whatsappLink = contactInfo.whatsapp
+  ? `https://wa.me/${contactInfo.whatsapp.replace(/\+/g, '')}`
+  : '#contact'; // Fallback to contact section
 
 /**
  * Supported languages for the website
+ * Premium language selector without country flags
  */
 export const languages: Language[] = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'cs', name: 'Čeština', flag: '🇨🇿' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'uk', name: 'Українська', flag: '🇺🇦' },
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'cs', label: 'CZ', name: 'Čeština' },
+  { code: 'ru', label: 'RU', name: 'Русский' },
+  { code: 'uk', label: 'UA', name: 'Українська' },
 ];
 
 /**
@@ -53,7 +57,7 @@ export const businessHours = {
  * Social media links
  */
 export const socialLinks = {
-  instagram: 'https://instagram.com/uklidpluspraha',
+  instagram: 'https://www.instagram.com/uklid.plus.praha/',
   facebook: 'https://facebook.com/uklidpluspraha',
   messenger: 'https://m.me/uklidpluspraha',
 };

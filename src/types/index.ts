@@ -17,8 +17,8 @@ export interface ContactInfo {
 
 export interface Language {
   code: string;
-  name: string;
-  flag: string;
+  label: string; // Short label for display (EN, CZ, RU, UA)
+  name: string;  // Full name for accessibility
 }
 
 // Service types

@@ -7,7 +7,7 @@ import { businessInfo, contactInfo, languages } from './business';
 export const defaultSEO: SEOConfig = {
   title: 'UKLID PLUS PRAHA | Premium Cleaning Services for Expats in Prague',
   description:
-    'Professional cleaning services in Prague for expats and international clients. Standard cleaning, deep cleaning, Airbnb turnover, and recurring plans. Multilingual support in EN/CZ/RU/UA. Trusted since 2015.',
+    'Professional cleaning services in Prague for expats and international clients. Standard cleaning, deep cleaning, Airbnb turnover, and recurring plans. Multilingual support in EN/CZ/RU/UA.',
   keywords: [
     'cleaning services Prague',
     'expat cleaning Prague',
@@ -75,7 +75,7 @@ export const organizationSchema: OrganizationSchema = {
     availableLanguage: languages.map((l) => l.name),
   },
   sameAs: [
-    'https://instagram.com/uklidpluspraha',
+    'https://www.instagram.com/uklid.plus.praha/',
     'https://facebook.com/uklidpluspraha',
   ],
 };

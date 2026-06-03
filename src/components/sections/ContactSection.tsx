@@ -119,13 +119,15 @@ export function ContactSection() {
                         <WhatsAppIcon className="w-5 h-5" />
                         <span>Send Message</span>
                       </a>
-                      <a
-                        href={`tel:${contactInfo.phone}`}
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#25D366]/50 text-[#25D366] font-medium rounded-lg hover:bg-[#25D366]/10 transition-all duration-300"
-                      >
-                        <PhoneIcon className="w-5 h-5" />
-                        <span>{contactInfo.phone}</span>
-                      </a>
+                      {contactInfo.phone && (
+                        <a
+                          href={`tel:${contactInfo.phone}`}
+                          className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#25D366]/50 text-[#25D366] font-medium rounded-lg hover:bg-[#25D366]/10 transition-all duration-300"
+                        >
+                          <PhoneIcon className="w-5 h-5" />
+                          <span>{contactInfo.phone}</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -7,9 +7,9 @@ export const differentiators: Differentiator[] = [
   {
     id: 'expat-trusted',
     icon: 'users',
-    title: 'Trusted by Expats',
+    title: 'Expat-Focused Service',
     description:
-      'Serving Prague\'s international community since 2015. Recommended by embassies, corporate clients, and thousands of satisfied expats.',
+      'Serving Prague\'s international community with professional cleaning services tailored for expats and international residents.',
   },
   {
     id: 'multilingual',

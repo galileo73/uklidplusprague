@@ -80,15 +80,14 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
           <div className="hidden md:block md:relative">
             <button
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-              className="flex items-center gap-2 px-3 py-2 text-text-secondary hover:text-text-primary transition-colors"
+              className="flex items-center gap-1.5 px-2 py-1.5 text-text-secondary hover:text-text-primary transition-colors"
               aria-expanded={isLangDropdownOpen}
               aria-haspopup="listbox"
               aria-label="Select language"
             >
-              <span className="text-lg">{languages.find((l) => l.code === currentLang)?.flag}</span>
-              <span className="text-sm font-medium uppercase">{currentLang}</span>
+              <span className="text-sm font-semibold">{languages.find((l) => l.code === currentLang)?.label}</span>
               <svg
-                className={`w-4 h-4 transition-transform ${isLangDropdownOpen ? 'rotate-180' : ''}`}
+                className={`w-3.5 h-3.5 transition-transform ${isLangDropdownOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -104,26 +103,28 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-40 bg-dark-secondary border border-white/10 rounded-lg shadow-lg overflow-hidden"
+                  className="absolute right-0 mt-2 bg-dark-secondary border border-white/10 rounded-lg shadow-lg overflow-hidden"
                   role="listbox"
                   aria-label="Language options"
                 >
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => handleLanguageChange(lang.code)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                        currentLang === lang.code
-                          ? 'bg-accent-primary/10 text-accent-primary'
-                          : 'text-text-secondary hover:bg-white/5 hover:text-text-primary'
-                      }`}
-                      role="option"
-                      aria-selected={currentLang === lang.code}
-                    >
-                      <span className="text-lg">{lang.flag}</span>
-                      <span className="font-medium">{lang.name}</span>
-                    </button>
-                  ))}
+                  <div className="flex">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code)}
+                        className={`px-4 py-2.5 text-sm font-medium transition-colors ${
+                          currentLang === lang.code
+                            ? 'bg-accent-primary/10 text-accent-primary'
+                            : 'text-text-secondary hover:bg-white/5 hover:text-text-primary'
+                        }`}
+                        role="option"
+                        aria-selected={currentLang === lang.code}
+                        aria-label={lang.name}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
