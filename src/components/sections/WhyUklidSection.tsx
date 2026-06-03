@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { whyUklidItems } from '../../config';
+import { useTranslation } from 'react-i18next';
 
 /**
  * WhyUklidSection - 4 key points about the company
@@ -8,6 +9,8 @@ import { whyUklidItems } from '../../config';
  * Dark secondary background with scroll animations
  */
 export function WhyUklidSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -63,10 +66,10 @@ export function WhyUklidSection() {
             id="why-uklid-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Why UKLID PLUS PRAHA
+            {t('whyUklid.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Prague&apos;s trusted cleaning partner for expats, professionals, and Airbnb hosts
+            {t('whyUklid.subheading')}
           </p>
         </motion.div>
 
@@ -90,11 +93,11 @@ export function WhyUklidSection() {
               </div>
               {/* Title */}
               <h3 className="text-lg font-semibold text-text-primary mb-3">
-                {item.title}
+                {t(`whyUklid.items.${item.id}.title`)}
               </h3>
               {/* Description */}
               <p className="text-text-secondary text-sm leading-relaxed">
-                {item.description}
+                {t(`whyUklid.items.${item.id}.description`)}
               </p>
             </motion.div>
           ))}

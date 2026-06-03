@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { primaryServiceAreas } from '../../config';
 import { Button } from '../ui/Button';
 import { getWhatsAppLink } from '../../utils/whatsapp';
+import { useTranslation } from 'react-i18next';
 
 /**
  * AreasSection - Service areas grid showcasing Prague districts
@@ -9,6 +10,8 @@ import { getWhatsAppLink } from '../../utils/whatsapp';
  * Dark primary background with scroll animations
  */
 export function AreasSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,10 +80,10 @@ export function AreasSection() {
             id="areas-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Service Areas
+            {t('areas.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Professional cleaning services across Prague
+            {t('areas.subheading')}
           </p>
         </motion.div>
 
@@ -100,7 +103,7 @@ export function AreasSection() {
             >
               {/* District Name */}
               <h3 className="text-lg font-semibold text-accent-primary mb-3">
-                {area.name}
+                {t(`areas.districts.${area.id}`)}
               </h3>
 
               {/* Neighborhoods List */}
@@ -147,12 +150,12 @@ export function AreasSection() {
           variants={noteVariants}
         >
           <p className="text-text-secondary mb-6">
-            Other Prague districts available on request. Contact us via WhatsApp to check availability.
+            {t('areas.note')}
           </p>
 
           {/* WhatsApp CTA */}
           <Button
-            href={getWhatsAppLink('Hello, I would like to inquire about cleaning services in my area.')}
+            href={getWhatsAppLink(t('areas.cta.message'))}
             variant="whatsapp"
             size="lg"
           >
@@ -164,7 +167,7 @@ export function AreasSection() {
             >
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.793.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.42 4.413-9.833 9.834-9.833 2.624 0 5.094 1.023 6.953 2.88a9.789 9.789 0 012.882 6.956c-.003 5.42-4.415 9.833-9.837 9.833m8.367-18.07A11.707 11.707 0 0012.045 0C5.464 0 .091 5.373.089 11.956c0 2.106.55 4.162 1.594 5.985L0 24l6.191-1.624a11.711 11.711 0 005.85 1.57h.005c6.581 0 11.953-5.373 11.955-11.956a11.88 11.88 0 00-3.497-8.457z" />
             </svg>
-            Contact Us on WhatsApp
+            {t('areas.cta.button')}
           </Button>
         </motion.div>
       </div>

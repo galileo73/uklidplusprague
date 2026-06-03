@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { recurringPlans, whatsappLink } from '../../config';
 import { Button } from '../ui/Button';
+import { useTranslation } from 'react-i18next';
 
 /**
  * RecurringSection - 3-card pricing plans for recurring cleaning
@@ -8,6 +9,8 @@ import { Button } from '../ui/Button';
  * Dark primary background with scroll animations
  */
 export function RecurringSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -63,10 +66,10 @@ export function RecurringSection() {
             id="recurring-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Home Care Partnership
+            {t('recurring.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Set up recurring cleaning and enjoy consistent quality with priority scheduling
+            {t('recurring.subheading')}
           </p>
         </motion.div>
 
@@ -94,24 +97,24 @@ export function RecurringSection() {
               {plan.highlight && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="bg-accent-primary text-dark-primary text-sm font-semibold px-4 py-1 rounded-full shadow-lg">
-                    Best Value
+                    {t('recurring.bestValue')}
                   </span>
                 </div>
               )}
 
               {/* Plan Name */}
               <h3 className={`text-xl font-semibold mb-2 ${plan.highlight ? 'text-accent-primary' : 'text-text-primary'}`}>
-                {plan.name}
+                {t(`recurring.plans.${plan.id}.name`)}
               </h3>
 
               {/* Description */}
               <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                {plan.description}
+                {t(`recurring.plans.${plan.id}.description`)}
               </p>
 
               {/* Features List */}
               <ul className="flex-1 mb-6 space-y-3">
-                {plan.features.map((feature, featureIndex) => (
+                {plan.features.map((_, featureIndex) => (
                   <li
                     key={featureIndex}
                     className="flex items-start gap-3 text-sm"
@@ -131,7 +134,7 @@ export function RecurringSection() {
                       />
                     </svg>
                     <span className={plan.highlight ? 'text-text-primary' : 'text-text-secondary'}>
-                      {feature}
+                      {t(`recurring.plans.${plan.id}.features.${featureIndex}`)}
                     </span>
                   </li>
                 ))}
@@ -139,13 +142,13 @@ export function RecurringSection() {
 
               {/* CTA Button */}
               <Button
-                href={`${whatsappLink}?text=${encodeURIComponent(`Hi! I'm interested in the ${plan.name} plan for recurring cleaning.`)}`}
+                href={`${whatsappLink}?text=${encodeURIComponent(t('recurring.cta.message', { plan: t(`recurring.plans.${plan.id}.name`) }))}`}
                 variant={plan.highlight ? 'whatsapp' : 'outline'}
                 size="md"
                 className={`w-full justify-center ${!plan.highlight ? 'hover:border-accent-primary hover:text-accent-primary' : ''}`}
               >
                 <WhatsAppIcon />
-                Book via WhatsApp
+                {t('recurring.cta.button')}
               </Button>
             </motion.div>
           ))}

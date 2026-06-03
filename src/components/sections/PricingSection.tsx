@@ -4,6 +4,7 @@ import { Tabs } from '../ui/Tabs';
 import { Button } from '../ui/Button';
 import { pricingCategories, addonServices, recurringPlans } from '../../config/pricing';
 import { getWhatsAppLink } from '../../utils/whatsapp';
+import { useTranslation } from 'react-i18next';
 
 /**
  * PricingSection - Tabbed pricing with standard, deep cleaning, and add-ons
@@ -11,12 +12,13 @@ import { getWhatsAppLink } from '../../utils/whatsapp';
  * Dark secondary background with scroll animations
  */
 export function PricingSection() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('standard');
 
   const tabs = [
-    { id: 'standard', label: 'Standard Cleaning' },
-    { id: 'deep', label: 'Deep Cleaning' },
-    { id: 'addons', label: 'Add-on Services' },
+    { id: 'standard', label: t('pricing.tabs.standard') },
+    { id: 'deep', label: t('pricing.tabs.deep') },
+    { id: 'addons', label: t('pricing.tabs.addons') },
   ];
 
   // Animation variants
@@ -93,10 +95,10 @@ export function PricingSection() {
             id="pricing-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Transparent Pricing
+            {t('pricing.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Clear, upfront pricing with no hidden fees
+            {t('pricing.subheading')}
           </p>
         </motion.div>
 
@@ -122,7 +124,7 @@ export function PricingSection() {
                 animate="visible"
                 exit="exit"
               >
-                <PricingTable category={pricingCategories[0]} />
+                <PricingTable category={pricingCategories[0]} t={t} />
               </motion.div>
             )}
             {activeTab === 'deep' && (
@@ -133,7 +135,7 @@ export function PricingSection() {
                 animate="visible"
                 exit="exit"
               >
-                <PricingTable category={pricingCategories[1]} />
+                <PricingTable category={pricingCategories[1]} t={t} />
               </motion.div>
             )}
             {activeTab === 'addons' && (
@@ -144,7 +146,7 @@ export function PricingSection() {
                 animate="visible"
                 exit="exit"
               >
-                <AddonsList addons={addonServices} />
+                <AddonsList addons={addonServices} t={t} />
               </motion.div>
             )}
           </AnimatePresence>
@@ -159,7 +161,7 @@ export function PricingSection() {
           variants={containerVariants}
         >
           <h3 className="heading-3 text-text-primary text-center mb-8">
-            Special Offers
+            {t('pricing.offers.heading')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {recurringPlans.slice(0, 2).map((plan) => (
@@ -174,17 +176,17 @@ export function PricingSection() {
               >
                 {plan.highlight && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent-primary text-dark-primary text-xs font-semibold rounded-full">
-                    Most Popular
+                    {t('pricing.offers.popular')}
                   </div>
                 )}
                 <h4 className="text-xl font-semibold text-text-primary mb-2">
-                  {plan.name}
+                  {t(`pricing.offers.plans.${plan.id}.name`)}
                 </h4>
                 <p className="text-text-secondary text-sm mb-4">
-                  {plan.description}
+                  {t(`pricing.offers.plans.${plan.id}.description`)}
                 </p>
                 <ul className="space-y-2 mb-6">
-                  {plan.features.slice(0, 4).map((feature, index) => (
+                  {plan.features.slice(0, 4).map((_, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-2 text-sm text-text-muted"
@@ -203,7 +205,7 @@ export function PricingSection() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span>{feature}</span>
+                      <span>{t(`pricing.offers.plans.${plan.id}.features.${index}`)}</span>
                     </li>
                   ))}
                 </ul>
@@ -213,7 +215,7 @@ export function PricingSection() {
                   size="sm"
                   className="w-full justify-center"
                 >
-                  {plan.cta.label}
+                  {t(`pricing.offers.plans.${plan.id}.cta`)}
                 </Button>
               </motion.div>
             ))}
@@ -229,11 +231,11 @@ export function PricingSection() {
           variants={headerVariants}
         >
           <p className="text-text-secondary mb-4">
-            Questions? Book via WhatsApp for a personalized quote
+            {t('pricing.cta.text')}
           </p>
-          <Button href={getWhatsAppLink('Hi! I have questions about pricing.')} variant="whatsapp" size="md">
+          <Button href={getWhatsAppLink(t('pricing.cta.message'))} variant="whatsapp" size="md">
             <WhatsAppIcon />
-            Contact Us on WhatsApp
+            {t('pricing.cta.button')}
           </Button>
         </motion.div>
       </div>
@@ -244,7 +246,7 @@ export function PricingSection() {
 /**
  * PricingTable - Renders a pricing table for a category
  */
-function PricingTable({ category }: { category: typeof pricingCategories[0] }) {
+function PricingTable({ category, t }: { category: typeof pricingCategories[0]; t: ReturnType<typeof useTranslation>['t'] }) {
   return (
     <div className="bg-dark-secondary/50 rounded-2xl border border-border-subtle overflow-hidden">
       {category.description && (
@@ -257,13 +259,13 @@ function PricingTable({ category }: { category: typeof pricingCategories[0] }) {
           <thead>
             <tr className="border-b border-border-subtle">
               <th className="px-6 py-4 text-left text-sm font-semibold text-text-primary">
-                Apartment Type
+                {t('pricing.table.apartment')}
               </th>
               <th className="px-6 py-4 text-left text-sm font-semibold text-text-primary">
-                Size
+                {t('pricing.table.size')}
               </th>
               <th className="px-6 py-4 text-right text-sm font-semibold text-text-primary">
-                Price
+                {t('pricing.table.price')}
               </th>
             </tr>
           </thead>
@@ -274,7 +276,7 @@ function PricingTable({ category }: { category: typeof pricingCategories[0] }) {
                 className="border-b border-border-subtle last:border-b-0 hover:bg-dark-primary/30 transition-colors"
               >
                 <td className="px-6 py-4 text-text-primary font-medium">
-                  {item.apartmentType}
+                  {t(`pricing.categories.${category.id}.items.${index}.apartment`)}
                 </td>
                 <td className="px-6 py-4 text-text-secondary">
                   {item.size}
@@ -296,11 +298,11 @@ function PricingTable({ category }: { category: typeof pricingCategories[0] }) {
 /**
  * AddonsList - Renders a list of add-on services
  */
-function AddonsList({ addons }: { addons: typeof addonServices }) {
+function AddonsList({ addons, t }: { addons: typeof addonServices; t: ReturnType<typeof useTranslation>['t'] }) {
   return (
     <div className="bg-dark-secondary/50 rounded-2xl border border-border-subtle p-6">
       <h4 className="text-lg font-semibold text-text-primary mb-4">
-        Enhance Your Cleaning
+        {t('pricing.addons.heading')}
       </h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {addons.map((addon) => (
@@ -312,7 +314,7 @@ function AddonsList({ addons }: { addons: typeof addonServices }) {
               <div className="w-8 h-8 rounded-lg bg-accent-primary/10 flex items-center justify-center">
                 <AddonIcon />
               </div>
-              <span className="text-text-primary font-medium">{addon.name}</span>
+              <span className="text-text-primary font-medium">{t(`pricing.addons.items.${addon.id}`)}</span>
             </div>
             <span className="text-accent-primary font-semibold text-sm">
               {addon.price}

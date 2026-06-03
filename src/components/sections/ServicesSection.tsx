@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { services } from '../../config';
 import { Button } from '../ui/Button';
+import { useTranslation } from 'react-i18next';
 
 /**
  * ServicesSection - 6-card grid showcasing main services
@@ -9,6 +10,8 @@ import { Button } from '../ui/Button';
  * Dark secondary background with scroll animations
  */
 export function ServicesSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,10 +67,10 @@ export function ServicesSection() {
             id="services-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Our Services
+            {t('services.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Professional cleaning solutions for every need
+            {t('services.subheading')}
           </p>
         </motion.div>
 
@@ -92,18 +95,18 @@ export function ServicesSection() {
 
               {/* Title */}
               <h3 className="text-xl font-semibold text-text-primary mb-3">
-                {service.title}
+                {t(`services.items.${service.id}.title`)}
               </h3>
 
               {/* Description */}
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                {service.description}
+                {t(`services.items.${service.id}.description`)}
               </p>
 
               {/* Features (show first 3) */}
               {service.features && service.features.length > 0 && (
                 <ul className="flex-1 mb-6 space-y-2">
-                  {service.features.slice(0, 3).map((feature, index) => (
+                  {service.features.slice(0, 3).map((_, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-2 text-sm text-text-muted"
@@ -122,7 +125,7 @@ export function ServicesSection() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span>{feature}</span>
+                      <span>{t(`services.items.${service.id}.features.${index}`)}</span>
                     </li>
                   ))}
                 </ul>
@@ -136,7 +139,7 @@ export function ServicesSection() {
                   size="sm"
                   className="mt-auto w-full justify-center group-hover:border-accent-primary group-hover:text-accent-primary"
                 >
-                  {service.cta.label}
+                  {t(`services.items.${service.id}.cta`)}
                 </Button>
               )}
             </motion.div>

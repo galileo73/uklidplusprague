@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
-import { businessInfo, footerNavItems, languages, socialLinks, contactInfo } from '../../config';
+import { businessInfo, footerNavItems, socialLinks, contactInfo } from '../../config';
 import { getWhatsAppLink } from '../../utils/whatsapp';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { currentLanguage, setLanguage, languageOptions } = useLanguage();
+  const { t } = useTranslation();
 
   const handleNavClick = (href: string) => {
     if (href.startsWith('/#')) {
@@ -92,7 +96,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-text-primary font-semibold mb-4">Navigation</h3>
+            <h3 className="text-text-primary font-semibold mb-4">{t('footer.navigation')}</h3>
             <ul className="space-y-3">
               {footerNavItems.map((item) => (
                 <li key={item.id}>
@@ -106,7 +110,7 @@ export function Footer() {
                     }}
                     className="text-text-secondary hover:text-accent-primary transition-colors text-sm"
                   >
-                    {item.label}
+                    {t(`nav.${item.id}`)}
                   </a>
                 </li>
               ))}
@@ -120,7 +124,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h3 className="text-text-primary font-semibold mb-4">Contact</h3>
+            <h3 className="text-text-primary font-semibold mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-3">
               <li>
                 <a
@@ -167,12 +171,17 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <h3 className="text-text-primary font-semibold mb-4">Language</h3>
+            <h3 className="text-text-primary font-semibold mb-4">{t('footer.language')}</h3>
             <div className="flex gap-2">
-              {languages.map((lang) => (
+              {languageOptions.map((lang) => (
                 <button
                   key={lang.code}
-                  className="text-text-secondary hover:text-accent-primary transition-colors text-sm font-medium px-2 py-1"
+                  onClick={() => setLanguage(lang.code)}
+                  className={`text-sm font-medium px-2 py-1 transition-colors ${
+                    currentLanguage === lang.code
+                      ? 'text-accent-primary'
+                      : 'text-text-secondary hover:text-accent-primary'
+                  }`}
                   aria-label={`Switch to ${lang.name}`}
                 >
                   {lang.label}
@@ -192,10 +201,10 @@ export function Footer() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-text-muted text-sm">
-              © {currentYear} {businessInfo.name}. All rights reserved.
+              © {currentYear} {businessInfo.name}. {t('footer.copyright')}
             </p>
             <p className="text-text-muted text-sm text-center sm:text-right">
-              Professional cleaning services for expats in Prague
+              {t('footer.tagline')}
             </p>
           </div>
         </motion.div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { getFeaturedTestimonials } from '../../config';
+import { useTranslation } from 'react-i18next';
 
 /**
  * TestimonialsSection - Client testimonials section
@@ -7,6 +8,7 @@ import { getFeaturedTestimonials } from '../../config';
  * Dark primary background with scroll animations
  */
 export function TestimonialsSection() {
+  const { t } = useTranslation();
   const testimonials = getFeaturedTestimonials(3);
 
   // Animation variants
@@ -64,10 +66,10 @@ export function TestimonialsSection() {
             id="testimonials-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            What Our Clients Say
+            {t('testimonials.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Real experiences from our satisfied customers
+            {t('testimonials.subheading')}
           </p>
         </motion.div>
 
@@ -98,7 +100,7 @@ export function TestimonialsSection() {
 
               {/* Quote Text */}
               <blockquote className="text-text-secondary text-sm md:text-base leading-relaxed mb-6">
-                &ldquo;{testimonial.quote}&rdquo;
+                &ldquo;{t(`testimonials.items.${testimonial.id}.quote`)}&rdquo;
               </blockquote>
 
               {/* Author Info */}
@@ -112,7 +114,7 @@ export function TestimonialsSection() {
                 {/* Author Details */}
                 <div>
                   <p className="font-semibold text-text-primary">
-                    {testimonial.author}
+                    {t(`testimonials.items.${testimonial.id}.author`)}
                   </p>
                   {(testimonial.role || testimonial.location) && (
                     <p className="text-sm text-text-muted">

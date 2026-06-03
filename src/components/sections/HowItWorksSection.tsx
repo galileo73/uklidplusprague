@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { howItWorksSteps } from '../../config';
 import { getWhatsAppLink } from '../../utils/whatsapp';
+import { useTranslation } from 'react-i18next';
 
 /**
  * HowItWorksSection - 5-step process timeline
@@ -8,6 +9,8 @@ import { getWhatsAppLink } from '../../utils/whatsapp';
  * Dark secondary background with scroll animations
  */
 export function HowItWorksSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,10 +90,10 @@ export function HowItWorksSection() {
             id="how-it-works-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            How It Works
+            {t('howItWorks.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Simple steps to a cleaner home
+            {t('howItWorks.subheading')}
           </p>
         </motion.div>
 
@@ -151,16 +154,16 @@ export function HowItWorksSection() {
 
                 {/* Step Content */}
                 <h3 className="text-lg font-semibold text-text-primary mb-3">
-                  {step.title}
+                  {t(`howItWorks.steps.${step.id}.title`)}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed max-w-xs">
-                  {step.description}
+                  {t(`howItWorks.steps.${step.id}.description`)}
                 </p>
 
                 {/* CTA for last step */}
                 {index === howItWorksSteps.length - 1 && (
                   <motion.a
-                    href={getWhatsAppLink('Hi! I would like to get started with your cleaning service.')}
+                    href={getWhatsAppLink(t('howItWorks.cta.message'))}
                     target="_blank"
                     rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 10 }}
@@ -170,7 +173,7 @@ export function HowItWorksSection() {
                     className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-accent-primary/10 hover:bg-accent-primary/20 border border-accent-primary/30 rounded-full text-accent-primary text-sm font-medium transition-colors"
                   >
                     <WhatsAppIcon />
-                    Get Started
+                    {t('howItWorks.cta.button')}
                   </motion.a>
                 )}
               </motion.div>

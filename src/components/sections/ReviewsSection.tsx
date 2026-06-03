@@ -6,6 +6,7 @@ import {
   googleReviewsUrl,
   socialLinks,
 } from '../../config';
+import { useTranslation } from 'react-i18next';
 
 /**
  * ReviewsSection - Google Reviews & Reputation section
@@ -13,6 +14,8 @@ import {
  * Dark secondary background with scroll animations
  */
 export function ReviewsSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,10 +96,10 @@ export function ReviewsSection() {
             id="reviews-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Google Reviews & Reputation
+            {t('reviews.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            What our clients say about us
+            {t('reviews.subheading')}
           </p>
         </motion.div>
 
@@ -126,7 +129,7 @@ export function ReviewsSection() {
 
               {/* Review Count */}
               <p className="text-text-secondary text-sm md:text-base">
-                Based on {reviewStats.totalReviews} reviews
+                {t('reviews.basedOn', { count: reviewStats.totalReviews })}
               </p>
 
               {/* Google Brand Link */}
@@ -136,7 +139,7 @@ export function ReviewsSection() {
                 rel="noopener noreferrer"
                 className="mt-2 text-sm text-google-blue hover:text-google-blue/80 transition-colors flex items-center gap-1"
               >
-                <span>See all reviews on Google</span>
+                <span>{t('reviews.seeAll')}</span>
                 <ExternalLinkIcon />
               </a>
             </div>
@@ -180,7 +183,7 @@ export function ReviewsSection() {
 
               {/* Review Text */}
               <p className="text-text-secondary text-sm leading-relaxed mb-3">
-                &ldquo;{review.text}&rdquo;
+                &ldquo;{t(`reviews.items.${review.id}.text`)}&rdquo;
               </p>
 
               {/* Date */}
@@ -205,7 +208,7 @@ export function ReviewsSection() {
             <div className="flex items-center justify-center gap-2 mb-2">
               <StarIcon className="w-5 h-5 text-accent-primary" />
               <span className="font-medium text-text-primary">
-                Growing Our Reputation
+                {t('reviews.growing.heading')}
               </span>
             </div>
             <p className="text-text-secondary text-sm">
@@ -228,7 +231,7 @@ export function ReviewsSection() {
             rel="noopener noreferrer"
             className="btn-primary flex items-center gap-2"
           >
-            <span>See all reviews</span>
+            <span>{t('reviews.cta.seeAll')}</span>
             <ExternalLinkIcon />
           </a>
           <a
@@ -237,7 +240,7 @@ export function ReviewsSection() {
             rel="noopener noreferrer"
             className="btn-secondary flex items-center gap-2"
           >
-            <span>Leave a review</span>
+            <span>{t('reviews.cta.leaveReview')}</span>
             <EditIcon />
           </a>
         </motion.div>

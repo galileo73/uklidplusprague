@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { galleryItems, galleryCategories } from '../../config/gallery';
 import type { GalleryItem } from '../../types';
+import { useTranslation } from 'react-i18next';
 
 /**
  * GallerySection - Before/After cleaning results gallery
@@ -9,6 +10,7 @@ import type { GalleryItem } from '../../types';
  * Dark primary background with scroll animations
  */
 export function GallerySection() {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('all');
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
@@ -94,10 +96,10 @@ export function GallerySection() {
             id="gallery-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Before <span className="text-gradient">&</span> After
+            {t('gallery.heading')} <span className="text-gradient">&</span> {t('gallery.after')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            See the transformation our cleaning services deliver
+            {t('gallery.subheading')}
           </p>
         </motion.div>
 
@@ -120,7 +122,7 @@ export function GallerySection() {
               }`}
               aria-pressed={activeCategory === category.id}
             >
-              {category.label}
+              {t(`gallery.categories.${category.id}`)}
             </button>
           ))}
         </motion.div>
@@ -142,6 +144,7 @@ export function GallerySection() {
                 onHover={() => setHoveredCard(item.id)}
                 onLeave={() => setHoveredCard(null)}
                 variants={cardVariants}
+                t={t}
               />
             ))}
           </AnimatePresence>
@@ -155,7 +158,7 @@ export function GallerySection() {
             className="text-center py-12"
           >
             <p className="text-text-secondary">
-              No projects in this category yet.
+              {t('gallery.empty')}
             </p>
           </motion.div>
         )}
@@ -173,9 +176,10 @@ interface GalleryCardProps {
   onHover: () => void;
   onLeave: () => void;
   variants: Variants;
+  t: ReturnType<typeof useTranslation>['t'];
 }
 
-function GalleryCard({ item, isHovered, onHover, onLeave, variants }: GalleryCardProps) {
+function GalleryCard({ item, isHovered, onHover, onLeave, variants, t }: GalleryCardProps) {
   const [showAfter, setShowAfter] = useState(false);
 
   return (
@@ -197,7 +201,7 @@ function GalleryCard({ item, isHovered, onHover, onLeave, variants }: GalleryCar
             showAfter ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          <PlaceholderImage type="before" />
+          <PlaceholderImage type="before" t={t} />
         </div>
 
         {/* After Image (Placeholder) */}
@@ -206,24 +210,24 @@ function GalleryCard({ item, isHovered, onHover, onLeave, variants }: GalleryCar
             showAfter ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <PlaceholderImage type="after" />
+          <PlaceholderImage type="after" t={t} />
         </div>
 
         {/* Toggle Button */}
         <button
           onClick={() => setShowAfter(!showAfter)}
           className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-dark-primary/80 backdrop-blur-sm text-text-primary text-sm font-medium rounded-full border border-white/10 hover:bg-dark-primary hover:border-accent-primary/50 transition-all duration-300 z-10"
-          aria-label={showAfter ? 'Show before image' : 'Show after image'}
+          aria-label={showAfter ? t('gallery.viewBefore') : t('gallery.viewAfter')}
         >
-          {showAfter ? 'View Before' : 'View After'}
+          {showAfter ? t('gallery.viewBefore') : t('gallery.viewAfter')}
         </button>
 
         {/* State Indicator */}
         <div className="absolute top-4 right-4 px-2 py-1 bg-dark-primary/80 backdrop-blur-sm text-xs font-medium rounded-full border border-white/10 z-10">
           {showAfter ? (
-            <span className="text-accent-primary">After</span>
+            <span className="text-accent-primary">{t('gallery.afterLabel')}</span>
           ) : (
-            <span className="text-text-secondary">Before</span>
+            <span className="text-text-secondary">{t('gallery.beforeLabel')}</span>
           )}
         </div>
       </div>
@@ -231,10 +235,10 @@ function GalleryCard({ item, isHovered, onHover, onLeave, variants }: GalleryCar
       {/* Content */}
       <div className="p-5">
         <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-primary transition-colors">
-          {item.title}
+          {t(`gallery.items.${item.id}.title`)}
         </h3>
         <p className="text-sm text-text-muted capitalize">
-          {item.category?.replace(/-/g, ' ') || 'Cleaning'}
+          {t(`gallery.categories.${item.category}`)}
         </p>
       </div>
 
@@ -255,9 +259,10 @@ function GalleryCard({ item, isHovered, onHover, onLeave, variants }: GalleryCar
  */
 interface PlaceholderImageProps {
   type: 'before' | 'after';
+  t: ReturnType<typeof useTranslation>['t'];
 }
 
-function PlaceholderImage({ type }: PlaceholderImageProps) {
+function PlaceholderImage({ type, t }: PlaceholderImageProps) {
   const gradientClass =
     type === 'before'
       ? 'from-gray-700 via-gray-600 to-gray-500'
@@ -302,7 +307,7 @@ function PlaceholderImage({ type }: PlaceholderImageProps) {
         </div>
         {/* Label */}
         <span className="text-sm font-medium text-white/80 backdrop-blur-sm">
-          {type === 'before' ? 'Before' : 'After'}
+          {type === 'before' ? t('gallery.beforeLabel') : t('gallery.afterLabel')}
         </span>
       </div>
     </div>

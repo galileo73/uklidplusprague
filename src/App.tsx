@@ -8,6 +8,8 @@ import { Home } from './pages/Home';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
 import { defaultSEO, localBusinessSchema } from './config';
+import { LanguageProvider } from './i18n/LanguageContext';
+import './i18n'; // Initialize i18n
 
 /**
  * Main App Component
@@ -119,28 +121,30 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-dark-primary">
-        {/* Fixed Header */}
-        <Header onMenuToggle={toggleMobileMenu} isMenuOpen={isMobileMenuOpen} />
+    <LanguageProvider>
+      <BrowserRouter>
+        <div className="min-h-screen bg-dark-primary">
+          {/* Fixed Header */}
+          <Header onMenuToggle={toggleMobileMenu} isMenuOpen={isMobileMenuOpen} />
 
-        {/* Mobile Menu */}
-        <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
+          {/* Mobile Menu */}
+          <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
-        {/* Main Content with Routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-        </Routes>
+          {/* Main Content with Routes */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+          </Routes>
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
 
-        {/* Floating WhatsApp Button */}
-        <FloatingWhatsApp />
-      </div>
-    </BrowserRouter>
+          {/* Floating WhatsApp Button */}
+          <FloatingWhatsApp />
+        </div>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

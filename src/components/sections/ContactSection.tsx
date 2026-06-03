@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { contactInfo, whatsappLink, socialLinks } from '../../config';
+import { useTranslation } from 'react-i18next';
 
 /**
  * ContactSection - Primary contact section with WhatsApp, Messenger, and form
@@ -7,10 +8,10 @@ import { contactInfo, whatsappLink, socialLinks } from '../../config';
  * Dark secondary background with Framer Motion animations
  */
 export function ContactSection() {
+  const { t } = useTranslation();
+
   // Pre-filled WhatsApp message for booking
-  const whatsappMessage = encodeURIComponent(
-    "Hi! I'd like to book a cleaning service. Can you help me with availability and pricing?"
-  );
+  const whatsappMessage = encodeURIComponent(t('contact.whatsapp.message'));
   const whatsappUrlWithMessage = `${whatsappLink}?text=${whatsappMessage}`;
 
   // Animation variants
@@ -68,10 +69,10 @@ export function ContactSection() {
             id="contact-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Get in Touch
+            {t('contact.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Ready to book your cleaning? Contact us via your preferred channel
+            {t('contact.subheading')}
           </p>
         </motion.div>
 
@@ -100,14 +101,14 @@ export function ContactSection() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="text-xl font-semibold text-text-primary">
-                        WhatsApp
+                        {t('contact.whatsapp.title')}
                       </h3>
                       <span className="px-2 py-0.5 text-xs font-medium bg-[#25D366]/20 text-[#25D366] rounded-full">
-                        Fastest response
+                        {t('contact.whatsapp.badge')}
                       </span>
                     </div>
                     <p className="text-text-secondary mb-3">
-                      Message us directly for quick booking and instant replies
+                      {t('contact.whatsapp.description')}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3">
                       <a
@@ -117,7 +118,7 @@ export function ContactSection() {
                         className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-lg hover:bg-[#128C7E] transition-all duration-300 hover:shadow-lg active:scale-95"
                       >
                         <WhatsAppIcon className="w-5 h-5" />
-                        <span>Send Message</span>
+                        <span>{t('contact.whatsapp.button')}</span>
                       </a>
                       {contactInfo.phone && (
                         <a
@@ -151,8 +152,8 @@ export function ContactSection() {
                     <MessengerIcon className="w-5 h-5 text-[#0084FF]" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-text-primary">Messenger</h4>
-                    <p className="text-sm text-text-muted">Chat with us on Facebook</p>
+                    <h4 className="font-medium text-text-primary">{t('contact.messenger.title')}</h4>
+                    <p className="text-sm text-text-muted">{t('contact.messenger.description')}</p>
                   </div>
                 </div>
               </a>
@@ -169,8 +170,8 @@ export function ContactSection() {
                     <InstagramIcon className="w-5 h-5 text-[#E4405F]" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-text-primary">Instagram</h4>
-                    <p className="text-sm text-text-muted">See our work & reviews</p>
+                    <h4 className="font-medium text-text-primary">{t('contact.instagram.title')}</h4>
+                    <p className="text-sm text-text-muted">{t('contact.instagram.description')}</p>
                   </div>
                 </div>
               </a>
@@ -185,10 +186,10 @@ export function ContactSection() {
               <div className="p-4 rounded-lg bg-dark-primary/40 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
                   <LocationIcon className="w-5 h-5 text-accent-primary" />
-                  <h4 className="font-medium text-text-primary">Service Area</h4>
+                  <h4 className="font-medium text-text-primary">{t('contact.area.title')}</h4>
                 </div>
                 <p className="text-sm text-text-secondary">
-                  We serve Prague and surrounding areas
+                  {t('contact.area.description')}
                 </p>
               </div>
 
@@ -196,10 +197,10 @@ export function ContactSection() {
               <div className="p-4 rounded-lg bg-dark-primary/40 border border-white/5">
                 <div className="flex items-center gap-2 mb-2">
                   <LanguageIcon className="w-5 h-5 text-accent-primary" />
-                  <h4 className="font-medium text-text-primary">Languages</h4>
+                  <h4 className="font-medium text-text-primary">{t('contact.languages.title')}</h4>
                 </div>
                 <p className="text-sm text-text-secondary">
-                  English, Czech, Russian, Ukrainian
+                  {t('contact.languages.list')}
                 </p>
               </div>
             </motion.div>
@@ -215,7 +216,7 @@ export function ContactSection() {
           >
             <div className="p-6 rounded-2xl bg-dark-primary/80 border border-white/10">
               <h3 className="text-lg font-semibold text-text-primary mb-4">
-                Or send us a message
+                {t('contact.form.title')}
               </h3>
               <form
                 name="contact"
@@ -239,7 +240,7 @@ export function ContactSection() {
                     htmlFor="name"
                     className="block text-sm font-medium text-text-secondary mb-1"
                   >
-                    Name
+                    {t('contact.form.name')}
                   </label>
                   <input
                     type="text"
@@ -247,7 +248,7 @@ export function ContactSection() {
                     name="name"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-dark-secondary border border-white/10 text-text-primary placeholder-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary transition-colors"
-                    placeholder="Your name"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
 
@@ -257,7 +258,7 @@ export function ContactSection() {
                     htmlFor="email"
                     className="block text-sm font-medium text-text-secondary mb-1"
                   >
-                    Email
+                    {t('contact.form.email')}
                   </label>
                   <input
                     type="email"
@@ -265,7 +266,7 @@ export function ContactSection() {
                     name="email"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-dark-secondary border border-white/10 text-text-primary placeholder-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
 
@@ -275,7 +276,7 @@ export function ContactSection() {
                     htmlFor="message"
                     className="block text-sm font-medium text-text-secondary mb-1"
                   >
-                    Message
+                    {t('contact.form.message')}
                   </label>
                   <textarea
                     id="message"
@@ -283,7 +284,7 @@ export function ContactSection() {
                     rows={4}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-dark-secondary border border-white/10 text-text-primary placeholder-text-muted focus:border-accent-primary focus:outline-none focus:ring-1 focus:ring-accent-primary transition-colors resize-none"
-                    placeholder="Tell us about your cleaning needs..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                   />
                 </div>
 
@@ -292,7 +293,7 @@ export function ContactSection() {
                   type="submit"
                   className="w-full px-6 py-3 bg-accent-primary text-dark-primary font-semibold rounded-lg hover:bg-accent-secondary transition-all duration-300 hover:shadow-glow-md active:scale-[0.98]"
                 >
-                  Send Message
+                  {t('contact.form.submit')}
                 </button>
               </form>
             </div>

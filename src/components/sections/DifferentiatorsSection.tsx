@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { differentiators } from '../../config';
+import { useTranslation } from 'react-i18next';
 
 /**
  * DifferentiatorsSection - 7 key differentiators in a grid layout
@@ -8,6 +9,8 @@ import { differentiators } from '../../config';
  * Dark primary background with scroll animations and hover effects
  */
 export function DifferentiatorsSection() {
+  const { t } = useTranslation();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,10 +69,10 @@ export function DifferentiatorsSection() {
             id="why-us-heading"
             className="heading-2 text-text-primary mb-4"
           >
-            Why Choose Us
+            {t('differentiators.heading')}
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            What makes UKLID PLUS PRAHA different from other cleaning services
+            {t('differentiators.subheading')}
           </p>
         </motion.div>
 
@@ -95,11 +98,11 @@ export function DifferentiatorsSection() {
               </div>
               {/* Title */}
               <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-primary transition-colors">
-                {diff.title}
+                {t(`differentiators.items.${diff.id}.title`)}
               </h3>
               {/* Description */}
               <p className="text-text-secondary text-sm leading-relaxed">
-                {diff.description}
+                {t(`differentiators.items.${diff.id}.description`)}
               </p>
             </motion.div>
           ))}
@@ -127,11 +130,11 @@ export function DifferentiatorsSection() {
               </div>
               {/* Title */}
               <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-primary transition-colors">
-                {diff.title}
+                {t(`differentiators.items.${diff.id}.title`)}
               </h3>
               {/* Description */}
               <p className="text-text-secondary text-sm leading-relaxed">
-                {diff.description}
+                {t(`differentiators.items.${diff.id}.description`)}
               </p>
             </motion.div>
           ))}
