@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { businessInfo, footerNavItems, languages, socialLinks, contactInfo } from '../../config';
+import { getWhatsAppLink } from '../../utils/whatsapp';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -58,7 +59,7 @@ export function Footer() {
 
               {/* WhatsApp */}
               <a
-                href={`https://wa.me/${contactInfo.whatsapp.replace(/\+/g, '')}`}
+                href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-text-secondary hover:bg-[#25D366]/10 hover:text-[#25D366] transition-all"
@@ -134,7 +135,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`https://wa.me/${contactInfo.whatsapp.replace(/\+/g, '')}`}
+                  href={getWhatsAppLink()}
                   className="text-text-secondary hover:text-accent-primary transition-colors text-sm flex items-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

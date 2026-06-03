@@ -39,7 +39,7 @@ export const serviceNavItems: NavItem[] = [
  */
 export const navCTA = {
   label: 'Book Now',
-  href: 'https://wa.me/420XXXXXXXXX', // Replace with actual WhatsApp link
+  href: 'whatsapp',
   icon: 'whatsapp',
 };
 

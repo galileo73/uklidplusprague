@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { primaryServiceAreas } from '../../config';
 import { Button } from '../ui/Button';
+import { getWhatsAppLink } from '../../utils/whatsapp';
 
 /**
  * AreasSection - Service areas grid showcasing Prague districts
@@ -151,7 +152,7 @@ export function AreasSection() {
 
           {/* WhatsApp CTA */}
           <Button
-            href="https://wa.me/420777888999?text=Hello,%20I%20would%20like%20to%20inquire%20about%20cleaning%20services%20in%20my%20area."
+            href={getWhatsAppLink('Hello, I would like to inquire about cleaning services in my area.')}
             variant="whatsapp"
             size="lg"
           >

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Tabs } from '../ui/Tabs';
 import { Button } from '../ui/Button';
 import { pricingCategories, addonServices, recurringPlans } from '../../config/pricing';
+import { getWhatsAppLink } from '../../utils/whatsapp';
 
 /**
  * PricingSection - Tabbed pricing with standard, deep cleaning, and add-ons
@@ -230,7 +231,7 @@ export function PricingSection() {
           <p className="text-text-secondary mb-4">
             Questions? Book via WhatsApp for a personalized quote
           </p>
-          <Button href="https://wa.me/420777888999" variant="whatsapp" size="md">
+          <Button href={getWhatsAppLink('Hi! I have questions about pricing.')} variant="whatsapp" size="md">
             <WhatsAppIcon />
             Contact Us on WhatsApp
           </Button>

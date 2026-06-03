@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { howItWorksSteps, contactInfo } from '../../config';
+import { howItWorksSteps } from '../../config';
+import { getWhatsAppLink } from '../../utils/whatsapp';
 
 /**
  * HowItWorksSection - 5-step process timeline
@@ -159,7 +160,7 @@ export function HowItWorksSection() {
                 {/* CTA for last step */}
                 {index === howItWorksSteps.length - 1 && (
                   <motion.a
-                    href={contactInfo.whatsapp}
+                    href={getWhatsAppLink('Hi! I would like to get started with your cleaning service.')}
                     target="_blank"
                     rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 10 }}
