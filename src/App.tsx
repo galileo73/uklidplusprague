@@ -1,16 +1,38 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp';
+import { MobileMenu } from './components/layout/MobileMenu';
 import { Home } from './pages/Home';
+import { Privacy } from './pages/Privacy';
+import { Terms } from './pages/Terms';
 import { defaultSEO, localBusinessSchema } from './config';
 
 /**
  * Main App Component
- * Renders the full page structure with SEO
+ * Renders the full page structure with SEO and routing
  */
 function App() {
-  // Set document title and meta tags for SEO
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu and manage body scroll
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => {
+      const newState = !prev;
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = newState ? 'hidden' : '';
+      return newState;
+    });
+  };
+
+  // Close mobile menu and restore body scroll
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  };
+
+  // Set document title and meta tags for SEO (home page default)
   useEffect(() => {
     document.title = defaultSEO.title;
 
@@ -89,20 +111,36 @@ function App() {
     }
   }, []);
 
+  // Cleanup body scroll on unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-dark-primary">
-      {/* Fixed Header */}
-      <Header />
+    <BrowserRouter>
+      <div className="min-h-screen bg-dark-primary">
+        {/* Fixed Header */}
+        <Header onMenuToggle={toggleMobileMenu} isMenuOpen={isMobileMenuOpen} />
 
-      {/* Main Content */}
-      <Home />
+        {/* Mobile Menu */}
+        <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
-      {/* Footer */}
-      <Footer />
+        {/* Main Content with Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
 
-      {/* Floating WhatsApp Button */}
-      <FloatingWhatsApp />
-    </div>
+        {/* Footer */}
+        <Footer />
+
+        {/* Floating WhatsApp Button */}
+        <FloatingWhatsApp />
+      </div>
+    </BrowserRouter>
   );
 }
 

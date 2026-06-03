@@ -71,7 +71,6 @@ export {
 export {
   mainNavItems,
   footerNavItems,
-  serviceNavItems,
   navCTA,
   getNavItemById,
   mobileBreakpoint,
