@@ -216,10 +216,9 @@ export function HeroSection() {
         <a
           href="#pricing"
           onClick={scrollToPricing}
-          className="flex flex-col items-center gap-2 text-text-muted hover:text-accent-primary transition-colors"
-          aria-label={t('hero.scroll')}
+          className="flex items-center justify-center text-text-muted hover:text-accent-primary transition-colors cursor-pointer"
+          aria-label="Scroll to pricing"
         >
-          <span className="text-xs uppercase tracking-wider">{t('hero.scroll')}</span>
           <svg
             className="w-6 h-6"
             fill="none"

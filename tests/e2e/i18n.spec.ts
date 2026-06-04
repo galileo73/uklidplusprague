@@ -247,10 +247,10 @@ test.describe('i18n No Missing Translation Keys', () => {
     }
   });
 
-  test('should display translated scroll indicator in hero', async ({ page }) => {
+  test('should display scroll indicator arrow in hero', async ({ page }) => {
     await page.goto('/');
 
-    // Check hero section specifically for the scroll indicator
+    // Check hero section specifically for the scroll indicator arrow
     const heroSection = page.locator('section').first();
     const heroText = await heroSection.textContent();
 
@@ -258,11 +258,9 @@ test.describe('i18n No Missing Translation Keys', () => {
     expect(heroText).not.toContain('HERO.SCROLL');
     expect(heroText).not.toContain('hero.scroll');
 
-    // Should contain a translated scroll text (varies by language)
-    // English default: "Scroll"
-    // The scroll indicator should show actual translated text
-    const scrollIndicator = heroSection.locator('text=/scroll/i');
-    await expect(scrollIndicator).toBeVisible();
+    // Should have the scroll indicator arrow (SVG)
+    const scrollArrow = heroSection.locator('svg').filter({ has: page.locator('path[d*="M19 14l-7 7"]') });
+    await expect(scrollArrow).toBeVisible();
   });
 
   test('should not show raw keys after language switch', async ({ page }) => {

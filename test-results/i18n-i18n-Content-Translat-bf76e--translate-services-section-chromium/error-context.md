@@ -54,7 +54,7 @@ Call log:
       - /url: "#contact"
     - link "View Prices":
       - /url: "#pricing"
-    - link "Scroll":
+    - link "Scroll to pricing":
       - /url: "#pricing"
   - region "Why UKLID PLUS PRAHA":
     - heading "Why UKLID PLUS PRAHA" [level=2]
@@ -685,10 +685,10 @@ Call log:
   247 |     }
   248 |   });
   249 | 
-  250 |   test('should display translated scroll indicator in hero', async ({ page }) => {
+  250 |   test('should display scroll indicator arrow in hero', async ({ page }) => {
   251 |     await page.goto('/');
   252 | 
-  253 |     // Check hero section specifically for the scroll indicator
+  253 |     // Check hero section specifically for the scroll indicator arrow
   254 |     const heroSection = page.locator('section').first();
   255 |     const heroText = await heroSection.textContent();
   256 | 
@@ -696,27 +696,27 @@ Call log:
   258 |     expect(heroText).not.toContain('HERO.SCROLL');
   259 |     expect(heroText).not.toContain('hero.scroll');
   260 | 
-  261 |     // Should contain a translated scroll text (varies by language)
-  262 |     // English default: "Scroll"
-  263 |     // The scroll indicator should show actual translated text
-  264 |     const scrollIndicator = heroSection.locator('text=/scroll/i');
-  265 |     await expect(scrollIndicator).toBeVisible();
-  266 |   });
-  267 | 
-  268 |   test('should not show raw keys after language switch', async ({ page }) => {
-  269 |     await page.goto('/');
-  270 | 
-  271 |     // Test all languages
-  272 |     const languages = ['EN', 'CZ', 'RU', 'UA'];
-  273 | 
-  274 |     for (const lang of languages) {
-  275 |       // Switch language
-  276 |       const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$|^RU$|^UA$/ }).first();
-  277 |       await langButton.click();
-  278 | 
-  279 |       const langOption = page.locator(`button:has-text("${lang}")`).first();
-  280 |       await langOption.click();
+  261 |     // Should have the scroll indicator arrow (SVG)
+  262 |     const scrollArrow = heroSection.locator('svg').filter({ has: page.locator('path[d*="M19 14l-7 7"]') });
+  263 |     await expect(scrollArrow).toBeVisible();
+  264 |   });
+  265 | 
+  266 |   test('should not show raw keys after language switch', async ({ page }) => {
+  267 |     await page.goto('/');
+  268 | 
+  269 |     // Test all languages
+  270 |     const languages = ['EN', 'CZ', 'RU', 'UA'];
+  271 | 
+  272 |     for (const lang of languages) {
+  273 |       // Switch language
+  274 |       const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$|^RU$|^UA$/ }).first();
+  275 |       await langButton.click();
+  276 | 
+  277 |       const langOption = page.locator(`button:has-text("${lang}")`).first();
+  278 |       await langOption.click();
+  279 | 
+  280 |       await page.waitForTimeout(300);
   281 | 
-  282 |       await page.waitForTimeout(300);
-  283 | 
+  282 |       // Get visible text
+  283 |       const bodyText = await page.locator('body').textContent();
 ```

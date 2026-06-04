@@ -54,7 +54,7 @@ Call log:
       - /url: "#contact"
     - link "View Prices":
       - /url: "#pricing"
-    - link "Scroll":
+    - link "Scroll to pricing":
       - /url: "#pricing"
   - region "Why UKLID PLUS PRAHA":
     - heading "Why UKLID PLUS PRAHA" [level=2]

@@ -321,7 +321,7 @@ function validate() {
 
   // Verify critical keys exist
   console.log('\n🔍 Critical key existence check:\n');
-  const criticalKeys = ['hero.scroll', 'nav.home', 'nav.privacy', 'nav.terms'];
+  const criticalKeys = ['nav.home', 'nav.privacy', 'nav.terms'];
 
   for (const key of criticalKeys) {
     let foundInAll = true;
