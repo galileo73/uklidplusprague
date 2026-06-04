@@ -285,6 +285,58 @@ function validate() {
     }
   }
 
+  // Check for raw key patterns in values
+  console.log('\n' + '='.repeat(50));
+  console.log('\n🔍 Raw key pattern check:\n');
+
+  const rawKeyPatterns = [
+    /HERO\.SCROLL/i,
+    /hero\.scroll/i,
+    /[A-Z]+\.[A-Z]+\.[A-Z]+/,  // Patterns like SECTION.SUBSECTION.KEY
+  ];
+
+  for (const locale of LOCALES) {
+    const filePath = path.join(LOCALES_DIR, `${locale}.ts`);
+    const content = fs.readFileSync(filePath, 'utf-8');
+
+    for (const pattern of rawKeyPatterns) {
+      const matches = content.match(pattern);
+      if (matches) {
+        // Check if it's in a value position (after a colon and quote)
+        const lines = content.split('\n');
+        for (const line of lines) {
+          if (pattern.test(line) && line.includes(':')) {
+            const afterColon = line.slice(line.indexOf(':') + 1).trim();
+            // If the pattern appears inside a string value, that's a bug
+            if ((afterColon.startsWith("'") || afterColon.startsWith('"')) && pattern.test(afterColon)) {
+              console.error(`❌ ${locale}: Raw key pattern found in value: ${matches[0]}`);
+              console.error(`   Line: ${line.trim()}`);
+              hasErrors = true;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Verify critical keys exist
+  console.log('\n🔍 Critical key existence check:\n');
+  const criticalKeys = ['hero.scroll', 'nav.home', 'nav.privacy', 'nav.terms'];
+
+  for (const key of criticalKeys) {
+    let foundInAll = true;
+    for (const locale of LOCALES) {
+      if (!allLocaleKeys[locale].has(key)) {
+        console.error(`❌ ${locale}: Missing critical key: ${key}`);
+        foundInAll = false;
+        hasErrors = true;
+      }
+    }
+    if (foundInAll) {
+      console.log(`✅ ${key}: Found in all locales`);
+    }
+  }
+
   // Summary
   console.log('\n' + '='.repeat(50));
   console.log('\n📊 Summary:\n');
@@ -294,7 +346,7 @@ function validate() {
   }
 
   if (hasErrors) {
-    console.log('\n❌ Validation FAILED - Missing translation keys detected\n');
+    console.log('\n❌ Validation FAILED - Issues detected\n');
     process.exit(1);
   } else {
     console.log('\n✅ Validation PASSED - All locales have matching keys\n');

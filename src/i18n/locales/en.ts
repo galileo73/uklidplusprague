@@ -25,6 +25,7 @@ export default {
       whatsapp: 'Book via WhatsApp',
       pricing: 'View Prices',
     },
+    scroll: 'Scroll',
   },
 
   // Why UKLID PLUS

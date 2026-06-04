@@ -25,6 +25,7 @@ export default {
       whatsapp: 'Rezervovat přes WhatsApp',
       pricing: 'Zobrazit Ceny',
     },
+    scroll: 'Posunout',
   },
 
   // Why UKLID PLUS

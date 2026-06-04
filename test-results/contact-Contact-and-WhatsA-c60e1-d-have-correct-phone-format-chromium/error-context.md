@@ -6,20 +6,16 @@
 
 # Test info
 
-- Name: i18n.spec.ts >> i18n No Missing Translation Keys >> should not show translation keys as visible text
-- Location: tests\e2e\i18n.spec.ts:232:3
+- Name: contact.spec.ts >> Contact and WhatsApp >> WhatsApp button should have correct phone format
+- Location: tests\e2e\contact.spec.ts:51:3
 
 # Error details
 
 ```
-Test timeout of 30000ms exceeded.
-```
+Error: expect(received).toMatch(expected)
 
-```
-Error: expect(received).toBe(expected) // Object.is equality
-
-Expected: false
-Received: true
+Expected pattern: /wa\.me\/\d+/
+Received string:  "https://wa.me/?text=Hi!%20I'd%20like%20to%20inquire%20about%20cleaning%20services.%20What's%20your%20availability%3F"
 ```
 
 # Page snapshot
@@ -79,9 +75,9 @@ Received: true
             - text: Book via WhatsApp
           - link "View Prices" [ref=e58] [cursor=pointer]:
             - /url: "#pricing"
-      - link "hero.scroll" [ref=e60] [cursor=pointer]:
+      - link "Scroll" [ref=e60] [cursor=pointer]:
         - /url: "#pricing"
-        - generic [ref=e61]: hero.scroll
+        - generic [ref=e61]: Scroll
         - img [ref=e62]
     - region "Why UKLID PLUS PRAHA" [ref=e64]:
       - generic [ref=e65]:
@@ -430,36 +426,36 @@ Received: true
                 - columnheader "Size" [ref=e485]
                 - columnheader "From" [ref=e486]
             - rowgroup [ref=e487]:
-              - row "pricing.categories.standard.items.0.apartment ~35 m² 1,200 CZK" [ref=e488]:
-                - cell "pricing.categories.standard.items.0.apartment" [ref=e489]
+              - row "1+kk (studio) ~35 m² 1,200 CZK" [ref=e488]:
+                - cell "1+kk (studio)" [ref=e489]
                 - cell "~35 m²" [ref=e490]
                 - cell "1,200 CZK" [ref=e491]
-              - row "pricing.categories.standard.items.1.apartment ~45 m² 1,350 CZK" [ref=e492]:
-                - cell "pricing.categories.standard.items.1.apartment" [ref=e493]
+              - row "1+1 (1 bedroom) ~45 m² 1,350 CZK" [ref=e492]:
+                - cell "1+1 (1 bedroom)" [ref=e493]
                 - cell "~45 m²" [ref=e494]
                 - cell "1,350 CZK" [ref=e495]
-              - row "pricing.categories.standard.items.2.apartment ~55 m² 1,550 CZK" [ref=e496]:
-                - cell "pricing.categories.standard.items.2.apartment" [ref=e497]
+              - row "2+kk ~55 m² 1,550 CZK" [ref=e496]:
+                - cell "2+kk" [ref=e497]
                 - cell "~55 m²" [ref=e498]
                 - cell "1,550 CZK" [ref=e499]
-              - row "pricing.categories.standard.items.3.apartment ~65 m² 1,750 CZK" [ref=e500]:
-                - cell "pricing.categories.standard.items.3.apartment" [ref=e501]
+              - row "2+1 ~65 m² 1,750 CZK" [ref=e500]:
+                - cell "2+1" [ref=e501]
                 - cell "~65 m²" [ref=e502]
                 - cell "1,750 CZK" [ref=e503]
-              - row "pricing.categories.standard.items.4.apartment ~75 m² 1,950 CZK" [ref=e504]:
-                - cell "pricing.categories.standard.items.4.apartment" [ref=e505]
+              - row "3+kk ~75 m² 1,950 CZK" [ref=e504]:
+                - cell "3+kk" [ref=e505]
                 - cell "~75 m²" [ref=e506]
                 - cell "1,950 CZK" [ref=e507]
-              - row "pricing.categories.standard.items.5.apartment ~85 m² 2,050 CZK" [ref=e508]:
-                - cell "pricing.categories.standard.items.5.apartment" [ref=e509]
+              - row "3+1 ~85 m² 2,050 CZK" [ref=e508]:
+                - cell "3+1" [ref=e509]
                 - cell "~85 m²" [ref=e510]
                 - cell "2,050 CZK" [ref=e511]
-              - row "pricing.categories.standard.items.6.apartment ~95 m² 2,100 CZK" [ref=e512]:
-                - cell "pricing.categories.standard.items.6.apartment" [ref=e513]
+              - row "3+2 ~95 m² 2,100 CZK" [ref=e512]:
+                - cell "3+2" [ref=e513]
                 - cell "~95 m²" [ref=e514]
                 - cell "2,100 CZK" [ref=e515]
-              - row "pricing.categories.standard.items.7.apartment 100+ m² from 2,190 CZK" [ref=e516]:
-                - cell "pricing.categories.standard.items.7.apartment" [ref=e517]
+              - row "4+kk / larger 100+ m² from 2,190 CZK" [ref=e516]:
+                - cell "4+kk / larger" [ref=e517]
                 - cell "100+ m²" [ref=e518]
                 - cell "from 2,190 CZK" [ref=e519]
         - generic [ref=e520]:
@@ -518,33 +514,33 @@ Received: true
             - listitem [ref=e579]:
               - img [ref=e581]
               - generic [ref=e583]:
-                - text: airbnb.benefits.turnover.title
-                - generic [ref=e584]: "- airbnb.benefits.turnover.description"
+                - text: Fast Turnover
+                - generic [ref=e584]: "- Same-day turnover service available. We respond within 2 hours for urgent requests."
             - listitem [ref=e585]:
               - img [ref=e587]
               - generic [ref=e589]:
-                - text: airbnb.benefits.express.title
-                - generic [ref=e590]: "- airbnb.benefits.express.description"
+                - text: Express Service
+                - generic [ref=e590]: "- Need it fast? Express cleaning within 24 hours available for urgent situations."
             - listitem [ref=e591]:
               - img [ref=e593]
               - generic [ref=e595]:
-                - text: airbnb.benefits.sameday.title
-                - generic [ref=e596]: "- airbnb.benefits.sameday.description"
+                - text: Same-Day Booking
+                - generic [ref=e596]: "- Book in the morning, we clean by evening. Perfect for unexpected guest arrivals."
             - listitem [ref=e597]:
               - img [ref=e599]
               - generic [ref=e601]:
                 - text: Key Handling
-                - generic [ref=e602]: "- Key collection and return service available. Flexible access arrangements."
+                - generic [ref=e602]: "- Key collection and return service available. Flexible access arrangements for hosts."
             - listitem [ref=e603]:
               - img [ref=e605]
               - generic [ref=e607]:
-                - text: airbnb.benefits.guarantee.title
-                - generic [ref=e608]: "- airbnb.benefits.guarantee.description"
+                - text: Quality Guarantee
+                - generic [ref=e608]: "- Not satisfied? We'll re-clean for free within 24 hours. Your guests deserve the best."
             - listitem [ref=e609]:
               - img [ref=e611]
               - generic [ref=e613]:
-                - text: airbnb.benefits.priority.title
-                - generic [ref=e614]: "- airbnb.benefits.priority.description"
+                - text: Priority Scheduling
+                - generic [ref=e614]: "- As a host partner, you get priority booking and dedicated support."
           - link "Partner With Us" [ref=e616] [cursor=pointer]:
             - /url: "#contact"
             - img [ref=e617]
@@ -1005,10 +1001,10 @@ Received: true
               - link "Pricing" [ref=e1245] [cursor=pointer]:
                 - /url: /#pricing
             - listitem [ref=e1246]:
-              - link "nav.privacy" [ref=e1247] [cursor=pointer]:
+              - link "Privacy Policy" [ref=e1247] [cursor=pointer]:
                 - /url: /privacy
             - listitem [ref=e1248]:
-              - link "nav.terms" [ref=e1249] [cursor=pointer]:
+              - link "Terms of Service" [ref=e1249] [cursor=pointer]:
                 - /url: /terms
         - generic [ref=e1250]:
           - heading "Contact" [level=3] [ref=e1251]
@@ -1028,179 +1024,115 @@ Received: true
                 - /url: https://www.instagram.com/uklid.plus.praha/
                 - img [ref=e1263]
                 - text: Instagram
-        - generic [ref=e1265]:
-          - heading "Language" [level=3] [ref=e1266]
-          - generic [ref=e1267]:
-            - button "Switch to English" [ref=e1268]: EN
-            - button "Switch to Čeština" [ref=e1269]: CZ
-            - button "Switch to Русский" [ref=e1270]: RU
-            - button "Switch to Українська" [ref=e1271]: UA
-      - generic [ref=e1273]:
-        - paragraph [ref=e1274]: © 2026 UKLID PLUS PRAHA. All rights reserved.
-        - paragraph [ref=e1275]: Professional cleaning services for expats in Prague
-  - link "Chat with us on WhatsApp" [ref=e1276] [cursor=pointer]:
+      - generic [ref=e1266]:
+        - paragraph [ref=e1267]: © 2026 UKLID PLUS PRAHA. All rights reserved.
+        - paragraph [ref=e1268]: Professional cleaning services for expats in Prague
+  - link "Chat with us on WhatsApp":
     - /url: "#contact?text=Hi!%20I%20would%20like%20to%20book%20a%20cleaning%20service."
-    - img [ref=e1278]
-    - generic [ref=e1280]: Chat Now
+    - generic: Chat Now
 ```
 
 # Test source
 
 ```ts
-  144 |     const uaOption = page.locator('button:has-text("UA")').or(page.locator('button:has-text("Українська")'));
-  145 |     await uaOption.first().click();
-  146 | 
-  147 |     await page.waitForTimeout(500);
-  148 | 
-  149 |     // Check that navigation items are translated
-  150 |     // "Services" should become "Послуги" in Ukrainian
-  151 |     const navItem = page.locator('nav a:has-text("Послуги")').or(page.locator('nav a:has-text("Services")'));
-  152 |     await expect(navItem.first()).toBeVisible();
-  153 |   });
-  154 | 
-  155 |   test('should translate hero section heading', async ({ page }) => {
-  156 |     // Get hero heading in English
-  157 |     const heroHeading = page.locator('h1').first();
-  158 | 
-  159 |     // Check that it contains text (any language)
-  160 |     await expect(heroHeading).not.toBeEmpty();
-  161 | 
-  162 |     // The heading should have some content
-  163 |     const headingText = await heroHeading.textContent();
-  164 |     expect(headingText?.length).toBeGreaterThan(3);
-  165 |   });
-  166 | 
-  167 |   test('should translate services section', async ({ page }) => {
-  168 |     // Scroll to services section
-  169 |     await page.locator('#services').scrollIntoViewIfNeeded();
-  170 | 
-  171 |     // Check that service cards have translated content
-  172 |     const serviceCards = page.locator('#services [class*="card"]').or(
-  173 |       page.locator('#services article').or(page.locator('#services > div > div'))
-  174 |     );
-  175 | 
-  176 |     const count = await serviceCards.count();
-  177 |     expect(count).toBeGreaterThan(0);
-  178 | 
-  179 |     // Each service card should have a title
-  180 |     for (let i = 0; i < Math.min(count, 3); i++) {
-  181 |       const card = serviceCards.nth(i);
-  182 |       const title = card.locator('h3');
-  183 |       await expect(title).not.toBeEmpty();
-  184 |     }
-  185 |   });
-  186 | 
-  187 |   test('should translate contact section', async ({ page }) => {
-  188 |     // Scroll to contact section
-  189 |     await page.locator('#contact').scrollIntoViewIfNeeded();
-  190 | 
-  191 |     // Check that contact heading is translated
-  192 |     const contactHeading = page.locator('#contact h2');
-  193 |     await expect(contactHeading).not.toBeEmpty();
-  194 |   });
-  195 | });
-  196 | 
-  197 | test.describe('i18n SEO Language Attributes', () => {
-  198 |   test('should have html lang attribute', async ({ page }) => {
-  199 |     await page.goto('/');
-  200 | 
-  201 |     // Check that html has a lang attribute
-  202 |     const htmlLang = await page.locator('html').getAttribute('lang');
-  203 |     expect(htmlLang).toBeTruthy();
-  204 |   });
-  205 | 
-  206 |   test('should update lang attribute when language changes', async ({ page }) => {
-  207 |     await page.goto('/');
-  208 | 
-  209 |     // Get initial lang
-  210 |     const initialLang = await page.locator('html').getAttribute('lang');
-  211 | 
-  212 |     // Switch to Czech
-  213 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
-  214 |     await langButton.click();
-  215 | 
-  216 |     const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
-  217 |     await czOption.first().click();
-  218 | 
-  219 |     await page.waitForTimeout(500);
-  220 | 
-  221 |     // Check that lang attribute updated
-  222 |     const newLang = await page.locator('html').getAttribute('lang');
-  223 | 
-  224 |     // The language should have changed to 'cz' or similar
-  225 |     // Note: The implementation may need to update this dynamically
-  226 |     // For now, we just verify it's a valid language code
-  227 |     expect(newLang).toBeTruthy();
-  228 |   });
-  229 | });
-  230 | 
-  231 | test.describe('i18n No Missing Translation Keys', () => {
-  232 |   test('should not show translation keys as visible text', async ({ page }) => {
-  233 |     await page.goto('/');
-  234 | 
-  235 |     // Get page content
-  236 |     const content = await page.content();
-  237 | 
-  238 |     // Should not contain raw translation keys like "hero.heading" or "services.title"
-  239 |     // Translation keys typically follow pattern: namespace.key or namespace.key.subkey
-  240 |     const hasRawKeys = /['"]?[a-z]+\.[a-z]+(\.[a-z0-9_-]+)*['"]?/i.test(content);
-  241 | 
-  242 |     // This is a loose check - we verify no obvious translation key patterns
-  243 |     // appear as visible content
-> 244 |     expect(hasRawKeys).toBe(false);
-      |                        ^ Error: expect(received).toBe(expected) // Object.is equality
-  245 |   });
-  246 | 
-  247 |   test('should display translated text for all sections', async ({ page }) => {
-  248 |     await page.goto('/');
-  249 | 
-  250 |     // Scroll through the page to trigger lazy-loaded content
-  251 |     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  252 |     await page.waitForTimeout(500);
-  253 |     await page.evaluate(() => window.scrollTo(0, 0));
-  254 | 
-  255 |     // Check main sections have content
-  256 |     const sections = ['#hero', '#why-us', '#services', '#pricing', '#contact'];
-  257 | 
-  258 |     for (const section of sections) {
-  259 |       const sectionEl = page.locator(section);
-  260 |       if (await sectionEl.count() > 0) {
-  261 |         const text = await sectionEl.textContent();
-  262 |         // Section should have substantial text content (translated)
-  263 |         expect(text?.length).toBeGreaterThan(50);
-  264 |       }
-  265 |     }
-  266 |   });
-  267 | });
-  268 | 
-  269 | test.describe('i18n Mobile Menu Language Selector', () => {
-  270 |   test.use({ viewport: { width: 375, height: 667 } });
-  271 | 
-  272 |   test('should have language selector in mobile menu', async ({ page }) => {
-  273 |     await page.goto('/');
-  274 | 
-  275 |     // Open mobile menu
-  276 |     const menuButton = page.locator('button[aria-label*="menu"]').or(
-  277 |       page.locator('button[aria-label*="Menu"]')
-  278 |     ).or(
-  279 |       page.locator('button').filter({ hasText: /^☰$/ })
-  280 |     );
-  281 | 
-  282 |     if (await menuButton.count() > 0) {
-  283 |       await menuButton.first().click();
-  284 | 
-  285 |       // Check for language options in mobile menu
-  286 |       const mobileMenu = page.locator('[role="dialog"]').or(page.locator('[data-testid="mobile-menu"]'));
-  287 | 
-  288 |       // Mobile menu should have language selector or options
-  289 |       const langOptions = mobileMenu.locator('button:has-text("EN")').or(
-  290 |         mobileMenu.locator('button:has-text("CZ")')
-  291 |       );
-  292 | 
-  293 |       if (await langOptions.count() > 0) {
-  294 |         await expect(langOptions.first()).toBeVisible();
-  295 |       }
-  296 |     }
-  297 |   });
-  298 | });
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('Contact and WhatsApp', () => {
+  4  |   test.beforeEach(async ({ page }) => {
+  5  |     await page.goto('/');
+  6  |   });
+  7  | 
+  8  |   test('should have WhatsApp link', async ({ page }) => {
+  9  |     // Find WhatsApp link
+  10 |     const whatsappLink = page.locator('a[href*="wa.me"], a[href*="whatsapp"]');
+  11 | 
+  12 |     if (await whatsappLink.count() > 0) {
+  13 |       await expect(whatsappLink.first()).toBeVisible();
+  14 |       const href = await whatsappLink.first().getAttribute('href');
+  15 |       expect(href).toContain('wa.me');
+  16 |     }
+  17 |   });
+  18 | 
+  19 |   test('should have phone number link', async ({ page }) => {
+  20 |     // Find phone link
+  21 |     const phoneLink = page.locator('a[href^="tel:"]');
+  22 | 
+  23 |     if (await phoneLink.count() > 0) {
+  24 |       await expect(phoneLink.first()).toBeVisible();
+  25 |       const href = await phoneLink.first().getAttribute('href');
+  26 |       expect(href).toContain('tel:');
+  27 |     }
+  28 |   });
+  29 | 
+  30 |   test('should have email contact', async ({ page }) => {
+  31 |     // Find email link
+  32 |     const emailLink = page.locator('a[href^="mailto:"]');
+  33 | 
+  34 |     if (await emailLink.count() > 0) {
+  35 |       const href = await emailLink.first().getAttribute('href');
+  36 |       expect(href).toContain('mailto:');
+  37 |     }
+  38 |   });
+  39 | 
+  40 |   test('should display contact section', async ({ page }) => {
+  41 |     // Scroll to contact or find contact section
+  42 |     const contactSection = page.locator('section').filter({
+  43 |       hasText: /kontakt|contact/i
+  44 |     });
+  45 | 
+  46 |     if (await contactSection.count() > 0) {
+  47 |       await expect(contactSection.first()).toBeVisible();
+  48 |     }
+  49 |   });
+  50 | 
+  51 |   test('WhatsApp button should have correct phone format', async ({ page }) => {
+  52 |     const whatsappLink = page.locator('a[href*="wa.me"]');
+  53 | 
+  54 |     if (await whatsappLink.count() > 0) {
+  55 |       const href = await whatsappLink.first().getAttribute('href');
+  56 |       // Should contain phone number in international format
+> 57 |       expect(href).toMatch(/wa\.me\/\d+/);
+     |                    ^ Error: expect(received).toMatch(expected)
+  58 |     }
+  59 |   });
+  60 | 
+  61 |   test('should have working contact form if present', async ({ page }) => {
+  62 |     await page.goto('/contact');
+  63 | 
+  64 |     const form = page.locator('form');
+  65 | 
+  66 |     if (await form.count() > 0) {
+  67 |       // Check form has required fields
+  68 |       const nameInput = form.locator('input[name*="name"], input[placeholder*="jmén"], input[placeholder*="name"]');
+  69 |       const emailInput = form.locator('input[type="email"], input[name*="email"], input[placeholder*="email"]');
+  70 |       const submitButton = form.locator('button[type="submit"]');
+  71 | 
+  72 |       if (await nameInput.count() > 0) {
+  73 |         await expect(nameInput.first()).toBeVisible();
+  74 |       }
+  75 |       if (await emailInput.count() > 0) {
+  76 |         await expect(emailInput.first()).toBeVisible();
+  77 |       }
+  78 |       if (await submitButton.count() > 0) {
+  79 |         await expect(submitButton).toBeVisible();
+  80 |       }
+  81 |     }
+  82 |   });
+  83 | 
+  84 |   test('contact information should be visible in footer', async ({ page }) => {
+  85 |     // Scroll to bottom
+  86 |     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  87 |     await page.waitForTimeout(300);
+  88 | 
+  89 |     // Footer should contain contact info
+  90 |     const footer = page.locator('footer');
+  91 |     await expect(footer).toBeVisible();
+  92 | 
+  93 |     // Should have some contact information
+  94 |     const contactInfo = footer.locator('text=/\\+420|@|Praha/i');
+  95 |     if (await contactInfo.count() > 0) {
+  96 |       await expect(contactInfo.first()).toBeVisible();
+  97 |     }
+  98 |   });
+  99 | });
 ```

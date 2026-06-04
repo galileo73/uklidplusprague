@@ -25,6 +25,7 @@ export default {
       whatsapp: 'Забронировать в WhatsApp',
       pricing: 'Смотреть Цены',
     },
+    scroll: 'Прокрутить',
   },
 
   // Why UKLID PLUS

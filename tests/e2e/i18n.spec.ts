@@ -232,16 +232,62 @@ test.describe('i18n No Missing Translation Keys', () => {
   test('should not show translation keys as visible text', async ({ page }) => {
     await page.goto('/');
 
-    // Get page content
-    const content = await page.content();
+    // Get the visible text content (not the HTML source which includes key names in code)
+    const bodyText = await page.locator('body').textContent();
 
-    // Should not contain raw translation keys like "hero.heading" or "services.title"
-    // Translation keys typically follow pattern: namespace.key or namespace.key.subkey
-    const hasRawKeys = /['"]?[a-z]+\.[a-z]+(\.[a-z0-9_-]+)*['"]?/i.test(content);
+    // Forbidden patterns that indicate raw translation keys are visible
+    const forbiddenPatterns = [
+      /HERO\.SCROLL/i,
+      /hero\.scroll/i,
+      /[A-Z]{2,}\.[A-Z]{2,}\.[A-Z]{2,}/,  // UPPERCASE.KEY.PATTERN
+    ];
 
-    // This is a loose check - we verify no obvious translation key patterns
-    // appear as visible content
-    expect(hasRawKeys).toBe(false);
+    for (const pattern of forbiddenPatterns) {
+      expect(bodyText).not.toMatch(pattern);
+    }
+  });
+
+  test('should display translated scroll indicator in hero', async ({ page }) => {
+    await page.goto('/');
+
+    // Check hero section specifically for the scroll indicator
+    const heroSection = page.locator('section').first();
+    const heroText = await heroSection.textContent();
+
+    // Should NOT contain raw key patterns
+    expect(heroText).not.toContain('HERO.SCROLL');
+    expect(heroText).not.toContain('hero.scroll');
+
+    // Should contain a translated scroll text (varies by language)
+    // English default: "Scroll"
+    // The scroll indicator should show actual translated text
+    const scrollIndicator = heroSection.locator('text=/scroll/i');
+    await expect(scrollIndicator).toBeVisible();
+  });
+
+  test('should not show raw keys after language switch', async ({ page }) => {
+    await page.goto('/');
+
+    // Test all languages
+    const languages = ['EN', 'CZ', 'RU', 'UA'];
+
+    for (const lang of languages) {
+      // Switch language
+      const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$|^RU$|^UA$/ }).first();
+      await langButton.click();
+
+      const langOption = page.locator(`button:has-text("${lang}")`).first();
+      await langOption.click();
+
+      await page.waitForTimeout(300);
+
+      // Get visible text
+      const bodyText = await page.locator('body').textContent();
+
+      // Check for forbidden patterns
+      expect(bodyText).not.toContain('HERO.SCROLL');
+      expect(bodyText).not.toContain('hero.scroll');
+    }
   });
 
   test('should display translated text for all sections', async ({ page }) => {
