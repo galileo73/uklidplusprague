@@ -2,9 +2,12 @@ import { test, expect } from '@playwright/test';
 
 /**
  * i18n (Internationalization) E2E Tests
- * Tests language switching and content translation
+ * Tests language switching and session persistence
  *
- * Note: Language is NOT persisted - always defaults to English on page load
+ * Language persistence behavior:
+ * - Default: English on fresh session
+ * - Page refresh: Language persists (via sessionStorage)
+ * - New browser session: Resets to English
  */
 
 const LANGUAGES = [
@@ -35,7 +38,7 @@ test.describe('i18n Language Selector', () => {
     await langButton.click();
 
     // Check that language options appear
-    const dropdown = page.locator('[role="menu"]').or(page.locator('[data-testid="language-dropdown"]'));
+    const dropdown = page.locator('[role="listbox"]').or(page.locator('[data-testid="language-dropdown"]'));
 
     // Wait for dropdown to appear
     await expect(dropdown).toBeVisible({ timeout: 5000 });
@@ -55,7 +58,7 @@ test.describe('i18n Language Selector', () => {
     await langButton.click();
 
     // Get the language selector content
-    const dropdown = page.locator('[role="menu"]').or(page.locator('[data-testid="language-dropdown"]'));
+    const dropdown = page.locator('[role="listbox"]').or(page.locator('[data-testid="language-dropdown"]'));
     await dropdown.waitFor({ state: 'visible', timeout: 5000 });
 
     const content = await dropdown.textContent();
@@ -94,7 +97,7 @@ test.describe('i18n Language Switching', () => {
     }
   });
 
-  test('should reset to English on page reload', async ({ page }) => {
+  test('should persist language on page refresh', async ({ page }) => {
     await page.goto('/');
 
     // Verify initial language is English
@@ -118,29 +121,39 @@ test.describe('i18n Language Switching', () => {
     // Reload page
     await page.reload();
 
-    // Language should reset to English
-    const enButtonAfterReload = page.locator('header button').filter({ hasText: 'EN' });
-    await expect(enButtonAfterReload.first()).toBeVisible({ timeout: 10000 });
+    // Language should still be Czech after refresh (sessionStorage persistence)
+    const czButtonAfterReload = page.locator('header button').filter({ hasText: 'CZ' });
+    await expect(czButtonAfterReload.first()).toBeVisible({ timeout: 10000 });
+
+    // Verify Czech content is visible
+    const heroHeading = page.locator('h1').first();
+    await expect(heroHeading).not.toBeEmpty();
   });
 
-  test('should always start with English on fresh page load', async ({ page }) => {
-    await page.goto('/');
+  test('should always start with English on fresh browser session', async ({ browser }) => {
+    // Create a new browser context (simulates new browser session)
+    const newContext = await browser.newContext();
+    const newPage = await newContext.newPage();
+
+    await newPage.goto('/');
 
     // Verify English is the default language
-    const htmlLang = await page.locator('html').getAttribute('lang');
+    const htmlLang = await newPage.locator('html').getAttribute('lang');
     expect(htmlLang).toBe('en');
 
     // Verify English is selected in the language selector
-    const enButton = page.locator('header button').filter({ hasText: 'EN' });
+    const enButton = newPage.locator('header button').filter({ hasText: 'EN' });
     await expect(enButton.first()).toBeVisible({ timeout: 5000 });
+
+    await newContext.close();
   });
 
-  test('should NOT persist language in localStorage', async ({ page }) => {
+  test('should NOT use localStorage for language persistence', async ({ page }) => {
     await page.goto('/');
 
     // Verify no language is stored in localStorage
-    const storedLang = await page.evaluate(() => localStorage.getItem('language'));
-    expect(storedLang).toBeNull();
+    const localStorageLang = await page.evaluate(() => localStorage.getItem('language'));
+    expect(localStorageLang).toBeNull();
 
     // Switch to Czech
     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
@@ -152,8 +165,56 @@ test.describe('i18n Language Switching', () => {
     await page.waitForTimeout(500);
 
     // Verify language is still NOT stored in localStorage
-    const storedLangAfterSwitch = await page.evaluate(() => localStorage.getItem('language'));
-    expect(storedLangAfterSwitch).toBeNull();
+    const localStorageLangAfterSwitch = await page.evaluate(() => localStorage.getItem('language'));
+    expect(localStorageLangAfterSwitch).toBeNull();
+  });
+
+  test('should use sessionStorage for language persistence', async ({ page }) => {
+    await page.goto('/');
+
+    // Verify no language is initially stored in sessionStorage
+    const sessionLangBefore = await page.evaluate(() => sessionStorage.getItem('language'));
+    expect(sessionLangBefore).toBeNull();
+
+    // Switch to Czech
+    const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
+    await langButton.click();
+
+    const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+    await czOption.first().click();
+
+    await page.waitForTimeout(500);
+
+    // Verify language IS stored in sessionStorage
+    const sessionLangAfter = await page.evaluate(() => sessionStorage.getItem('language'));
+    expect(sessionLangAfter).toBe('cz');
+  });
+
+  test('should reset to English when sessionStorage is cleared', async ({ page }) => {
+    await page.goto('/');
+
+    // Switch to Czech
+    const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
+    await langButton.click();
+
+    const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+    await czOption.first().click();
+
+    await page.waitForTimeout(500);
+
+    // Verify Czech is selected
+    const czButton = page.locator('header button').filter({ hasText: 'CZ' });
+    await expect(czButton.first()).toBeVisible({ timeout: 5000 });
+
+    // Clear sessionStorage
+    await page.evaluate(() => sessionStorage.clear());
+
+    // Reload page
+    await page.reload();
+
+    // Language should reset to English
+    const enButton = page.locator('header button').filter({ hasText: 'EN' });
+    await expect(enButton.first()).toBeVisible({ timeout: 10000 });
   });
 });
 
@@ -194,18 +255,15 @@ test.describe('i18n Content Translation', () => {
     // Scroll to services section
     await page.locator('#services').scrollIntoViewIfNeeded();
 
-    // Check that service cards have translated content
-    const serviceCards = page.locator('#services [class*="card"]').or(
-      page.locator('#services article').or(page.locator('#services > div > div'))
-    );
+    // Check that service cards have translated content - use h3 within services section
+    const serviceTitles = page.locator('#services h3');
 
-    const count = await serviceCards.count();
+    const count = await serviceTitles.count();
     expect(count).toBeGreaterThan(0);
 
     // Each service card should have a title
     for (let i = 0; i < Math.min(count, 3); i++) {
-      const card = serviceCards.nth(i);
-      const title = card.locator('h3');
+      const title = serviceTitles.nth(i);
       await expect(title).not.toBeEmpty();
     }
   });
@@ -250,7 +308,7 @@ test.describe('i18n SEO Language Attributes', () => {
     expect(newLang).toBe('cs');
   });
 
-  test('should reset lang attribute to English after reload', async ({ page }) => {
+  test('should persist lang attribute after reload', async ({ page }) => {
     await page.goto('/');
 
     // Switch to Russian
@@ -269,9 +327,9 @@ test.describe('i18n SEO Language Attributes', () => {
     // Reload page
     await page.reload();
 
-    // Lang should reset to English
+    // Lang should still be Russian (sessionStorage persistence)
     const htmlLangAfterReload = await page.locator('html').getAttribute('lang');
-    expect(htmlLangAfterReload).toBe('en');
+    expect(htmlLangAfterReload).toBe('ru');
   });
 });
 

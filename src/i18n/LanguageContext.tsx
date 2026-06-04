@@ -16,12 +16,24 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
+// Get initial language from sessionStorage or default to English
+// sessionStorage persists across page refreshes but clears when tab/browser closes
+function getInitialLanguage(): string {
+  if (typeof window !== 'undefined') {
+    const saved = sessionStorage.getItem('language');
+    if (saved && ['en', 'cz', 'ru', 'ua'].includes(saved)) {
+      return saved;
+    }
+  }
+  return 'en';
+}
+
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const { t } = useTranslation();
-  // Always start with English - no localStorage persistence
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+  // Initialize from sessionStorage or default to English
+  const [currentLanguage, setCurrentLanguage] = useState<string>(getInitialLanguage);
 
-  // Set language (session-only, not persisted)
+  // Set language and save to sessionStorage
   const setLanguage = useCallback((langCode: string) => {
     changeLanguage(langCode);
     setCurrentLanguage(langCode);
