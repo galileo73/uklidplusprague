@@ -16,39 +16,18 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
-// Helper to get initial language
-function getInitialLanguage(): string {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('language');
-    if (saved && ['en', 'cz', 'ru', 'ua'].includes(saved)) {
-      return saved;
-    }
-  }
-  return 'en';
-}
-
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const { t, i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState<string>(getInitialLanguage);
+  const { t } = useTranslation();
+  // Always start with English - no localStorage persistence
+  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
 
-  // Set language and persist
+  // Set language (session-only, not persisted)
   const setLanguage = useCallback((langCode: string) => {
     changeLanguage(langCode);
     setCurrentLanguage(langCode);
   }, []);
 
-  // Sync with i18n on mount - only change i18n, don't setState
-  useEffect(() => {
-    const savedLang = localStorage.getItem('language');
-    if (savedLang && ['en', 'cz', 'ru', 'ua'].includes(savedLang)) {
-      if (i18n.language !== savedLang) {
-        i18n.changeLanguage(savedLang);
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run once on mount
-
-  // Update HTML lang attribute
+  // Update HTML lang attribute when language changes
   useEffect(() => {
     if (typeof document !== 'undefined') {
       document.documentElement.lang = currentLanguage === 'cz' ? 'cs' : currentLanguage;

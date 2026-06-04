@@ -7,7 +7,7 @@
 # Test info
 
 - Name: i18n.spec.ts >> i18n Content Translation >> should translate services section
-- Location: tests\e2e\i18n.spec.ts:167:3
+- Location: tests\e2e\i18n.spec.ts:193:3
 
 # Error details
 
@@ -517,206 +517,206 @@ Call log:
 # Test source
 
 ```ts
-  83  |     // Wait for content to update
-  84  |     await page.waitForTimeout(500);
-  85  | 
-  86  |     // Verify the heading changed
-  87  |     const newText = await heroHeading.textContent();
-  88  | 
-  89  |     // If the initial was English and we switched to Czech, the text should be different
-  90  |     // Unless both languages have the same content (which shouldn't happen)
-  91  |     if (initialText !== newText) {
-  92  |       expect(newText).not.toBe(initialText);
-  93  |     }
-  94  |   });
-  95  | 
-  96  |   test('should persist language choice across page reload', async ({ page }) => {
-  97  |     await page.goto('/');
-  98  | 
-  99  |     // Switch to Russian
-  100 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$|^RU$|^UA$/ }).first();
-  101 |     await langButton.click();
-  102 | 
-  103 |     const ruOption = page.locator('button:has-text("RU")').or(page.locator('button:has-text("Русский")'));
-  104 |     await ruOption.first().click();
-  105 | 
-  106 |     // Wait for language to change
-  107 |     await page.waitForTimeout(500);
-  108 | 
-  109 |     // Reload page
-  110 |     await page.reload();
-  111 | 
-  112 |     // Language should still be Russian
-  113 |     const langButtonAfter = page.locator('header button').filter({ hasText: 'RU' });
-  114 |     await expect(langButtonAfter.first()).toBeVisible({ timeout: 10000 });
-  115 |   });
-  116 | 
-  117 |   test('should persist language in localStorage', async ({ page }) => {
-  118 |     await page.goto('/');
-  119 | 
-  120 |     // Set language via localStorage
-  121 |     await page.evaluate(() => {
-  122 |       localStorage.setItem('i18nextLng', 'cz');
-  123 |     });
-  124 | 
-  125 |     // Reload page
-  126 |     await page.reload();
-  127 | 
-  128 |     // Check that Czech content is displayed
-  129 |     const czButton = page.locator('header button').filter({ hasText: 'CZ' });
-  130 |     await expect(czButton.first()).toBeVisible({ timeout: 10000 });
-  131 |   });
-  132 | });
-  133 | 
-  134 | test.describe('i18n Content Translation', () => {
-  135 |   test.beforeEach(async ({ page }) => {
-  136 |     await page.goto('/');
-  137 |   });
-  138 | 
-  139 |   test('should translate navigation menu', async ({ page }) => {
-  140 |     // Switch to Ukrainian
-  141 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^UA$/ }).first();
-  142 |     await langButton.click();
-  143 | 
-  144 |     const uaOption = page.locator('button:has-text("UA")').or(page.locator('button:has-text("Українська")'));
-  145 |     await uaOption.first().click();
-  146 | 
-  147 |     await page.waitForTimeout(500);
+  109 |     await czOption.first().click();
+  110 | 
+  111 |     // Wait for language to change
+  112 |     await page.waitForTimeout(500);
+  113 | 
+  114 |     // Verify Czech is selected
+  115 |     const czButton = page.locator('header button').filter({ hasText: 'CZ' });
+  116 |     await expect(czButton.first()).toBeVisible({ timeout: 5000 });
+  117 | 
+  118 |     // Reload page
+  119 |     await page.reload();
+  120 | 
+  121 |     // Language should reset to English
+  122 |     const enButtonAfterReload = page.locator('header button').filter({ hasText: 'EN' });
+  123 |     await expect(enButtonAfterReload.first()).toBeVisible({ timeout: 10000 });
+  124 |   });
+  125 | 
+  126 |   test('should always start with English on fresh page load', async ({ page }) => {
+  127 |     await page.goto('/');
+  128 | 
+  129 |     // Verify English is the default language
+  130 |     const htmlLang = await page.locator('html').getAttribute('lang');
+  131 |     expect(htmlLang).toBe('en');
+  132 | 
+  133 |     // Verify English is selected in the language selector
+  134 |     const enButton = page.locator('header button').filter({ hasText: 'EN' });
+  135 |     await expect(enButton.first()).toBeVisible({ timeout: 5000 });
+  136 |   });
+  137 | 
+  138 |   test('should NOT persist language in localStorage', async ({ page }) => {
+  139 |     await page.goto('/');
+  140 | 
+  141 |     // Verify no language is stored in localStorage
+  142 |     const storedLang = await page.evaluate(() => localStorage.getItem('language'));
+  143 |     expect(storedLang).toBeNull();
+  144 | 
+  145 |     // Switch to Czech
+  146 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
+  147 |     await langButton.click();
   148 | 
-  149 |     // Check that navigation items are translated
-  150 |     // "Services" should become "Послуги" in Ukrainian
-  151 |     const navItem = page.locator('nav a:has-text("Послуги")').or(page.locator('nav a:has-text("Services")'));
-  152 |     await expect(navItem.first()).toBeVisible();
-  153 |   });
-  154 | 
-  155 |   test('should translate hero section heading', async ({ page }) => {
-  156 |     // Get hero heading in English
-  157 |     const heroHeading = page.locator('h1').first();
-  158 | 
-  159 |     // Check that it contains text (any language)
-  160 |     await expect(heroHeading).not.toBeEmpty();
-  161 | 
-  162 |     // The heading should have some content
-  163 |     const headingText = await heroHeading.textContent();
-  164 |     expect(headingText?.length).toBeGreaterThan(3);
-  165 |   });
-  166 | 
-  167 |   test('should translate services section', async ({ page }) => {
-  168 |     // Scroll to services section
-  169 |     await page.locator('#services').scrollIntoViewIfNeeded();
-  170 | 
-  171 |     // Check that service cards have translated content
-  172 |     const serviceCards = page.locator('#services [class*="card"]').or(
-  173 |       page.locator('#services article').or(page.locator('#services > div > div'))
-  174 |     );
-  175 | 
-  176 |     const count = await serviceCards.count();
-  177 |     expect(count).toBeGreaterThan(0);
-  178 | 
-  179 |     // Each service card should have a title
-  180 |     for (let i = 0; i < Math.min(count, 3); i++) {
-  181 |       const card = serviceCards.nth(i);
-  182 |       const title = card.locator('h3');
-> 183 |       await expect(title).not.toBeEmpty();
-      |                               ^ Error: expect(locator).not.toBeEmpty() failed
-  184 |     }
-  185 |   });
-  186 | 
-  187 |   test('should translate contact section', async ({ page }) => {
-  188 |     // Scroll to contact section
-  189 |     await page.locator('#contact').scrollIntoViewIfNeeded();
-  190 | 
-  191 |     // Check that contact heading is translated
-  192 |     const contactHeading = page.locator('#contact h2');
-  193 |     await expect(contactHeading).not.toBeEmpty();
-  194 |   });
-  195 | });
+  149 |     const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+  150 |     await czOption.first().click();
+  151 | 
+  152 |     await page.waitForTimeout(500);
+  153 | 
+  154 |     // Verify language is still NOT stored in localStorage
+  155 |     const storedLangAfterSwitch = await page.evaluate(() => localStorage.getItem('language'));
+  156 |     expect(storedLangAfterSwitch).toBeNull();
+  157 |   });
+  158 | });
+  159 | 
+  160 | test.describe('i18n Content Translation', () => {
+  161 |   test.beforeEach(async ({ page }) => {
+  162 |     await page.goto('/');
+  163 |   });
+  164 | 
+  165 |   test('should translate navigation menu', async ({ page }) => {
+  166 |     // Switch to Ukrainian
+  167 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^UA$/ }).first();
+  168 |     await langButton.click();
+  169 | 
+  170 |     const uaOption = page.locator('button:has-text("UA")').or(page.locator('button:has-text("Українська")'));
+  171 |     await uaOption.first().click();
+  172 | 
+  173 |     await page.waitForTimeout(500);
+  174 | 
+  175 |     // Check that navigation items are translated
+  176 |     // "Services" should become "Послуги" in Ukrainian
+  177 |     const navItem = page.locator('nav a:has-text("Послуги")').or(page.locator('nav a:has-text("Services")'));
+  178 |     await expect(navItem.first()).toBeVisible();
+  179 |   });
+  180 | 
+  181 |   test('should translate hero section heading', async ({ page }) => {
+  182 |     // Get hero heading in English
+  183 |     const heroHeading = page.locator('h1').first();
+  184 | 
+  185 |     // Check that it contains text (any language)
+  186 |     await expect(heroHeading).not.toBeEmpty();
+  187 | 
+  188 |     // The heading should have some content
+  189 |     const headingText = await heroHeading.textContent();
+  190 |     expect(headingText?.length).toBeGreaterThan(3);
+  191 |   });
+  192 | 
+  193 |   test('should translate services section', async ({ page }) => {
+  194 |     // Scroll to services section
+  195 |     await page.locator('#services').scrollIntoViewIfNeeded();
   196 | 
-  197 | test.describe('i18n SEO Language Attributes', () => {
-  198 |   test('should have html lang attribute', async ({ page }) => {
-  199 |     await page.goto('/');
-  200 | 
-  201 |     // Check that html has a lang attribute
-  202 |     const htmlLang = await page.locator('html').getAttribute('lang');
-  203 |     expect(htmlLang).toBeTruthy();
-  204 |   });
-  205 | 
-  206 |   test('should update lang attribute when language changes', async ({ page }) => {
-  207 |     await page.goto('/');
-  208 | 
-  209 |     // Get initial lang
-  210 |     const initialLang = await page.locator('html').getAttribute('lang');
-  211 | 
-  212 |     // Switch to Czech
-  213 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
-  214 |     await langButton.click();
-  215 | 
-  216 |     const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
-  217 |     await czOption.first().click();
-  218 | 
-  219 |     await page.waitForTimeout(500);
-  220 | 
-  221 |     // Check that lang attribute updated
-  222 |     const newLang = await page.locator('html').getAttribute('lang');
-  223 | 
-  224 |     // The language should have changed to 'cz' or similar
-  225 |     // Note: The implementation may need to update this dynamically
-  226 |     // For now, we just verify it's a valid language code
-  227 |     expect(newLang).toBeTruthy();
-  228 |   });
-  229 | });
-  230 | 
-  231 | test.describe('i18n No Missing Translation Keys', () => {
-  232 |   test('should not show translation keys as visible text', async ({ page }) => {
+  197 |     // Check that service cards have translated content
+  198 |     const serviceCards = page.locator('#services [class*="card"]').or(
+  199 |       page.locator('#services article').or(page.locator('#services > div > div'))
+  200 |     );
+  201 | 
+  202 |     const count = await serviceCards.count();
+  203 |     expect(count).toBeGreaterThan(0);
+  204 | 
+  205 |     // Each service card should have a title
+  206 |     for (let i = 0; i < Math.min(count, 3); i++) {
+  207 |       const card = serviceCards.nth(i);
+  208 |       const title = card.locator('h3');
+> 209 |       await expect(title).not.toBeEmpty();
+      |                               ^ Error: expect(locator).not.toBeEmpty() failed
+  210 |     }
+  211 |   });
+  212 | 
+  213 |   test('should translate contact section', async ({ page }) => {
+  214 |     // Scroll to contact section
+  215 |     await page.locator('#contact').scrollIntoViewIfNeeded();
+  216 | 
+  217 |     // Check that contact heading is translated
+  218 |     const contactHeading = page.locator('#contact h2');
+  219 |     await expect(contactHeading).not.toBeEmpty();
+  220 |   });
+  221 | });
+  222 | 
+  223 | test.describe('i18n SEO Language Attributes', () => {
+  224 |   test('should have html lang attribute default to English', async ({ page }) => {
+  225 |     await page.goto('/');
+  226 | 
+  227 |     // Check that html has lang attribute set to English
+  228 |     const htmlLang = await page.locator('html').getAttribute('lang');
+  229 |     expect(htmlLang).toBe('en');
+  230 |   });
+  231 | 
+  232 |   test('should update lang attribute when language changes', async ({ page }) => {
   233 |     await page.goto('/');
   234 | 
-  235 |     // Get the visible text content (not the HTML source which includes key names in code)
-  236 |     const bodyText = await page.locator('body').textContent();
-  237 | 
-  238 |     // Forbidden patterns that indicate raw translation keys are visible
-  239 |     const forbiddenPatterns = [
-  240 |       /HERO\.SCROLL/i,
-  241 |       /hero\.scroll/i,
-  242 |       /[A-Z]{2,}\.[A-Z]{2,}\.[A-Z]{2,}/,  // UPPERCASE.KEY.PATTERN
-  243 |     ];
-  244 | 
-  245 |     for (const pattern of forbiddenPatterns) {
-  246 |       expect(bodyText).not.toMatch(pattern);
-  247 |     }
-  248 |   });
-  249 | 
-  250 |   test('should display scroll indicator arrow in hero', async ({ page }) => {
-  251 |     await page.goto('/');
+  235 |     // Get initial lang - should be English
+  236 |     const initialLang = await page.locator('html').getAttribute('lang');
+  237 |     expect(initialLang).toBe('en');
+  238 | 
+  239 |     // Switch to Czech
+  240 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
+  241 |     await langButton.click();
+  242 | 
+  243 |     const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+  244 |     await czOption.first().click();
+  245 | 
+  246 |     await page.waitForTimeout(500);
+  247 | 
+  248 |     // Check that lang attribute updated to Czech (cs)
+  249 |     const newLang = await page.locator('html').getAttribute('lang');
+  250 |     expect(newLang).toBe('cs');
+  251 |   });
   252 | 
-  253 |     // Check hero section specifically for the scroll indicator arrow
-  254 |     const heroSection = page.locator('section').first();
-  255 |     const heroText = await heroSection.textContent();
-  256 | 
-  257 |     // Should NOT contain raw key patterns
-  258 |     expect(heroText).not.toContain('HERO.SCROLL');
-  259 |     expect(heroText).not.toContain('hero.scroll');
-  260 | 
-  261 |     // Should have the scroll indicator arrow (SVG)
-  262 |     const scrollArrow = heroSection.locator('svg').filter({ has: page.locator('path[d*="M19 14l-7 7"]') });
-  263 |     await expect(scrollArrow).toBeVisible();
-  264 |   });
-  265 | 
-  266 |   test('should not show raw keys after language switch', async ({ page }) => {
-  267 |     await page.goto('/');
+  253 |   test('should reset lang attribute to English after reload', async ({ page }) => {
+  254 |     await page.goto('/');
+  255 | 
+  256 |     // Switch to Russian
+  257 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^RU$/ }).first();
+  258 |     await langButton.click();
+  259 | 
+  260 |     const ruOption = page.locator('button:has-text("RU")').or(page.locator('button:has-text("Русский")'));
+  261 |     await ruOption.first().click();
+  262 | 
+  263 |     await page.waitForTimeout(500);
+  264 | 
+  265 |     // Verify Russian is set
+  266 |     const ruLang = await page.locator('html').getAttribute('lang');
+  267 |     expect(ruLang).toBe('ru');
   268 | 
-  269 |     // Test all languages
-  270 |     const languages = ['EN', 'CZ', 'RU', 'UA'];
+  269 |     // Reload page
+  270 |     await page.reload();
   271 | 
-  272 |     for (const lang of languages) {
-  273 |       // Switch language
-  274 |       const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$|^RU$|^UA$/ }).first();
-  275 |       await langButton.click();
-  276 | 
-  277 |       const langOption = page.locator(`button:has-text("${lang}")`).first();
-  278 |       await langOption.click();
-  279 | 
-  280 |       await page.waitForTimeout(300);
+  272 |     // Lang should reset to English
+  273 |     const htmlLangAfterReload = await page.locator('html').getAttribute('lang');
+  274 |     expect(htmlLangAfterReload).toBe('en');
+  275 |   });
+  276 | });
+  277 | 
+  278 | test.describe('i18n No Missing Translation Keys', () => {
+  279 |   test('should not show translation keys as visible text', async ({ page }) => {
+  280 |     await page.goto('/');
   281 | 
-  282 |       // Get visible text
-  283 |       const bodyText = await page.locator('body').textContent();
+  282 |     // Get the visible text content (not the HTML source which includes key names in code)
+  283 |     const bodyText = await page.locator('body').textContent();
+  284 | 
+  285 |     // Forbidden patterns that indicate raw translation keys are visible
+  286 |     const forbiddenPatterns = [
+  287 |       /HERO\.SCROLL/i,
+  288 |       /hero\.scroll/i,
+  289 |       /[A-Z]{2,}\.[A-Z]{2,}\.[A-Z]{2,}/,  // UPPERCASE.KEY.PATTERN
+  290 |     ];
+  291 | 
+  292 |     for (const pattern of forbiddenPatterns) {
+  293 |       expect(bodyText).not.toMatch(pattern);
+  294 |     }
+  295 |   });
+  296 | 
+  297 |   test('should display scroll indicator arrow in hero', async ({ page }) => {
+  298 |     await page.goto('/');
+  299 | 
+  300 |     // Check hero section specifically for the scroll indicator arrow
+  301 |     const heroSection = page.locator('section').first();
+  302 |     const heroText = await heroSection.textContent();
+  303 | 
+  304 |     // Should NOT contain raw key patterns
+  305 |     expect(heroText).not.toContain('HERO.SCROLL');
+  306 |     expect(heroText).not.toContain('hero.scroll');
+  307 | 
+  308 |     // Should have the scroll indicator arrow (SVG)
+  309 |     const scrollArrow = heroSection.locator('svg').filter({ has: page.locator('path[d*="M19 14l-7 7"]') });
 ```

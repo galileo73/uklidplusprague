@@ -5,17 +5,8 @@ import cz from './locales/cz';
 import ru from './locales/ru';
 import ua from './locales/ua';
 
-// Get saved language from localStorage or default to 'en'
-const getSavedLanguage = (): string => {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem('language');
-    if (saved && ['en', 'cz', 'ru', 'ua'].includes(saved)) {
-      return saved;
-    }
-  }
-  return 'en';
-};
-
+// Initialize i18next with English as default
+// Language is NOT persisted - always starts as English on page load
 i18n
   .use(initReactI18next)
   .init({
@@ -25,7 +16,7 @@ i18n
       ru: { translation: ru },
       ua: { translation: ua },
     },
-    lng: getSavedLanguage(),
+    lng: 'en', // Always default to English
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // React already escapes values
@@ -37,7 +28,7 @@ i18n
 
 export default i18n;
 
-// Language codes and labels for the selector
+// Language codes and labels for the selector (no flags)
 export const LANGUAGE_OPTIONS = [
   { code: 'en', label: 'EN', name: 'English' },
   { code: 'cz', label: 'CZ', name: 'Čeština' },
@@ -45,11 +36,8 @@ export const LANGUAGE_OPTIONS = [
   { code: 'ua', label: 'UA', name: 'Українська' },
 ] as const;
 
-// Helper to change language and persist to localStorage
+// Helper to change language (session-only, not persisted)
 export const changeLanguage = (langCode: string): void => {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('language', langCode);
-  }
   i18n.changeLanguage(langCode);
 
   // Update HTML lang attribute

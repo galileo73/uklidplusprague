@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: contact.spec.ts >> Contact and WhatsApp >> WhatsApp button should have correct phone format
-- Location: tests\e2e\contact.spec.ts:51:3
+- Name: contact.spec.ts >> Contact and WhatsApp >> should have email contact
+- Location: tests\e2e\contact.spec.ts:30:3
 
 # Error details
 

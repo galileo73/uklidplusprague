@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 
 /**
  * i18n (Internationalization) E2E Tests
- * Tests language switching, persistence, and content translation
+ * Tests language switching and content translation
+ *
+ * Note: Language is NOT persisted - always defaults to English on page load
  */
 
 const LANGUAGES = [
@@ -69,7 +71,7 @@ test.describe('i18n Language Switching', () => {
   test('should switch language and update content', async ({ page }) => {
     await page.goto('/');
 
-    // Get initial heading (assuming English is default)
+    // Get initial heading (English is default)
     const heroHeading = page.locator('h1').first();
     const initialText = await heroHeading.textContent();
 
@@ -87,47 +89,71 @@ test.describe('i18n Language Switching', () => {
     const newText = await heroHeading.textContent();
 
     // If the initial was English and we switched to Czech, the text should be different
-    // Unless both languages have the same content (which shouldn't happen)
     if (initialText !== newText) {
       expect(newText).not.toBe(initialText);
     }
   });
 
-  test('should persist language choice across page reload', async ({ page }) => {
+  test('should reset to English on page reload', async ({ page }) => {
     await page.goto('/');
 
-    // Switch to Russian
+    // Verify initial language is English
+    const enButton = page.locator('header button').filter({ hasText: 'EN' });
+    await expect(enButton.first()).toBeVisible({ timeout: 5000 });
+
+    // Switch to Czech
     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$|^RU$|^UA$/ }).first();
     await langButton.click();
 
-    const ruOption = page.locator('button:has-text("RU")').or(page.locator('button:has-text("Русский")'));
-    await ruOption.first().click();
+    const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+    await czOption.first().click();
 
     // Wait for language to change
     await page.waitForTimeout(500);
 
+    // Verify Czech is selected
+    const czButton = page.locator('header button').filter({ hasText: 'CZ' });
+    await expect(czButton.first()).toBeVisible({ timeout: 5000 });
+
     // Reload page
     await page.reload();
 
-    // Language should still be Russian
-    const langButtonAfter = page.locator('header button').filter({ hasText: 'RU' });
-    await expect(langButtonAfter.first()).toBeVisible({ timeout: 10000 });
+    // Language should reset to English
+    const enButtonAfterReload = page.locator('header button').filter({ hasText: 'EN' });
+    await expect(enButtonAfterReload.first()).toBeVisible({ timeout: 10000 });
   });
 
-  test('should persist language in localStorage', async ({ page }) => {
+  test('should always start with English on fresh page load', async ({ page }) => {
     await page.goto('/');
 
-    // Set language via localStorage
-    await page.evaluate(() => {
-      localStorage.setItem('i18nextLng', 'cz');
-    });
+    // Verify English is the default language
+    const htmlLang = await page.locator('html').getAttribute('lang');
+    expect(htmlLang).toBe('en');
 
-    // Reload page
-    await page.reload();
+    // Verify English is selected in the language selector
+    const enButton = page.locator('header button').filter({ hasText: 'EN' });
+    await expect(enButton.first()).toBeVisible({ timeout: 5000 });
+  });
 
-    // Check that Czech content is displayed
-    const czButton = page.locator('header button').filter({ hasText: 'CZ' });
-    await expect(czButton.first()).toBeVisible({ timeout: 10000 });
+  test('should NOT persist language in localStorage', async ({ page }) => {
+    await page.goto('/');
+
+    // Verify no language is stored in localStorage
+    const storedLang = await page.evaluate(() => localStorage.getItem('language'));
+    expect(storedLang).toBeNull();
+
+    // Switch to Czech
+    const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
+    await langButton.click();
+
+    const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+    await czOption.first().click();
+
+    await page.waitForTimeout(500);
+
+    // Verify language is still NOT stored in localStorage
+    const storedLangAfterSwitch = await page.evaluate(() => localStorage.getItem('language'));
+    expect(storedLangAfterSwitch).toBeNull();
   });
 });
 
@@ -195,19 +221,20 @@ test.describe('i18n Content Translation', () => {
 });
 
 test.describe('i18n SEO Language Attributes', () => {
-  test('should have html lang attribute', async ({ page }) => {
+  test('should have html lang attribute default to English', async ({ page }) => {
     await page.goto('/');
 
-    // Check that html has a lang attribute
+    // Check that html has lang attribute set to English
     const htmlLang = await page.locator('html').getAttribute('lang');
-    expect(htmlLang).toBeTruthy();
+    expect(htmlLang).toBe('en');
   });
 
   test('should update lang attribute when language changes', async ({ page }) => {
     await page.goto('/');
 
-    // Get initial lang
+    // Get initial lang - should be English
     const initialLang = await page.locator('html').getAttribute('lang');
+    expect(initialLang).toBe('en');
 
     // Switch to Czech
     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
@@ -218,13 +245,33 @@ test.describe('i18n SEO Language Attributes', () => {
 
     await page.waitForTimeout(500);
 
-    // Check that lang attribute updated
+    // Check that lang attribute updated to Czech (cs)
     const newLang = await page.locator('html').getAttribute('lang');
+    expect(newLang).toBe('cs');
+  });
 
-    // The language should have changed to 'cz' or similar
-    // Note: The implementation may need to update this dynamically
-    // For now, we just verify it's a valid language code
-    expect(newLang).toBeTruthy();
+  test('should reset lang attribute to English after reload', async ({ page }) => {
+    await page.goto('/');
+
+    // Switch to Russian
+    const langButton = page.locator('header button').filter({ hasText: /^EN$|^RU$/ }).first();
+    await langButton.click();
+
+    const ruOption = page.locator('button:has-text("RU")').or(page.locator('button:has-text("Русский")'));
+    await ruOption.first().click();
+
+    await page.waitForTimeout(500);
+
+    // Verify Russian is set
+    const ruLang = await page.locator('html').getAttribute('lang');
+    expect(ruLang).toBe('ru');
+
+    // Reload page
+    await page.reload();
+
+    // Lang should reset to English
+    const htmlLangAfterReload = await page.locator('html').getAttribute('lang');
+    expect(htmlLangAfterReload).toBe('en');
   });
 });
 
