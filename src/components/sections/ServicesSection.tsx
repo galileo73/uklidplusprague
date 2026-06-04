@@ -104,9 +104,9 @@ export function ServicesSection() {
               </p>
 
               {/* Features (show first 3) */}
-              {service.features && service.features.length > 0 && (
+              {service.featureCount > 0 && (
                 <ul className="flex-1 mb-6 space-y-2">
-                  {service.features.slice(0, 3).map((_, index) => (
+                  {Array.from({ length: Math.min(service.featureCount, 3) }).map((_, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-2 text-sm text-text-muted"

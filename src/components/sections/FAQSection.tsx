@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Accordion } from '../ui/Accordion';
+import { Accordion, type AccordionItem } from '../ui/Accordion';
 import { Button } from '../ui/Button';
 import { getFeaturedFAQs } from '../../data/faq';
 import { whatsappLink } from '../../config';
@@ -11,8 +11,13 @@ import { useTranslation } from 'react-i18next';
  */
 export function FAQSection() {
   const { t } = useTranslation();
-  // Get featured FAQs (first 7 items)
+  // Get featured FAQs (first 7 items) and map to AccordionItem format
   const featuredFAQs = getFeaturedFAQs(7);
+  const accordionItems: AccordionItem[] = featuredFAQs.map((faq) => ({
+    id: faq.id,
+    question: t(`faq.questions.${faq.id}.question`),
+    answer: t(`faq.questions.${faq.id}.answer`),
+  }));
 
   // Animation variants
   const containerVariants = {
@@ -70,8 +75,8 @@ export function FAQSection() {
             className="max-w-3xl mx-auto"
           >
             <Accordion
-              items={featuredFAQs}
-              defaultOpen={featuredFAQs[0]?.id || null}
+              items={accordionItems}
+              defaultOpen={accordionItems[0]?.id || null}
             />
           </motion.div>
 

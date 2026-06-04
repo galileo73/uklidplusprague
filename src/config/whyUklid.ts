@@ -2,36 +2,14 @@ import type { WhyUklidItem } from '../types';
 
 /**
  * Why UKLID section - 4 key points about the company
+ * Note: All visible text (title, description) is loaded from i18n
+ * using keys like: whyUklid.items.{id}.title, whyUklid.items.{id}.description
  */
 export const whyUklidItems: WhyUklidItem[] = [
-  {
-    id: 'professional',
-    icon: 'award',
-    title: 'Professional Team',
-    description:
-      'All our cleaners are professionally trained, vetted, and insured. We use quality equipment and eco-friendly products.',
-  },
-  {
-    id: 'reliable',
-    icon: 'shield',
-    title: 'Reliable Service',
-    description:
-      'Punctual, trustworthy, and consistent. Your cleaner arrives on time, every time. Same cleaner for recurring clients.',
-  },
-  {
-    id: 'flexible',
-    icon: 'calendar-clock',
-    title: 'Flexible Scheduling',
-    description:
-      'Book when it suits you. Weekday, weekend, or evening slots available. Reschedule or cancel without hassle.',
-  },
-  {
-    id: 'satisfaction',
-    icon: 'heart',
-    title: 'Satisfaction Guaranteed',
-    description:
-      'Your happiness matters. Not 100% satisfied? We\'ll re-clean for free within 24 hours. No questions asked.',
-  },
+  { id: 'professional', icon: 'award' },
+  { id: 'reliable', icon: 'shield' },
+  { id: 'flexible', icon: 'calendar-clock' },
+  { id: 'satisfaction', icon: 'heart' },
 ];
 
 /**

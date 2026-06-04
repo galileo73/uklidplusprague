@@ -1,0 +1,1045 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: i18n.spec.ts >> i18n SEO Language Attributes >> should update lang attribute when language changes
+- Location: tests\e2e\i18n.spec.ts:206:3
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation "Main navigation" [ref=e5]:
+      - link "UKLID PLUS PRAHA - Home" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]:
+          - generic [ref=e9]: U+
+          - generic [ref=e10]: UKLID PLUS PRAHA
+      - generic [ref=e11]:
+        - link "Domů" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "Služby" [ref=e13] [cursor=pointer]:
+          - /url: /#services
+        - link "Ceník" [ref=e14] [cursor=pointer]:
+          - /url: /#pricing
+        - link "O nás" [ref=e15] [cursor=pointer]:
+          - /url: /#about
+        - link "Kontakt" [ref=e16] [cursor=pointer]:
+          - /url: /#contact
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - button "Select language" [ref=e19]:
+            - generic [ref=e20]: CZ
+            - img [ref=e21]
+          - listbox "Language options" [ref=e23]:
+            - generic [ref=e24]:
+              - option "English" [selected] [ref=e25]: EN
+              - option "Čeština" [active] [ref=e26]: CZ
+              - option "Русский" [ref=e27]: RU
+              - option "Українська" [ref=e28]: UA
+        - link "Rezervovat" [ref=e30] [cursor=pointer]:
+          - /url: "#contact"
+          - img [ref=e31]
+          - text: Rezervovat
+  - main [ref=e33]:
+    - region "Prémiové Čistící Služby v Praze" [ref=e34]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e41]: U+
+          - generic [ref=e42]: UKLID PLUS PRAHA
+        - heading "Prémiové Čistící Služby v Praze" [level=1] [ref=e43]:
+          - generic [ref=e44]: Prémiové Čistící Služby
+          - generic [ref=e45]: v Praze
+        - paragraph [ref=e46]: Důvěřují nám Expati, Profesionálové & Airbnb Hostitelé
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - img [ref=e49]
+            - generic [ref=e51]: Spolehliví uklízeči
+          - generic [ref=e52]:
+            - img [ref=e53]
+            - generic [ref=e55]: Rychlá komunikace
+          - generic [ref=e56]:
+            - img [ref=e57]
+            - generic [ref=e59]: Pravidelný úklid
+        - generic [ref=e60]:
+          - link "Rezervovat přes WhatsApp" [ref=e61] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e62]
+            - text: Rezervovat přes WhatsApp
+          - link "Zobrazit Ceny" [ref=e64] [cursor=pointer]:
+            - /url: "#pricing"
+      - link "hero.scroll" [ref=e66] [cursor=pointer]:
+        - /url: "#pricing"
+        - generic [ref=e67]: hero.scroll
+        - img [ref=e68]
+    - region "Proč UKLID PLUS PRAHA" [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - heading "Proč UKLID PLUS PRAHA" [level=2] [ref=e73]
+          - paragraph [ref=e74]: Důvěryhodný partner pro úklid v Praze pro expaty, profesionály a Airbnb hostitele
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - img [ref=e78]
+            - heading "Profesionální Tým" [level=3] [ref=e80]
+            - paragraph [ref=e81]: Všichni naši uklízeči jsou profesionálně vyškoleni, prověřeni a pojištěni. Používáme kvalitní vybavení a ekologické produkty.
+          - generic [ref=e82]:
+            - img [ref=e84]
+            - heading "Spolehlivá Služba" [level=3] [ref=e86]
+            - paragraph [ref=e87]: Včasní, důvěryhodní a konzistentní. Váš uklízeč přijede včas, pokaždé. Stejný uklízeč pro pravidelné klienty.
+          - generic [ref=e88]:
+            - img [ref=e90]
+            - heading "Flexibilní Plánování" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Rezervujte, když vám to vyhovuje. Dostupné sloty v pracovní dny, víkendy nebo večery. Přeplánujte nebo zrušte bez problémů.
+          - generic [ref=e95]:
+            - img [ref=e97]
+            - heading "Garance Spokojenosti" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Vaše spokojenost je důležitá. Nejste 100% spokojeni? Znovu uklidíme zdarma do 24 hodin. Bez dotazů.
+    - region "Proč Nás Vybrat" [ref=e101]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - heading "Proč Nás Vybrat" [level=2] [ref=e104]
+          - paragraph [ref=e105]: Co dělá UKLID PLUS PRAHA preferovanou volbou
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - img [ref=e109]
+            - heading "Služby pro Expaty" [level=3] [ref=e111]
+            - paragraph [ref=e112]: Sloužíme mezinárodní komunitě v Praze s profesionálními úklidovými službami přizpůsobenými pro expaty a mezinárodní rezidenty.
+          - generic [ref=e113]:
+            - img [ref=e115]
+            - heading "Vícejazyčná Komunikace" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Komunikujte ve svém jazyce. Náš tým plynně hovoří anglicky, česky, rusky a ukrajinsky. Žádné jazykové bariéry.
+          - generic [ref=e119]:
+            - img [ref=e121]
+            - heading "Rezervace přes WhatsApp" [level=3] [ref=e123]
+            - paragraph [ref=e124]: Rezervujte úklid během několika minut přes WhatsApp. Rychlé, pohodlné, potvrzeno do 2 hodin. Žádné telefonáty.
+          - generic [ref=e125]:
+            - img [ref=e127]
+            - heading "Pravidelné Úklidové Plány" [level=3] [ref=e129]
+            - paragraph [ref=e130]: Nastavte a zapomeňte. Týdenní, čtrnáctidenní nebo měsíční úklid se stejným uklízečem. Užijte si slevy a prioritní plánování.
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - img [ref=e134]
+            - heading "Podpora pro Airbnb Hostitele" [level=3] [ref=e136]
+            - paragraph [ref=e137]: Specializovaná služba pro hostitele Airbnb. Rychlá odezva, garance kvality, nemovitosti připravené pro hosty.
+          - generic [ref=e138]:
+            - img [ref=e140]
+            - heading "Transparentní Ceny" [level=3] [ref=e142]
+            - paragraph [ref=e143]: Jasné, předem stanovené ceny bez skrytých poplatků. Bezplatné cenové nabídky před rezervací. Platba kartou, hotově nebo fakturou.
+          - generic [ref=e144]:
+            - img [ref=e146]
+            - heading "Rychlá Odezva" [level=3] [ref=e148]
+            - paragraph [ref=e149]: Reagujeme do 2 hodin během pracovní doby. Služba ve stejný den k dispozici pro naléhavé případy. Vždy tu pro vás, když nás potřebujete.
+    - region "Jak To Funguje" [ref=e150]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - heading "Jak To Funguje" [level=2] [ref=e153]
+          - paragraph [ref=e154]: 5 jednoduchých kroků k čistému domovu
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - generic:
+              - generic: "1"
+            - heading "Kontaktujte Nás" [level=3] [ref=e159]
+            - paragraph [ref=e160]: Ozvěte se přes WhatsApp, telefon nebo náš kontaktní formulář. Řekněte nám o svých potřebách úklidu a preferovaném čase.
+          - generic [ref=e161]:
+            - generic:
+              - generic: "2"
+            - heading "Získejte Cenovou Nabídku" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Obdržte jasnou, transparentní nabídku do 2 hodin. Žádné skryté poplatky, žádná překvapení. Potvrďte rezervaci, až budete připraveni.
+          - generic [ref=e164]:
+            - generic:
+              - generic: "3"
+            - heading "Naplánujte Úklid" [level=3] [ref=e165]
+            - paragraph [ref=e166]: Vyberte si čas, který vám vyhovuje. Nabízíme flexibilní plánování včetně víkendů. Služba ve stejný den k dispozici.
+          - generic [ref=e167]:
+            - generic:
+              - generic: "4"
+            - heading "Uklízíme" [level=3] [ref=e168]
+            - paragraph [ref=e169]: Náš profesionální uklízeč přijede včas s vším potřebným vybavením. Užijte si svůj volný čas.
+          - generic [ref=e170]:
+            - generic:
+              - generic: "5"
+            - heading "Užijte Si Čistý Domov" [level=3] [ref=e171]
+            - paragraph [ref=e172]: Vraťte se do bezvadného domova. Nejste spokojeni? Kontaktujte nás do 24 hodin pro bezplatný přeuklid. Garantováno.
+            - link "Rezervovat přes WhatsApp" [ref=e173] [cursor=pointer]:
+              - /url: https://wa.me/?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20%C3%BAklidov%C3%A9%20slu%C5%BEby.%20Jak%C3%A1%20je%20va%C5%A1e%20dostupnost%3F
+              - img [ref=e174]
+              - text: Rezervovat přes WhatsApp
+    - region "Vytvořeno pro Expaty" [ref=e176]:
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - heading "Vytvořeno pro Expaty" [level=2] [ref=e181]
+            - paragraph [ref=e182]: Rozumíme výzvám života v zahraničí
+          - list [ref=e183]:
+            - listitem [ref=e184]:
+              - img [ref=e186]
+              - generic [ref=e188]:
+                - text: expats.benefits.english.title
+                - generic [ref=e189]: "- expats.benefits.english.description"
+            - listitem [ref=e190]:
+              - img [ref=e192]
+              - generic [ref=e194]:
+                - text: expats.benefits.scheduling.title
+                - generic [ref=e195]: "- expats.benefits.scheduling.description"
+            - listitem [ref=e196]:
+              - img [ref=e198]
+              - generic [ref=e200]:
+                - text: expats.benefits.trusted.title
+                - generic [ref=e201]: "- expats.benefits.trusted.description"
+            - listitem [ref=e202]:
+              - img [ref=e204]
+              - generic [ref=e206]:
+                - text: expats.benefits.recurring.title
+                - generic [ref=e207]: "- expats.benefits.recurring.description"
+            - listitem [ref=e208]:
+              - img [ref=e210]
+              - generic [ref=e212]:
+                - text: Rychlá Komunikace
+                - generic [ref=e213]: "- Rezervace přes WhatsApp, rychlé odpovědi a jasná komunikace. Žádné čekání, žádné nejasnosti."
+            - listitem [ref=e214]:
+              - img [ref=e216]
+              - generic [ref=e218]:
+                - text: Garance Kvality
+                - generic [ref=e219]: "- Nejste spokojeni? Znovu uklidíme zdarma do 24 hodin. Vaše spokojenost je naší prioritou."
+          - link "Rezervovat První Úklid" [ref=e221] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e222]
+            - text: Rezervovat První Úklid
+        - generic [ref=e230]:
+          - img [ref=e231]
+          - paragraph [ref=e233]: Důvěřuje nám 2 500+ spokojených klientů
+    - region "Naše Služby" [ref=e235]:
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - heading "Naše Služby" [level=2] [ref=e238]
+          - paragraph [ref=e239]: Profesionální úklidové služby přizpůsobené vašim potřebám
+        - generic [ref=e240]:
+          - generic [ref=e241]:
+            - img [ref=e243]
+            - heading "Standardní Úklid" [level=3] [ref=e245]
+            - paragraph [ref=e246]: Pravidelný úklid vašeho domova nebo bytu. Zahrnuje vytírání, vysávání, mytí podlah a desinfekci koupelny.
+            - list [ref=e247]:
+              - listitem [ref=e248]:
+                - img [ref=e249]
+                - generic [ref=e251]: Úklid kuchyně
+              - listitem [ref=e252]:
+                - img [ref=e253]
+                - generic [ref=e255]: Desinfekce koupelny
+              - listitem [ref=e256]:
+                - img [ref=e257]
+                - generic [ref=e259]: Vytírání a vysávání
+            - link "Získat Nabídku" [ref=e260] [cursor=pointer]:
+              - /url: /pricing#standard
+          - generic [ref=e261]:
+            - img [ref=e263]
+            - heading "Hluboký Úklid" [level=3] [ref=e265]
+            - paragraph [ref=e266]: Důkladný úklid pro stěhování nebo sezónní obnovu. Vše uklizeno odshora dolů.
+            - list [ref=e267]:
+              - listitem [ref=e268]:
+                - img [ref=e269]
+                - generic [ref=e271]: Vše ze standardního úklidu
+              - listitem [ref=e272]:
+                - img [ref=e273]
+                - generic [ref=e275]: Uvnitř skříněk a zásuvek
+              - listitem [ref=e276]:
+                - img [ref=e277]
+                - generic [ref=e279]: Hluboký úklid spotřebičů
+            - link "Získat Nabídku" [ref=e280] [cursor=pointer]:
+              - /url: /pricing#deep
+          - generic [ref=e281]:
+            - img [ref=e283]
+            - heading "Airbnb Turnover" [level=3] [ref=e285]
+            - paragraph [ref=e286]: Rychlá, spolehlivá služba pro hostitele Airbnb. Garance nemovitostí připravených pro hosty.
+            - list [ref=e287]:
+              - listitem [ref=e288]:
+                - img [ref=e289]
+                - generic [ref=e291]: Rychlý turnaround
+              - listitem [ref=e292]:
+                - img [ref=e293]
+                - generic [ref=e295]: Příprava čistého prádla
+              - listitem [ref=e296]:
+                - img [ref=e297]
+                - generic [ref=e299]: Doplnění nezbytností
+            - link "Zjistit Více" [ref=e300] [cursor=pointer]:
+              - /url: /airbnb-hosts
+          - generic [ref=e301]:
+            - img [ref=e303]
+            - heading "Pravidelné Plány" [level=3] [ref=e306]
+            - paragraph [ref=e307]: Plánovaný úklid podle vašich potřeb. Týdenní, čtrnáctidenní nebo měsíční možnosti s exkluzivními výhodami.
+            - list [ref=e308]:
+              - listitem [ref=e309]:
+                - img [ref=e310]
+                - generic [ref=e312]: Prioritní plánování
+              - listitem [ref=e313]:
+                - img [ref=e314]
+                - generic [ref=e316]: Stálý uklízeč
+              - listitem [ref=e317]:
+                - img [ref=e318]
+                - generic [ref=e320]: Zvýhodněné sazby
+            - link "Zobrazit Plány" [ref=e321] [cursor=pointer]:
+              - /url: /pricing#plans
+          - generic [ref=e322]:
+            - img [ref=e324]
+            - heading "Žehlení" [level=3] [ref=e326]
+            - paragraph [ref=e327]: Profesionální služba žehlení pro udržení vašeho šatníku v perfektním stavu. Dostupné jako doplněk nebo samostatně.
+            - list [ref=e328]:
+              - listitem [ref=e329]:
+                - img [ref=e330]
+                - generic [ref=e332]: Expertní žehlení
+              - listitem [ref=e333]:
+                - img [ref=e334]
+                - generic [ref=e336]: Parní ošetření
+              - listitem [ref=e337]:
+                - img [ref=e338]
+                - generic [ref=e340]: Zavěšení nebo skládání
+            - link "Získat Nabídku" [ref=e341] [cursor=pointer]:
+              - /url: /pricing#addons
+          - generic [ref=e342]:
+            - img [ref=e344]
+            - heading "Úklid Kanceláří" [level=3] [ref=e346]
+            - paragraph [ref=e347]: Profesionální úklid kanceláří a komerčních prostor. Flexibilní plánování pro minimalizaci narušení.
+            - list [ref=e348]:
+              - listitem [ref=e349]:
+                - img [ref=e350]
+                - generic [ref=e352]: Úklid psacích stolů a povrchů
+              - listitem [ref=e353]:
+                - img [ref=e354]
+                - generic [ref=e356]: Údržba společných prostor
+              - listitem [ref=e357]:
+                - img [ref=e358]
+                - generic [ref=e360]: Desinfekce kuchyňky
+            - link "Získat Nabídku" [ref=e361] [cursor=pointer]:
+              - /url: "#contact"
+    - region "Pravidelné Úklidové Plány" [ref=e362]:
+      - generic [ref=e363]:
+        - generic [ref=e364]:
+          - heading "Pravidelné Úklidové Plány" [level=2] [ref=e365]
+          - paragraph [ref=e366]: Ušetřete čas a peníze s pravidelným úklidem
+        - generic [ref=e367]:
+          - generic [ref=e368]:
+            - heading "Essential Care" [level=3] [ref=e369]
+            - paragraph [ref=e370]: Čtrnáctidenní úklid se skvělými úsporami
+            - list [ref=e371]:
+              - listitem [ref=e372]:
+                - img [ref=e373]
+                - generic [ref=e375]: Čtrnáctidenní návštěvy
+              - listitem [ref=e376]:
+                - img [ref=e377]
+                - generic [ref=e379]: Stejný uklízeč pokaždé
+              - listitem [ref=e380]:
+                - img [ref=e381]
+                - generic [ref=e383]: Prioritní plánování
+              - listitem [ref=e384]:
+                - img [ref=e385]
+                - generic [ref=e387]: recurring.plans.essential.features.3
+              - listitem [ref=e388]:
+                - img [ref=e389]
+                - generic [ref=e391]: recurring.plans.essential.features.4
+              - listitem [ref=e392]:
+                - img [ref=e393]
+                - generic [ref=e395]: recurring.plans.essential.features.5
+            - link "Vybrat Plán" [ref=e396] [cursor=pointer]:
+              - /url: "#contact?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20pl%C3%A1n%20Essential%20Care."
+              - img [ref=e397]
+              - text: Vybrat Plán
+          - generic [ref=e399]:
+            - generic [ref=e400]: Nejlepší Hodnota
+            - heading "Premium Care" [level=3] [ref=e401]
+            - paragraph [ref=e402]: Týdenní úklid s maximálním pohodlím
+            - list [ref=e403]:
+              - listitem [ref=e404]:
+                - img [ref=e405]
+                - generic [ref=e407]: Týdenní návštěvy
+              - listitem [ref=e408]:
+                - img [ref=e409]
+                - generic [ref=e411]: Stejný uklízeč pokaždé
+              - listitem [ref=e412]:
+                - img [ref=e413]
+                - generic [ref=e415]: Prioritní plánování
+              - listitem [ref=e416]:
+                - img [ref=e417]
+                - generic [ref=e419]: 15% sleva na každou návštěvu
+              - listitem [ref=e420]:
+                - img [ref=e421]
+                - generic [ref=e423]: recurring.plans.premium.features.4
+              - listitem [ref=e424]:
+                - img [ref=e425]
+                - generic [ref=e427]: recurring.plans.premium.features.5
+              - listitem [ref=e428]:
+                - img [ref=e429]
+                - generic [ref=e431]: recurring.plans.premium.features.6
+            - link "Vybrat Plán" [ref=e432] [cursor=pointer]:
+              - /url: "#contact?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20pl%C3%A1n%20Premium%20Care."
+              - img [ref=e433]
+              - text: Vybrat Plán
+          - generic [ref=e435]:
+            - heading "VIP Služba" [level=3] [ref=e436]
+            - paragraph [ref=e437]: Vlastní plán s prémiovými výhodami
+            - list [ref=e438]:
+              - listitem [ref=e439]:
+                - img [ref=e440]
+                - generic [ref=e442]: Vlastní frekvence
+              - listitem [ref=e443]:
+                - img [ref=e444]
+                - generic [ref=e446]: Vyhrazený uklízeč
+              - listitem [ref=e447]:
+                - img [ref=e448]
+                - generic [ref=e450]: Prioritní rezervace
+              - listitem [ref=e451]:
+                - img [ref=e452]
+                - generic [ref=e454]: recurring.plans.vip.features.3
+              - listitem [ref=e455]:
+                - img [ref=e456]
+                - generic [ref=e458]: recurring.plans.vip.features.4
+              - listitem [ref=e459]:
+                - img [ref=e460]
+                - generic [ref=e462]: recurring.plans.vip.features.5
+              - listitem [ref=e463]:
+                - img [ref=e464]
+                - generic [ref=e466]: recurring.plans.vip.features.6
+            - link "Vybrat Plán" [ref=e467] [cursor=pointer]:
+              - /url: "#contact?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20pl%C3%A1n%20VIP%20Slu%C5%BEba."
+              - img [ref=e468]
+              - text: Vybrat Plán
+    - region "Transparentní Ceny" [ref=e470]:
+      - generic [ref=e471]:
+        - generic [ref=e472]:
+          - heading "Transparentní Ceny" [level=2] [ref=e473]
+          - paragraph [ref=e474]: Jasná sazby pro každou velikost bytu
+        - generic [ref=e476]:
+          - button "Standardní" [ref=e477]: Standardní
+          - button "Hluboký" [ref=e479]
+          - button "Doplňky" [ref=e480]
+        - generic [ref=e483]:
+          - paragraph [ref=e485]: Regular cleaning for your home. Includes all essentials.
+          - table [ref=e487]:
+            - rowgroup [ref=e488]:
+              - row "Byt Velikost Od" [ref=e489]:
+                - columnheader "Byt" [ref=e490]
+                - columnheader "Velikost" [ref=e491]
+                - columnheader "Od" [ref=e492]
+            - rowgroup [ref=e493]:
+              - row "pricing.categories.standard.items.0.apartment ~35 m² 1,200 CZK" [ref=e494]:
+                - cell "pricing.categories.standard.items.0.apartment" [ref=e495]
+                - cell "~35 m²" [ref=e496]
+                - cell "1,200 CZK" [ref=e497]
+              - row "pricing.categories.standard.items.1.apartment ~45 m² 1,350 CZK" [ref=e498]:
+                - cell "pricing.categories.standard.items.1.apartment" [ref=e499]
+                - cell "~45 m²" [ref=e500]
+                - cell "1,350 CZK" [ref=e501]
+              - row "pricing.categories.standard.items.2.apartment ~55 m² 1,550 CZK" [ref=e502]:
+                - cell "pricing.categories.standard.items.2.apartment" [ref=e503]
+                - cell "~55 m²" [ref=e504]
+                - cell "1,550 CZK" [ref=e505]
+              - row "pricing.categories.standard.items.3.apartment ~65 m² 1,750 CZK" [ref=e506]:
+                - cell "pricing.categories.standard.items.3.apartment" [ref=e507]
+                - cell "~65 m²" [ref=e508]
+                - cell "1,750 CZK" [ref=e509]
+              - row "pricing.categories.standard.items.4.apartment ~75 m² 1,950 CZK" [ref=e510]:
+                - cell "pricing.categories.standard.items.4.apartment" [ref=e511]
+                - cell "~75 m²" [ref=e512]
+                - cell "1,950 CZK" [ref=e513]
+              - row "pricing.categories.standard.items.5.apartment ~85 m² 2,050 CZK" [ref=e514]:
+                - cell "pricing.categories.standard.items.5.apartment" [ref=e515]
+                - cell "~85 m²" [ref=e516]
+                - cell "2,050 CZK" [ref=e517]
+              - row "pricing.categories.standard.items.6.apartment ~95 m² 2,100 CZK" [ref=e518]:
+                - cell "pricing.categories.standard.items.6.apartment" [ref=e519]
+                - cell "~95 m²" [ref=e520]
+                - cell "2,100 CZK" [ref=e521]
+              - row "pricing.categories.standard.items.7.apartment 100+ m² from 2,190 CZK" [ref=e522]:
+                - cell "pricing.categories.standard.items.7.apartment" [ref=e523]
+                - cell "100+ m²" [ref=e524]
+                - cell "from 2,190 CZK" [ref=e525]
+        - generic [ref=e526]:
+          - heading "Speciální Nabídky" [level=3] [ref=e527]
+          - generic [ref=e528]:
+            - generic [ref=e529]:
+              - heading "Essential Care" [level=4] [ref=e530]
+              - paragraph [ref=e531]: Čtrnáctidenní úklid se skvělými úsporami
+              - list [ref=e532]:
+                - listitem [ref=e533]:
+                  - img [ref=e534]
+                  - generic [ref=e536]: Čtrnáctidenní návštěvy
+                - listitem [ref=e537]:
+                  - img [ref=e538]
+                  - generic [ref=e540]: Stejný uklízeč pokaždé
+                - listitem [ref=e541]:
+                  - img [ref=e542]
+                  - generic [ref=e544]: Prioritní plánování
+                - listitem [ref=e545]:
+                  - img [ref=e546]
+                  - generic [ref=e548]: 50% sleva na 5. návštěvu
+              - link "Začít" [ref=e549] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=e550]:
+              - generic [ref=e551]: Nejpopulárnější
+              - heading "Premium Care" [level=4] [ref=e552]
+              - paragraph [ref=e553]: Týdenní úklid s maximálním pohodlím
+              - list [ref=e554]:
+                - listitem [ref=e555]:
+                  - img [ref=e556]
+                  - generic [ref=e558]: Týdenní návštěvy
+                - listitem [ref=e559]:
+                  - img [ref=e560]
+                  - generic [ref=e562]: Stejný uklízeč pokaždé
+                - listitem [ref=e563]:
+                  - img [ref=e564]
+                  - generic [ref=e566]: Prioritní plánování
+                - listitem [ref=e567]:
+                  - img [ref=e568]
+                  - generic [ref=e570]: 15% sleva na každou návštěvu
+              - link "Začít" [ref=e571] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e572]:
+          - paragraph [ref=e573]: Potřebujete vlastní nabídku?
+          - link "Získat Bezplatnou Nabídku" [ref=e574] [cursor=pointer]:
+            - /url: https://wa.me/?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20cenovou%20nab%C3%ADdku%20%C3%BAklidov%C3%BDch%20slu%C5%BEeb.
+            - img [ref=e575]
+            - text: Získat Bezplatnou Nabídku
+    - region "Partner pro Airbnb Hostitele" [ref=e577]:
+      - generic [ref=e579]:
+        - generic [ref=e580]:
+          - generic [ref=e581]:
+            - heading "Partner pro Airbnb Hostitele" [level=2] [ref=e582]
+            - paragraph [ref=e583]: Profesionální služba pro hostitele v Praze
+          - list [ref=e584]:
+            - listitem [ref=e585]:
+              - img [ref=e587]
+              - generic [ref=e589]:
+                - text: airbnb.benefits.turnover.title
+                - generic [ref=e590]: "- airbnb.benefits.turnover.description"
+            - listitem [ref=e591]:
+              - img [ref=e593]
+              - generic [ref=e595]:
+                - text: airbnb.benefits.express.title
+                - generic [ref=e596]: "- airbnb.benefits.express.description"
+            - listitem [ref=e597]:
+              - img [ref=e599]
+              - generic [ref=e601]:
+                - text: airbnb.benefits.sameday.title
+                - generic [ref=e602]: "- airbnb.benefits.sameday.description"
+            - listitem [ref=e603]:
+              - img [ref=e605]
+              - generic [ref=e607]:
+                - text: Předávání Klíčů
+                - generic [ref=e608]: "- Služba vyzvednutí a vrácení klíčů k dispozici. Flexibilní možnosti přístupu."
+            - listitem [ref=e609]:
+              - img [ref=e611]
+              - generic [ref=e613]:
+                - text: airbnb.benefits.guarantee.title
+                - generic [ref=e614]: "- airbnb.benefits.guarantee.description"
+            - listitem [ref=e615]:
+              - img [ref=e617]
+              - generic [ref=e619]:
+                - text: airbnb.benefits.priority.title
+                - generic [ref=e620]: "- airbnb.benefits.priority.description"
+          - link "Staňte Se Partnerem" [ref=e622] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e623]
+            - text: Staňte Se Partnerem
+        - generic [ref=e631]:
+          - img [ref=e632]
+          - paragraph [ref=e634]: Důvěřuje nám 50+ Airbnb hostitelů
+    - region "Naše Práce & Po" [ref=e636]:
+      - generic [ref=e637]:
+        - generic [ref=e638]:
+          - heading "Naše Práce & Po" [level=2] [ref=e639]
+          - paragraph [ref=e640]: Podívejte se na rozdíl, který dělá profesionální úklid
+        - generic [ref=e641]:
+          - button "Všechny Projekty" [pressed] [ref=e642]
+          - button "Standardní Úklid" [ref=e643]
+          - button "Hluboký Úklid" [ref=e644]
+          - button "Airbnb Turnover" [ref=e645]
+          - button "Úklid Kanceláří" [ref=e646]
+          - button "Doplňkové Služby" [ref=e647]
+        - generic [ref=e648]:
+          - generic [ref=e649]:
+            - generic [ref=e650]:
+              - generic [ref=e653]:
+                - img [ref=e655]
+                - text: Před
+              - generic [ref=e659]:
+                - img [ref=e661]
+                - text: Po
+              - button "Zobrazit Po" [ref=e663]
+              - generic [ref=e664]: Před
+            - generic [ref=e665]:
+              - heading "Hluboký Úklid Kuchyně" [level=3] [ref=e666]
+              - paragraph [ref=e667]: Hluboký Úklid
+          - generic [ref=e668]:
+            - generic [ref=e669]:
+              - generic [ref=e672]:
+                - img [ref=e674]
+                - text: Před
+              - generic [ref=e678]:
+                - img [ref=e680]
+                - text: Po
+              - button "Zobrazit Po" [ref=e682]
+              - generic [ref=e683]: Před
+            - generic [ref=e684]:
+              - heading "Desinfekce Koupelny" [level=3] [ref=e685]
+              - paragraph [ref=e686]: Hluboký Úklid
+          - generic [ref=e687]:
+            - generic [ref=e688]:
+              - generic [ref=e691]:
+                - img [ref=e693]
+                - text: Před
+              - generic [ref=e697]:
+                - img [ref=e699]
+                - text: Po
+              - button "Zobrazit Po" [ref=e701]
+              - generic [ref=e702]: Před
+            - generic [ref=e703]:
+              - heading "Standardní Úklid Obývacího Pokoje" [level=3] [ref=e704]
+              - paragraph [ref=e705]: Standardní Úklid
+          - generic [ref=e706]:
+            - generic [ref=e707]:
+              - generic [ref=e710]:
+                - img [ref=e712]
+                - text: Před
+              - generic [ref=e716]:
+                - img [ref=e718]
+                - text: Po
+              - button "Zobrazit Po" [ref=e720]
+              - generic [ref=e721]: Před
+            - generic [ref=e722]:
+              - heading "Obnova Ložnice" [level=3] [ref=e723]
+              - paragraph [ref=e724]: Standardní Úklid
+          - generic [ref=e725]:
+            - generic [ref=e726]:
+              - generic [ref=e729]:
+                - img [ref=e731]
+                - text: Před
+              - generic [ref=e735]:
+                - img [ref=e737]
+                - text: Po
+              - button "Zobrazit Po" [ref=e739]
+              - generic [ref=e740]: Před
+            - generic [ref=e741]:
+              - heading "Airbnb Turnover Služba" [level=3] [ref=e742]
+              - paragraph [ref=e743]: Airbnb Turnover
+          - generic [ref=e744]:
+            - generic [ref=e745]:
+              - generic [ref=e748]:
+                - img [ref=e750]
+                - text: Před
+              - generic [ref=e754]:
+                - img [ref=e756]
+                - text: Po
+              - button "Zobrazit Po" [ref=e758]
+              - generic [ref=e759]: Před
+            - generic [ref=e760]:
+              - heading "Úklid Kanceláře" [level=3] [ref=e761]
+              - paragraph [ref=e762]: Úklid Kanceláří
+          - generic [ref=e763]:
+            - generic [ref=e764]:
+              - generic [ref=e767]:
+                - img [ref=e769]
+                - text: Před
+              - generic [ref=e773]:
+                - img [ref=e775]
+                - text: Po
+              - button "Zobrazit Po" [ref=e777]
+              - generic [ref=e778]: Před
+            - generic [ref=e779]:
+              - heading "Hluboký Úklid Trouby" [level=3] [ref=e780]
+              - paragraph [ref=e781]: Doplňkové Služby
+          - generic [ref=e782]:
+            - generic [ref=e783]:
+              - generic [ref=e786]:
+                - img [ref=e788]
+                - text: Před
+              - generic [ref=e792]:
+                - img [ref=e794]
+                - text: Po
+              - button "Zobrazit Po" [ref=e796]
+              - generic [ref=e797]: Před
+            - generic [ref=e798]:
+              - heading "Mytí Oken" [level=3] [ref=e799]
+              - paragraph [ref=e800]: Doplňkové Služby
+    - region "Google Hodnocení" [ref=e801]:
+      - generic [ref=e802]:
+        - generic [ref=e803]:
+          - heading "Google Hodnocení" [level=2] [ref=e804]
+          - paragraph [ref=e805]: Co říkají naši klienti
+        - generic [ref=e807]:
+          - img [ref=e808]
+          - generic [ref=e813]:
+            - generic [ref=e814]:
+              - generic [ref=e815]:
+                - img [ref=e816]
+                - img [ref=e818]
+                - img [ref=e820]
+                - img [ref=e822]
+                - img [ref=e824]
+              - generic [ref=e826]: "4.9"
+            - paragraph [ref=e827]: Na základě 10 hodnocení
+            - link "Zobrazit všechny hodnocení na Google" [ref=e828] [cursor=pointer]:
+              - /url: https://g.page/r/CXXXXX/review
+              - generic [ref=e829]: Zobrazit všechny hodnocení na Google
+              - img [ref=e830]
+        - generic [ref=e832]:
+          - generic [ref=e833]:
+            - generic [ref=e834]:
+              - generic [ref=e835]:
+                - generic [ref=e837]: J
+                - generic [ref=e838]: John D.
+              - generic [ref=e839]:
+                - img [ref=e840]
+                - img [ref=e842]
+                - img [ref=e844]
+                - img [ref=e846]
+                - img [ref=e848]
+            - paragraph [ref=e850]: “Výjimečný servis! Tým byl profesionální, včas a důkladný. Můj byt nebyl nikdy čistší. Vřele doporučuji UKLID PLUS pro každého v Praze.”
+            - paragraph [ref=e851]: January 15, 2024
+          - generic [ref=e852]:
+            - generic [ref=e853]:
+              - generic [ref=e854]:
+                - generic [ref=e856]: M
+                - generic [ref=e857]: Maria S.
+              - generic [ref=e858]:
+                - img [ref=e859]
+                - img [ref=e861]
+                - img [ref=e863]
+                - img [ref=e865]
+                - img [ref=e867]
+            - paragraph [ref=e869]: “Nejlepší úklidová služba, kterou jsem v Praze použil. Mluví anglicky, přicházejí včas a dělají skvělou práci. Rezervace přes WhatsApp je tak pohodlná!”
+            - paragraph [ref=e870]: January 10, 2024
+          - generic [ref=e871]:
+            - generic [ref=e872]:
+              - generic [ref=e873]:
+                - generic [ref=e875]: P
+                - generic [ref=e876]: Petr K.
+              - generic [ref=e877]:
+                - img [ref=e878]
+                - img [ref=e880]
+                - img [ref=e882]
+                - img [ref=e884]
+                - img [ref=e886]
+            - paragraph [ref=e888]: “Skvělá služba! Vždy včas, důkladné úklid a příjemný personál. Rozhodně doporučuji.”
+            - paragraph [ref=e889]: January 8, 2024
+        - generic [ref=e891]:
+          - generic [ref=e892]:
+            - img [ref=e893]
+            - generic [ref=e895]: Budujeme Naši Reputaci
+          - paragraph [ref=e896]: We're building our reputation! Help us grow by leaving a review after your cleaning.
+        - generic [ref=e897]:
+          - link "Zobrazit Všechny Hodnocení" [ref=e898] [cursor=pointer]:
+            - /url: https://g.page/r/CXXXXX/review
+            - generic [ref=e899]: Zobrazit Všechny Hodnocení
+            - img [ref=e900]
+          - link "Napsat Hodnocení" [ref=e902] [cursor=pointer]:
+            - /url: https://facebook.com/uklidpluspraha
+            - generic [ref=e903]: Napsat Hodnocení
+            - img [ref=e904]
+    - region "Reference Klientů" [ref=e906]:
+      - generic [ref=e907]:
+        - generic [ref=e908]:
+          - heading "Reference Klientů" [level=2] [ref=e909]
+          - paragraph [ref=e910]: Přečtěte si od našich spokojených klientů
+        - generic [ref=e911]:
+          - generic [ref=e912]:
+            - img [ref=e914]
+            - generic [ref=e916]:
+              - img [ref=e917]
+              - img [ref=e919]
+              - img [ref=e921]
+              - img [ref=e923]
+              - img [ref=e925]
+            - blockquote [ref=e927]: “Používám UKLID PLUS pro svůj byt v Praze 2 již více než rok. Jejich služba je bezvadná a miluji, že mohu komunikovat v angličtině. Pravidelný plán mi výrazně usnadnil život.”
+            - generic [ref=e928]:
+              - generic [ref=e930]: S
+              - generic [ref=e931]:
+                - paragraph [ref=e932]: Sarah M.
+                - paragraph [ref=e933]: Marketing Manager, Prague 2
+          - generic [ref=e934]:
+            - img [ref=e936]
+            - generic [ref=e938]:
+              - img [ref=e939]
+              - img [ref=e941]
+              - img [ref=e943]
+              - img [ref=e945]
+              - img [ref=e947]
+            - blockquote [ref=e949]: “Jako Airbnb host potřebuji spolehlivý úklid mezi hosty. UKLID PLUS vždy dodá - rychlá odpověď, důkladný úklid a moji hosté vždy chválí čistotu bytu. Vřele doporučuji!”
+            - generic [ref=e950]:
+              - generic [ref=e952]: M
+              - generic [ref=e953]:
+                - paragraph [ref=e954]: Michael T.
+                - paragraph [ref=e955]: Airbnb Superhost, Prague 1
+          - generic [ref=e956]:
+            - img [ref=e958]
+            - generic [ref=e960]:
+              - img [ref=e961]
+              - img [ref=e963]
+              - img [ref=e965]
+              - img [ref=e967]
+              - img [ref=e969]
+            - blockquote [ref=e971]: “Při stěhování do Prahy z UK jsem se bál, jak najdu služby v angličtině. UKLID PLUS vše usnadnil. Jejich hluboký úklid dokonale připravil můj nový byt. Profesionální a přátelské.”
+            - generic [ref=e972]:
+              - generic [ref=e974]: J
+              - generic [ref=e975]:
+                - paragraph [ref=e976]: James H.
+                - paragraph [ref=e977]: Software Developer, Prague 5
+    - region "Často Kladené Otázky" [ref=e978]:
+      - generic [ref=e980]:
+        - generic [ref=e981]:
+          - heading "Často Kladené Otázky" [level=2] [ref=e982]
+          - paragraph [ref=e983]: Najděte odpovědi na běžné otázky
+        - generic [ref=e985]:
+          - generic [ref=e986]:
+            - button "Jak si mohu objednat úklid?" [expanded] [ref=e987]:
+              - generic [ref=e988]: Jak si mohu objednat úklid?
+              - img [ref=e989]
+            - paragraph [ref=e993]: Objednat můžete snadno přes WhatsApp, telefon nebo náš kontaktní formulář. Pošlete nám zprávu s vašimi požadavky na úklid a my odpovíme do 2 hodin s cenovou nabídkou a dostupnými termíny.
+          - button "Kolik stojí úklid?" [ref=e995]:
+            - generic [ref=e996]: Kolik stojí úklid?
+            - img [ref=e997]
+          - button "Je zde minimální doba objednání?" [ref=e1000]:
+            - generic [ref=e1001]: Je zde minimální doba objednání?
+            - img [ref=e1002]
+          - button "Nabízíte službu ve stejný den?" [ref=e1005]:
+            - generic [ref=e1006]: Nabízíte službu ve stejný den?
+            - img [ref=e1007]
+          - button "Jaké platební metody přijímáte?" [ref=e1010]:
+            - generic [ref=e1011]: Jaké platební metody přijímáte?
+            - img [ref=e1012]
+          - button "Co je zahrnuto ve standardním úklidu?" [ref=e1015]:
+            - generic [ref=e1016]: Co je zahrnuto ve standardním úklidu?
+            - img [ref=e1017]
+          - button "Jaký je rozdíl mezi standardním a hloubkovým úklidem?" [ref=e1020]:
+            - generic [ref=e1021]: Jaký je rozdíl mezi standardním a hloubkovým úklidem?
+            - img [ref=e1022]
+        - generic [ref=e1024]:
+          - paragraph [ref=e1025]: Stále máte otázky? Kontaktujte nás přes WhatsApp pro rychlé odpovědi.
+          - link "Kontaktovat na WhatsApp" [ref=e1026] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e1027]
+            - text: Kontaktovat na WhatsApp
+    - region "Oblast Služby" [ref=e1029]:
+      - generic [ref=e1030]:
+        - generic [ref=e1031]:
+          - heading "Oblast Služby" [level=2] [ref=e1032]
+          - paragraph [ref=e1033]: Obsluhujeme Prahu a okolí
+        - generic [ref=e1034]:
+          - generic [ref=e1035]:
+            - heading "Praha 1" [level=3] [ref=e1036]
+            - list [ref=e1037]:
+              - listitem [ref=e1038]:
+                - img [ref=e1039]
+                - generic [ref=e1042]: Old Town (Staré Město)
+              - listitem [ref=e1043]:
+                - img [ref=e1044]
+                - generic [ref=e1047]: New Town (Nové Město)
+              - listitem [ref=e1048]:
+                - img [ref=e1049]
+                - generic [ref=e1052]: Lesser Town (Malá Strana)
+              - listitem [ref=e1053]:
+                - img [ref=e1054]
+                - generic [ref=e1057]: Hradčany
+              - listitem [ref=e1058]:
+                - img [ref=e1059]
+                - generic [ref=e1062]: Josefov
+          - generic [ref=e1063]:
+            - heading "Praha 2" [level=3] [ref=e1064]
+            - list [ref=e1065]:
+              - listitem [ref=e1066]:
+                - img [ref=e1067]
+                - generic [ref=e1070]: Vinohrady
+              - listitem [ref=e1071]:
+                - img [ref=e1072]
+                - generic [ref=e1075]: Vyšehrad
+              - listitem [ref=e1076]:
+                - img [ref=e1077]
+                - generic [ref=e1080]: Parts of New Town
+          - generic [ref=e1081]:
+            - heading "Praha 5" [level=3] [ref=e1082]
+            - list [ref=e1083]:
+              - listitem [ref=e1084]:
+                - img [ref=e1085]
+                - generic [ref=e1088]: Smíchov
+              - listitem [ref=e1089]:
+                - img [ref=e1090]
+                - generic [ref=e1093]: Anděl
+              - listitem [ref=e1094]:
+                - img [ref=e1095]
+                - generic [ref=e1098]: Klárov
+              - listitem [ref=e1099]:
+                - img [ref=e1100]
+                - generic [ref=e1103]: Malvazinky
+          - generic [ref=e1104]:
+            - heading "Praha 6" [level=3] [ref=e1105]
+            - list [ref=e1106]:
+              - listitem [ref=e1107]:
+                - img [ref=e1108]
+                - generic [ref=e1111]: Dejvice
+              - listitem [ref=e1112]:
+                - img [ref=e1113]
+                - generic [ref=e1116]: Bubeneč
+              - listitem [ref=e1117]:
+                - img [ref=e1118]
+                - generic [ref=e1121]: Střešovice
+              - listitem [ref=e1122]:
+                - img [ref=e1123]
+                - generic [ref=e1126]: Hradčany
+              - listitem [ref=e1127]:
+                - img [ref=e1128]
+                - generic [ref=e1131]: Veleslavín
+          - generic [ref=e1132]:
+            - heading "Praha 7" [level=3] [ref=e1133]
+            - list [ref=e1134]:
+              - listitem [ref=e1135]:
+                - img [ref=e1136]
+                - generic [ref=e1139]: Letná
+              - listitem [ref=e1140]:
+                - img [ref=e1141]
+                - generic [ref=e1144]: Holešovice
+              - listitem [ref=e1145]:
+                - img [ref=e1146]
+                - generic [ref=e1149]: Bubny
+        - generic [ref=e1150]:
+          - paragraph [ref=e1151]: Jiné oblasti k dispozici na vyžádání
+          - link "Kontaktujte Nás pro Jiné Oblasti" [ref=e1152] [cursor=pointer]:
+            - /url: https://wa.me/?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20%C3%BAklidov%C3%A9%20slu%C5%BEby%20v%20m%C3%A9%20lokalit%C4%9B.
+            - img [ref=e1153]
+            - text: Kontaktujte Nás pro Jiné Oblasti
+    - region "Kontaktujte Nás" [ref=e1155]:
+      - generic [ref=e1156]:
+        - generic [ref=e1157]:
+          - heading "Kontaktujte Nás" [level=2] [ref=e1158]
+          - paragraph [ref=e1159]: Připraveni rezervovat úklid? Kontaktujte nás přes váš preferovaný kanál
+        - generic [ref=e1160]:
+          - generic [ref=e1161]:
+            - generic [ref=e1164]:
+              - img [ref=e1167]
+              - generic [ref=e1169]:
+                - generic [ref=e1170]:
+                  - heading "WhatsApp" [level=3] [ref=e1171]
+                  - generic [ref=e1172]: Nejrychlejší odezva
+                - paragraph [ref=e1173]: Napište nám přímo pro rychlou rezervaci a okamžité odpovědi
+                - link "Poslat Zprávu" [ref=e1175] [cursor=pointer]:
+                  - /url: "#contact?text=Dobr%C3%BD%20den!%20M%C3%A1m%20z%C3%A1jem%20o%20rezervaci%20%C3%BAklidu.%20Pros%C3%ADm%2C%20dejte%20mi%20v%C4%9Bd%C4%9Bt%20o%20dostupnosti."
+                  - img [ref=e1176]
+                  - generic [ref=e1178]: Poslat Zprávu
+            - generic [ref=e1179]:
+              - link "Messenger Chatujte s námi na Facebooku" [ref=e1180] [cursor=pointer]:
+                - /url: https://m.me/uklidpluspraha
+                - generic [ref=e1181]:
+                  - img [ref=e1183]
+                  - generic [ref=e1185]:
+                    - heading "Messenger" [level=4] [ref=e1186]
+                    - paragraph [ref=e1187]: Chatujte s námi na Facebooku
+              - link "Instagram Podívejte se na naši práci" [ref=e1188] [cursor=pointer]:
+                - /url: https://www.instagram.com/uklid.plus.praha/
+                - generic [ref=e1189]:
+                  - img [ref=e1191]
+                  - generic [ref=e1193]:
+                    - heading "Instagram" [level=4] [ref=e1194]
+                    - paragraph [ref=e1195]: Podívejte se na naši práci
+            - generic [ref=e1196]:
+              - generic [ref=e1197]:
+                - generic [ref=e1198]:
+                  - img [ref=e1199]
+                  - heading "Oblast Služby" [level=4] [ref=e1202]
+                - paragraph [ref=e1203]: Obsluhujeme Prahu a okolí
+              - generic [ref=e1204]:
+                - generic [ref=e1205]:
+                  - img [ref=e1206]
+                  - heading "Jazyky" [level=4] [ref=e1208]
+                - paragraph [ref=e1209]: Angličtina, Čeština, Ruština, Ukrajinština
+          - generic [ref=e1211]:
+            - heading "Pošlete Nám Zprávu" [level=3] [ref=e1212]
+            - generic [ref=e1213]:
+              - generic [ref=e1214]:
+                - generic [ref=e1215]: Vaše Jméno
+                - textbox "Vaše Jméno" [ref=e1216]:
+                  - /placeholder: Zadejte své jméno
+              - generic [ref=e1217]:
+                - generic [ref=e1218]: E-mailová Adresa
+                - textbox "E-mailová Adresa" [ref=e1219]:
+                  - /placeholder: Zadejte svůj e-mail
+              - generic [ref=e1220]:
+                - generic [ref=e1221]: Zpráva
+                - textbox "Zpráva" [ref=e1222]:
+                  - /placeholder: Popište své potřeby úklidu...
+              - button "Odeslat Zprávu" [ref=e1223]
+  - contentinfo [ref=e1224]:
+    - generic [ref=e1225]:
+      - generic [ref=e1226]:
+        - generic [ref=e1227]:
+          - generic [ref=e1228]:
+            - generic [ref=e1230]: U+
+            - generic [ref=e1231]: UKLID PLUS PRAHA
+          - paragraph [ref=e1232]: Professional cleaning agency serving Prague's international community. Multilingual support in English, Czech, Russian, and Ukrainian.
+          - generic [ref=e1233]:
+            - link "Follow us on Instagram" [ref=e1234] [cursor=pointer]:
+              - /url: https://www.instagram.com/uklid.plus.praha/
+              - img [ref=e1235]
+            - link "Contact us on WhatsApp" [ref=e1237] [cursor=pointer]:
+              - /url: https://wa.me/
+              - img [ref=e1238]
+            - link "Message us on Messenger" [ref=e1240] [cursor=pointer]:
+              - /url: https://m.me/uklidpluspraha
+              - img [ref=e1241]
+        - generic [ref=e1243]:
+          - heading "Navigace" [level=3] [ref=e1244]
+          - list [ref=e1245]:
+            - listitem [ref=e1246]:
+              - link "Domů" [ref=e1247] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e1248]:
+              - link "Služby" [ref=e1249] [cursor=pointer]:
+                - /url: /#services
+            - listitem [ref=e1250]:
+              - link "Ceník" [ref=e1251] [cursor=pointer]:
+                - /url: /#pricing
+            - listitem [ref=e1252]:
+              - link "nav.privacy" [ref=e1253] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e1254]:
+              - link "nav.terms" [ref=e1255] [cursor=pointer]:
+                - /url: /terms
+        - generic [ref=e1256]:
+          - heading "Kontakt" [level=3] [ref=e1257]
+          - list [ref=e1258]:
+            - listitem [ref=e1259]:
+              - link "WhatsApp" [ref=e1260] [cursor=pointer]:
+                - /url: https://wa.me/
+                - img [ref=e1261]
+                - text: WhatsApp
+            - listitem [ref=e1263]:
+              - link "info@uklidpluspraha.cz" [ref=e1264] [cursor=pointer]:
+                - /url: mailto:info@uklidpluspraha.cz
+                - img [ref=e1265]
+                - text: info@uklidpluspraha.cz
+            - listitem [ref=e1267]:
+              - link "Instagram" [ref=e1268] [cursor=pointer]:
+                - /url: https://www.instagram.com/uklid.plus.praha/
+                - img [ref=e1269]
+                - text: Instagram
+        - generic [ref=e1271]:
+          - heading "Jazyk" [level=3] [ref=e1272]
+          - generic [ref=e1273]:
+            - button "Switch to English" [ref=e1274]: EN
+            - button "Switch to Čeština" [ref=e1275]: CZ
+            - button "Switch to Русский" [ref=e1276]: RU
+            - button "Switch to Українська" [ref=e1277]: UA
+      - generic [ref=e1279]:
+        - paragraph [ref=e1280]: © 2026 UKLID PLUS PRAHA. Všechna práva vyhrazena.
+        - paragraph [ref=e1281]: Profesionální úklidové služby pro expaty v Praze
+  - link "Chat with us on WhatsApp" [ref=e1282] [cursor=pointer]:
+    - /url: "#contact?text=Hi!%20I%20would%20like%20to%20book%20a%20cleaning%20service."
+    - img [ref=e1284]
+    - generic [ref=e1286]: Chat Now
+```

@@ -1,5 +1,5 @@
 export default {
-  // Header
+  // Header Navigation
   nav: {
     home: 'Home',
     services: 'Services',
@@ -10,16 +10,15 @@ export default {
     scroll: 'Scroll',
   },
 
-  // Hero
+  // Hero Section
   hero: {
-    title1: 'Premium Cleaning Services',
-    title2: 'in Prague',
-    subtitle: 'Trusted by Expats, Professionals & Airbnb Hosts',
-    taglines: {
-      reliable: 'Reliable cleaners',
-      fast: 'Fast communication',
-      recurring: 'Recurring home-care',
-    },
+    headline: ['Premium Cleaning Services', 'in Prague'],
+    subheadline: 'Trusted by Expats, Professionals & Airbnb Hosts',
+    taglines: [
+      'Reliable cleaners',
+      'Fast communication',
+      'Recurring home-care',
+    ],
     cta: {
       whatsapp: 'Book via WhatsApp',
       pricing: 'View Prices',
@@ -28,260 +27,435 @@ export default {
 
   // Why UKLID PLUS
   whyUklid: {
-    title: 'Why UKLID PLUS PRAHA',
-    subtitle: "Prague's trusted cleaning partner for expats, professionals, and Airbnb hosts",
+    heading: 'Why UKLID PLUS PRAHA',
+    subheading: "Prague's trusted cleaning partner for expats, professionals, and Airbnb hosts",
+    items: {
+      'professional': {
+        title: 'Professional Team',
+        description: 'All our cleaners are professionally trained, vetted, and insured. We use quality equipment and eco-friendly products.',
+      },
+      'reliable': {
+        title: 'Reliable Service',
+        description: 'Punctual, trustworthy, and consistent. Your cleaner arrives on time, every time. Same cleaner for recurring clients.',
+      },
+      'flexible': {
+        title: 'Flexible Scheduling',
+        description: 'Book when it suits you. Weekday, weekend, or evening slots available. Reschedule or cancel without hassle.',
+      },
+      'satisfaction': {
+        title: 'Satisfaction Guaranteed',
+        description: "Your happiness matters. Not 100% satisfied? We'll re-clean for free within 24 hours. No questions asked.",
+      },
+    },
   },
 
   // Differentiators
   differentiators: {
-    'expat-trusted': {
-      title: 'Expat-Focused Service',
-      description: "Serving Prague's international community with professional cleaning services tailored for expats and international residents.",
-    },
-    multilingual: {
-      title: 'Multilingual Communication',
-      description: 'Communicate in your language. Our team speaks English, Czech, Russian, and Ukrainian fluently. No language barriers.',
-    },
-    'whatsapp-booking': {
-      title: 'WhatsApp Booking',
-      description: 'Book your cleaning in minutes via WhatsApp. Quick, convenient, and confirmed within 2 hours. No phone calls needed.',
-    },
-    'recurring-plans': {
-      title: 'Recurring Cleaning Plans',
-      description: 'Set it and forget it. Weekly, bi-weekly, or monthly cleanings with the same cleaner. Enjoy discounts and priority scheduling.',
-    },
-    'airbnb-support': {
-      title: 'Airbnb Host Support',
-      description: 'Specialized turnover service for Airbnb hosts. Fast response times, quality guaranteed, guest-ready properties.',
-    },
-    'transparent-pricing': {
-      title: 'Transparent Pricing',
-      description: 'Clear, upfront pricing with no hidden fees. Free quotes provided before booking. Pay by card, cash, or invoice.',
-    },
-    'fast-response': {
-      title: 'Fast Response Time',
-      description: 'We respond within 2 hours during business hours. Same-day service available for emergencies. Always here when you need us.',
-    },
-    'quality-guarantee': {
-      title: 'Quality Guarantee',
-      description: 'Not satisfied? We\'ll re-clean for free within 24 hours. Your satisfaction is our priority. Fully insured and bonded.',
+    heading: 'Why Choose Us',
+    subheading: 'What makes UKLID PLUS PRAHA the preferred choice',
+    items: {
+      'expat-trusted': {
+        title: 'Expat-Focused Service',
+        description: "Serving Prague's international community with professional cleaning services tailored for expats and international residents.",
+      },
+      'multilingual': {
+        title: 'Multilingual Communication',
+        description: 'Communicate in your language. Our team speaks English, Czech, Russian, and Ukrainian fluently. No language barriers.',
+      },
+      'whatsapp-booking': {
+        title: 'WhatsApp Booking',
+        description: 'Book your cleaning in minutes via WhatsApp. Quick, convenient, and confirmed within 2 hours. No phone calls needed.',
+      },
+      'recurring-plans': {
+        title: 'Recurring Cleaning Plans',
+        description: 'Set it and forget it. Weekly, bi-weekly, or monthly cleanings with the same cleaner. Enjoy discounts and priority scheduling.',
+      },
+      'airbnb-support': {
+        title: 'Airbnb Host Support',
+        description: 'Specialized turnover service for Airbnb hosts. Fast response times, quality guaranteed, guest-ready properties.',
+      },
+      'transparent-pricing': {
+        title: 'Transparent Pricing',
+        description: 'Clear, upfront pricing with no hidden fees. Free quotes provided before booking. Pay by card, cash, or invoice.',
+      },
+      'fast-response': {
+        title: 'Fast Response Time',
+        description: 'We respond within 2 hours during business hours. Same-day service available for emergencies. Always here when you need us.',
+      },
+      'quality-guarantee': {
+        title: 'Quality Guarantee',
+        description: "Not satisfied? We'll re-clean for free within 24 hours. Your satisfaction is our priority. Fully insured and bonded.",
+      },
     },
   },
 
   // How It Works
   howItWorks: {
-    title: 'How It Works',
-    subtitle: '5 simple steps to a spotless home',
+    heading: 'How It Works',
+    subheading: '5 simple steps to a spotless home',
     steps: {
-      contact: {
+      'contact': {
         title: 'Contact Us',
         description: 'Reach out via WhatsApp, phone, or our contact form. Tell us about your cleaning needs and preferred schedule.',
       },
-      quote: {
+      'quote': {
         title: 'Get Your Quote',
         description: 'Receive a clear, transparent quote within 2 hours. No hidden fees, no surprises. Confirm your booking when ready.',
       },
-      schedule: {
+      'schedule': {
         title: 'Schedule Your Clean',
         description: 'Pick a time that works for you. We offer flexible scheduling including weekends. Same-day service available.',
       },
-      clean: {
+      'clean': {
         title: 'We Clean',
         description: 'Our professional cleaner arrives on time with all necessary equipment. Sit back and enjoy your free time.',
       },
-      relax: {
+      'relax': {
         title: 'Enjoy Your Clean Home',
         description: 'Return to a spotless home. Not satisfied? Contact us within 24 hours for a free re-clean. Guaranteed.',
       },
     },
-    timeEstimates: {
-      contact: '2 minutes',
-      quote: 'Within 2 hours',
-      schedule: 'Flexible',
-      clean: '2-4 hours typical',
-      relax: 'Immediate',
+    cta: {
+      message: "Hi! I'd like to inquire about cleaning services. What's your availability?",
+      button: 'Book via WhatsApp',
     },
   },
 
   // Services
   services: {
-    title: 'Our Services',
-    subtitle: 'Professional cleaning services tailored to your needs',
-    standard: {
-      title: 'Standard Cleaning',
-      description: 'Regular home cleaning for ongoing maintenance',
-      features: {
-        dusting: 'Dusting all surfaces',
-        vacuuming: 'Vacuuming carpets and floors',
-        mopping: 'Mopping hard floors',
-        bathroom: 'Bathroom sanitization',
-        kitchen: 'Kitchen cleaning',
-        trash: 'Trash removal',
+    heading: 'Our Services',
+    subheading: 'Professional cleaning services tailored to your needs',
+    items: {
+      'standard-cleaning': {
+        title: 'Standard Cleaning',
+        description: 'Regular cleaning service for your home or apartment. Includes dusting, vacuuming, mopping, and bathroom sanitization.',
+        features: [
+          'Kitchen cleaning',
+          'Bathroom sanitization',
+          'Dusting and vacuuming',
+          'Floor mopping',
+          'Trash removal',
+          'Bed making (on request)',
+        ],
+        cta: 'Get Quote',
       },
-      cta: 'Book Standard Cleaning',
-    },
-    deep: {
-      title: 'Deep Cleaning',
-      description: 'Thorough cleaning for a fresh start',
-      features: {
-        everything: 'Everything in standard',
-        cabinets: 'Inside cabinets & drawers',
-        appliances: 'Appliance deep clean',
-        windows: 'Window interior cleaning',
-        grout: 'Grout & tile deep clean',
-        baseboards: 'Baseboards & vents',
+      'deep-cleaning': {
+        title: 'Deep Cleaning',
+        description: 'Thorough cleaning for move-in/move-out or seasonal refresh. Everything cleaned from top to bottom.',
+        features: [
+          'All standard cleaning items',
+          'Inside cabinets and drawers',
+          'Appliance deep clean',
+          'Window cleaning (interior)',
+          'Grout and tile deep clean',
+          'Baseboards and vents',
+        ],
+        cta: 'Get Quote',
       },
-      cta: 'Book Deep Cleaning',
-    },
-    airbnb: {
-      title: 'Airbnb Turnover',
-      description: 'Guest-ready properties between bookings',
-      features: {
-        turnover: 'Complete turnover service',
-        linen: 'Fresh linen change',
-        restock: 'Amenities restocking',
-        check: 'Quality inspection',
-        photos: 'Photo documentation',
-        urgent: 'Urgent turnover available',
+      'airbnb-turnover': {
+        title: 'Airbnb Turnover',
+        description: 'Fast, reliable turnover service for Airbnb hosts. Guest-ready properties guaranteed.',
+        features: [
+          'Quick turnaround time',
+          'Fresh linens setup',
+          'Restock essentials',
+          'Quality check',
+          'Photo documentation',
+          'Key handling support',
+        ],
+        cta: 'Learn More',
       },
-      cta: 'Book Airbnb Cleaning',
-    },
-    recurring: {
-      title: 'Recurring Plans',
-      description: 'Set it and forget it',
-      features: {
-        weekly: 'Weekly cleaning',
-        biweekly: 'Bi-weekly cleaning',
-        monthly: 'Monthly cleaning',
-        discount: 'Special discounts',
-        priority: 'Priority scheduling',
-        same: 'Same cleaner each visit',
+      'recurring-plans': {
+        title: 'Recurring Plans',
+        description: 'Scheduled cleaning at your convenience. Weekly, bi-weekly, or monthly options with exclusive benefits.',
+        features: [
+          'Priority scheduling',
+          'Consistent cleaner',
+          'Discounted rates',
+          'Flexible rescheduling',
+          'Free cancellation',
+          'Special perks',
+        ],
+        cta: 'View Plans',
       },
-      cta: 'View Plans',
+      'ironing-service': {
+        title: 'Ironing Service',
+        description: 'Professional ironing service to keep your wardrobe crisp and ready. Available as add-on or standalone.',
+        features: [
+          'Expert ironing',
+          'Steam treatment',
+          'Hanging or folding',
+          'Quick turnaround',
+          'Garment care',
+          'Pickup available',
+        ],
+        cta: 'Get Quote',
+      },
+      'office-cleaning': {
+        title: 'Office Cleaning',
+        description: 'Professional office and commercial space cleaning. Flexible scheduling to minimize disruption.',
+        features: [
+          'Desk and surface cleaning',
+          'Common area maintenance',
+          'Kitchenette sanitization',
+          'Restroom cleaning',
+          'Floor care',
+          'Flexible hours',
+        ],
+        cta: 'Get Quote',
+      },
     },
   },
 
   // Pricing
   pricing: {
-    title: 'Transparent Pricing',
-    subtitle: 'Clear rates for every apartment size',
+    heading: 'Transparent Pricing',
+    subheading: 'Clear rates for every apartment size',
     perHour: 'per hour',
-    standard: {
-      title: 'Standard Cleaning',
-      description: 'Regular maintenance cleaning',
+    tabs: {
+      standard: 'Standard',
+      deep: 'Deep Clean',
+      addons: 'Add-ons',
     },
-    deep: {
-      title: 'Deep Cleaning',
-      description: 'Thorough, detailed cleaning',
-    },
-    airbnb: {
-      title: 'Airbnb Turnover',
-      description: 'Guest-ready preparation',
-    },
-    addons: {
-      title: 'Add-On Services',
-      items: {
-        ironing: 'Ironing service',
-        fridge: 'Fridge deep clean',
-        oven: 'Oven deep clean',
-        windows: 'Window cleaning',
-        eco: 'Eco-friendly products',
+    offers: {
+      heading: 'Special Offers',
+      popular: 'Most Popular',
+      plans: {
+        'essential': {
+          name: 'Essential Care',
+          description: 'Bi-weekly cleaning with great savings',
+          features: [
+            'Bi-weekly visits',
+            'Same cleaner each time',
+            'Priority scheduling',
+            '50% off 5th visit',
+            '6th visit FREE',
+          ],
+          cta: 'Get Started',
+        },
+        'premium': {
+          name: 'Premium Care',
+          description: 'Weekly cleaning with maximum convenience',
+          features: [
+            'Weekly visits',
+            'Same cleaner each time',
+            'Priority scheduling',
+            '15% off every visit',
+            'Flexible rescheduling',
+          ],
+          cta: 'Get Started',
+        },
+        'vip': {
+          name: 'VIP Service',
+          description: 'Custom schedule with premium benefits',
+          features: [
+            'Custom frequency',
+            'Dedicated cleaner',
+            'Priority booking',
+            'Special requests welcome',
+            'Premium support',
+          ],
+          cta: 'Contact Us',
+        },
       },
     },
-    cta: 'Get Free Quote',
-    note: 'Prices may vary based on property condition. Contact us for an accurate quote.',
+    cta: {
+      text: 'Need a custom quote?',
+      message: "Hi! I'd like to get a quote for cleaning services.",
+      button: 'Get Free Quote',
+    },
+    table: {
+      apartment: 'Apartment',
+      size: 'Size',
+      price: 'From',
+    },
+    categories: {
+      'studio': {
+        id: 'studio',
+        label: 'Studio',
+        items: [
+          { apartment: 'Studio', size: '30-40 m²', price: '1,200 CZK' },
+        ],
+      },
+      '1bedroom': {
+        id: '1bedroom',
+        label: '1 Bedroom',
+        items: [
+          { apartment: '1 Bedroom', size: '40-60 m²', price: '1,500 CZK' },
+        ],
+      },
+      '2bedroom': {
+        id: '2bedroom',
+        label: '2 Bedroom',
+        items: [
+          { apartment: '2 Bedroom', size: '60-80 m²', price: '1,800 CZK' },
+        ],
+      },
+      '3bedroom': {
+        id: '3bedroom',
+        label: '3 Bedroom',
+        items: [
+          { apartment: '3 Bedroom', size: '80-100 m²', price: '2,200 CZK' },
+        ],
+      },
+      '4bedroom': {
+        id: '4bedroom',
+        label: '4+ Bedroom',
+        items: [
+          { apartment: '4+ Bedroom', size: '100+ m²', price: '2,600 CZK' },
+        ],
+      },
+    },
+    addons: {
+      heading: 'Add-on Services',
+      items: {
+        'ironing': 'Ironing service (+350 CZK/hour)',
+        'fridge': 'Fridge deep clean (+300 CZK)',
+        'oven': 'Oven deep clean (+300 CZK)',
+        'windows': 'Window cleaning (+50 CZK/window)',
+        'eco': 'Eco-friendly products (+10%)',
+      },
+    },
   },
 
   // Recurring Plans
   recurring: {
-    title: 'Recurring Cleaning Plans',
-    subtitle: 'Save time and money with regular cleaning',
+    heading: 'Recurring Cleaning Plans',
+    subheading: 'Save time and money with regular cleaning',
+    bestValue: 'Best Value',
     plans: {
-      essential: {
+      'essential': {
         name: 'Essential Care',
-        frequency: 'Bi-weekly',
-        discount: '50% off 5th visit, 6th FREE',
+        description: 'Bi-weekly cleaning with great savings',
+        features: [
+          'Bi-weekly visits',
+          'Same cleaner each time',
+          'Priority scheduling',
+        ],
       },
-      premium: {
+      'premium': {
         name: 'Premium Care',
-        frequency: 'Weekly',
-        discount: '15% off every visit',
+        description: 'Weekly cleaning with maximum convenience',
+        features: [
+          'Weekly visits',
+          'Same cleaner each time',
+          'Priority scheduling',
+          '15% off every visit',
+        ],
       },
-      vip: {
+      'vip': {
         name: 'VIP Service',
-        frequency: 'Custom',
-        discount: 'Priority + dedicated cleaner',
+        description: 'Custom schedule with premium benefits',
+        features: [
+          'Custom frequency',
+          'Dedicated cleaner',
+          'Priority booking',
+        ],
       },
     },
-    benefits: {
-      title: 'All plans include:',
-      items: {
-        same: 'Same cleaner each visit',
-        priority: 'Priority scheduling',
-        discount: 'Special discounts',
-        flexible: 'Flexible rescheduling',
-      },
+    cta: {
+      message: "Hi! I'm interested in the {{plan}} plan.",
+      button: 'Choose Plan',
     },
-    cta: 'Choose Your Plan',
-    contact: 'Contact us for custom plans',
   },
 
-  // Expats
+  // Expats Section
   expats: {
-    title: 'Built for Expats',
-    subtitle: 'We understand the challenges of living abroad',
-    features: {
-      language: {
+    heading: 'Built for <span class="text-accent-primary">Expats</span>',
+    subheading: 'We understand the challenges of living abroad',
+    benefits: {
+      'language': {
         title: 'No Language Barrier',
         description: 'Our team speaks English, Czech, Russian, and Ukrainian. Communicate in your preferred language.',
       },
-      communication: {
+      'communication': {
         title: 'Fast Communication',
         description: 'WhatsApp booking, quick responses, and clear communication. No waiting, no confusion.',
       },
-      quality: {
+      'quality': {
         title: 'Quality Guarantee',
-        description: 'Not satisfied? We\'ll re-clean for free within 24 hours. Your satisfaction is our priority.',
+        description: "Not satisfied? We'll re-clean for free within 24 hours. Your satisfaction is our priority.",
       },
-      trust: {
+      'trust': {
         title: 'Trusted Team',
         description: 'All cleaners are background-checked, trained, and insured. Your home is in safe hands.',
       },
     },
     cta: 'Book Your First Clean',
+    visual: 'Trusted by 2,500+ happy clients',
   },
 
   // Airbnb Section
   airbnb: {
-    title: 'Airbnb Host Partner',
-    subtitle: 'Professional turnover service for Prague hosts',
-    features: {
-      response: {
+    heading: 'Airbnb Host Partner',
+    subheading: 'Professional turnover service for Prague hosts',
+    benefits: {
+      'response': {
         title: 'Fast Response',
         description: 'We respond within 2 hours. Urgent turnover available for tight schedules.',
       },
-      quality: {
+      'quality': {
         title: 'Quality Check',
         description: 'Every turnover includes a quality inspection. Photo documentation available.',
       },
-      linen: {
+      'linen': {
         title: 'Linen Service',
-        description: 'Fresh linen change included. We handle the laundry so you don\'t have to.',
+        description: "Fresh linen change included. We handle the laundry so you don't have to.",
       },
-      keys: {
+      'keys': {
         title: 'Key Handling',
         description: 'Key collection and return service available. Flexible access arrangements.',
       },
     },
     cta: 'Partner With Us',
+    visual: 'Trusted by 50+ Airbnb hosts',
   },
 
   // Gallery
   gallery: {
-    title: 'Our Work',
-    subtitle: 'See the difference professional cleaning makes',
+    heading: 'Our Work',
+    subheading: 'See the difference professional cleaning makes',
     before: 'Before',
     after: 'After',
+    beforeLabel: 'Before',
+    afterLabel: 'After',
+    viewBefore: 'View Before',
+    viewAfter: 'View After',
+    empty: 'Gallery images coming soon',
+    categories: {
+      'all': 'All Projects',
+      'standard-cleaning': 'Standard Cleaning',
+      'deep-cleaning': 'Deep Cleaning',
+      'airbnb-turnover': 'Airbnb Turnover',
+      'office-cleaning': 'Office Cleaning',
+      'addons': 'Add-on Services',
+    },
+    items: {
+      'kitchen-deep-clean': {
+        title: 'Kitchen Deep Clean',
+      },
+      'bathroom-renovation': {
+        title: 'Bathroom Sanitization',
+      },
+      'living-room-standard': {
+        title: 'Living Room Standard Clean',
+      },
+      'bedroom-makeover': {
+        title: 'Bedroom Refresh',
+      },
+      'airbnb-turnover': {
+        title: 'Airbnb Turnover Service',
+      },
+      'office-cleaning': {
+        title: 'Office Cleaning',
+      },
+      'oven-deep-clean': {
+        title: 'Oven Deep Clean',
+      },
+      'window-cleaning': {
+        title: 'Window Cleaning',
+      },
+    },
   },
 
   // Reviews
@@ -302,7 +476,7 @@ export default {
         text: 'Exceptional service! The team was professional, punctual, and thorough. My apartment has never been cleaner. Highly recommend UKLID PLUS for anyone in Prague.',
       },
       'review-2': {
-        text: 'Best cleaning service I\'ve used in Prague. They speak English, show up on time, and do a fantastic job. The WhatsApp booking is so convenient!',
+        text: "Best cleaning service I've used in Prague. They speak English, show up on time, and do a fantastic job. The WhatsApp booking is so convenient!",
       },
       'review-3': {
         text: 'Skvělá služba! Vždy včas, důkladné úklid a příjemný personál. Rozhodně doporučuji.',
@@ -337,7 +511,7 @@ export default {
     subheading: 'Hear from our satisfied clients',
     items: {
       'testimonial-1': {
-        quote: 'I\'ve been using UKLID PLUS for my apartment in Prague 2 for over a year. Their service is impeccable, and I love that I can communicate in English. The recurring plan has made my life so much easier.',
+        quote: "I've been using UKLID PLUS for my apartment in Prague 2 for over a year. Their service is impeccable, and I love that I can communicate in English. The recurring plan has made my life so much easier.",
         author: 'Sarah M.',
       },
       'testimonial-2': {
@@ -348,138 +522,110 @@ export default {
         quote: 'Moving to Prague from the UK, I was worried about finding services in English. UKLID PLUS made everything easy. Their deep cleaning service prepared my new apartment perfectly. Professional and friendly.',
         author: 'James H.',
       },
-      'testimonial-4': {
-        quote: 'The quality of cleaning is outstanding. They pay attention to details I would never think of. My apartment has never been cleaner. The WhatsApp booking is super convenient.',
-        author: 'Anna K.',
-      },
-      'testimonial-5': {
-        quote: 'Я очень довольна их услугами! Команда говорит по-русски, что для меня важно. Качество уборки отличное, всегда вовремя. Рекомендую всем знакомым.',
-        author: 'Elena V.',
-      },
-      'testimonial-6': {
-        quote: 'Our company has been using UKLID PLUS for office cleaning for 2 years. Consistent quality, reliable scheduling, and great communication. They\'ve become an essential partner for our business.',
-        author: 'David L.',
-      },
-      'testimonial-7': {
-        quote: 'The ironing service is a lifesaver! I hate ironing, and now I don\'t have to worry about it. Quick turnaround and my shirts look perfect every time.',
-        author: 'Robert P.',
-      },
-      'testimonial-8': {
-        quote: 'Мені дуже подобається сервіс! Співробітники дуже уважні та професійні. Прибрання завжди якісне, а ціни розумні. Дякую!',
-        author: 'Olena S.',
-      },
     },
   },
 
   // FAQ
   faq: {
-    title: 'Frequently Asked Questions',
-    subtitle: 'Find answers to common questions',
-    categories: {
-      booking: 'Booking & Pricing',
-      services: 'Services',
-      recurring: 'Recurring Plans',
-      airbnb: 'Airbnb Hosts',
-      trust: 'Trust & Quality',
-      practical: 'Practical Information',
-    },
-    questions: {
-      'faq-booking-1': {
-        q: 'How do I book a cleaning service?',
-        a: 'You can book easily via WhatsApp, phone, or our contact form. Send us a message with your cleaning needs, and we\'ll respond within 2 hours with a quote and available time slots.',
-      },
-      'faq-booking-2': {
-        q: 'How much does cleaning cost?',
-        a: 'Standard cleaning starts from 1,200 CZK for a studio apartment. Deep cleaning starts from 2,390 CZK. We provide free quotes before booking, with no hidden fees. Check our pricing page for detailed rates.',
-      },
-      'faq-booking-3': {
-        q: 'Is there a minimum booking time?',
-        a: 'Yes, our minimum booking is 2 hours. This ensures we can provide thorough cleaning for any space.',
-      },
-      'faq-booking-4': {
-        q: 'Do you offer same-day service?',
-        a: 'Yes, same-day service is available for an additional 25% surcharge. Contact us early in the day for best availability.',
-      },
-      'faq-booking-5': {
-        q: 'What payment methods do you accept?',
-        a: 'We accept cash, bank transfer, and card payment. For recurring clients, we can arrange monthly invoicing.',
-      },
-      'faq-services-1': {
-        q: 'What\'s included in standard cleaning?',
-        a: 'Standard cleaning includes dusting, vacuuming, mopping, bathroom sanitization, kitchen cleaning, and trash removal. Bed making is available on request. We focus on all visible surfaces.',
-      },
-      'faq-services-2': {
-        q: 'What\'s the difference between standard and deep cleaning?',
-        a: 'Deep cleaning includes everything in standard cleaning, plus: inside cabinets and drawers, appliance deep clean, window interior cleaning, grout and tile deep clean, baseboards, and vents. It\'s recommended for move-in/move-out or seasonal refresh.',
-      },
-      'faq-services-3': {
-        q: 'Do you provide cleaning supplies?',
-        a: 'Yes, our cleaners bring all necessary cleaning supplies and equipment. If you prefer specific products (eco-friendly, specific brands), let us know and we can accommodate.',
-      },
-      'faq-services-4': {
-        q: 'Can I request eco-friendly cleaning products?',
-        a: 'Yes, we offer eco-friendly cleaning products for a 10% surcharge. These products are effective and better for the environment and your health.',
-      },
-      'faq-services-5': {
-        q: 'Do you offer ironing service?',
-        a: 'Yes, ironing service is available at 350 CZK/hour. You can add it to any cleaning booking or book it as a standalone service.',
-      },
-      'faq-recurring-1': {
-        q: 'What are the benefits of recurring cleaning plans?',
-        a: 'Recurring plans offer priority scheduling, consistent cleaner assignment, discounted rates, and special perks like free cleanings. Our Essential Care plan gives you the 5th visit at 50% off and 6th visit FREE.',
-      },
-      'faq-recurring-2': {
-        q: 'Can I change my recurring schedule?',
-        a: 'Yes, you can reschedule or adjust your recurring plan with 24 hours notice. We offer flexible scheduling to accommodate your needs.',
-      },
-      'faq-recurring-3': {
-        q: 'Is there a commitment for recurring plans?',
-        a: 'No long-term commitment is required. You can cancel your recurring plan at any time. We believe in earning your business with every visit.',
-      },
-      'faq-airbnb-1': {
-        q: 'Do you offer Airbnb turnover cleaning?',
-        a: 'Yes, we specialize in Airbnb turnover service. We understand the importance of quick turnaround times and guest-ready properties. Our service includes quality checks and photo documentation.',
-      },
-      'faq-airbnb-2': {
-        q: 'How quickly can you clean between guests?',
-        a: 'Depending on property size, our standard turnover takes 2-4 hours. We offer priority scheduling for Airbnb hosts and can accommodate tight schedules.',
-      },
-      'faq-airbnb-3': {
-        q: 'Can you handle key exchange for Airbnb guests?',
-        a: 'Yes, we offer key handling support for Airbnb hosts. Our cleaners can collect keys from your designated location or use a key safe.',
-      },
-      'faq-trust-1': {
-        q: 'Are your cleaners vetted and insured?',
-        a: 'Yes, all our cleaners are professionally trained, background-checked, and fully insured. We take trust and security seriously.',
-      },
-      'faq-trust-2': {
-        q: 'What if I\'m not satisfied with the cleaning?',
-        a: 'Your satisfaction is guaranteed. If you\'re not happy with any aspect of our service, contact us within 24 hours and we\'ll re-clean for free.',
-      },
-      'faq-trust-3': {
-        q: 'Will I have the same cleaner each time?',
-        a: 'For recurring clients, yes! We assign a dedicated cleaner to your account. For one-time cleanings, we strive for consistency, but cleaner availability may vary.',
-      },
-      'faq-practical-1': {
-        q: 'Do I need to be home during cleaning?',
-        a: 'No, you don\'t need to be present. Many clients provide key access or arrange entry. Our cleaners are trustworthy and can work independently.',
-      },
-      'faq-practical-2': {
-        q: 'What areas of Prague do you serve?',
-        a: 'We primarily serve Prague 1, 2, 5, 6, and 7. Other areas are available on request. Contact us to confirm coverage for your location.',
-      },
-      'faq-practical-3': {
-        q: 'Do you speak English?',
-        a: 'Yes! Our team speaks English, Czech, Russian, and Ukrainian. Communication is easy in your preferred language.',
-      },
-      'faq-practical-4': {
-        q: 'What are your operating hours?',
-        a: 'We operate Monday-Friday 8:00-18:00, Saturday 9:00-14:00. For existing clients, we offer 24/7 emergency contact. Weekend service has a 15% surcharge.',
-      },
-    },
+    heading: 'Frequently Asked Questions',
+    subheading: 'Find answers to common questions',
     cta: {
       text: 'Still have questions? Contact us via WhatsApp for quick answers.',
       button: 'Contact on WhatsApp',
+    },
+    questions: {
+      'faq-booking-1': {
+        question: 'How do I book a cleaning service?',
+        answer: 'You can book easily via WhatsApp, phone, or our contact form. Send us a message with your cleaning needs, and we\'ll respond within 2 hours with a quote and available time slots.',
+      },
+      'faq-booking-2': {
+        question: 'How much does cleaning cost?',
+        answer: 'Standard cleaning starts from 1,200 CZK for a studio apartment. Deep cleaning starts from 2,390 CZK. We provide free quotes before booking, with no hidden fees. Check our pricing page for detailed rates.',
+      },
+      'faq-booking-3': {
+        question: 'Is there a minimum booking time?',
+        answer: 'Yes, our minimum booking is 2 hours. This ensures we can provide thorough cleaning for any space.',
+      },
+      'faq-booking-4': {
+        question: 'Do you offer same-day service?',
+        answer: 'Yes, same-day service is available for an additional 25% surcharge. Contact us early in the day for best availability.',
+      },
+      'faq-booking-5': {
+        question: 'What payment methods do you accept?',
+        answer: 'We accept cash, bank transfer, and card payment. For recurring clients, we can arrange monthly invoicing.',
+      },
+      'faq-services-1': {
+        question: 'What\'s included in standard cleaning?',
+        answer: 'Standard cleaning includes dusting, vacuuming, mopping, bathroom sanitization, kitchen cleaning, and trash removal. Bed making is available on request. We focus on all visible surfaces.',
+      },
+      'faq-services-2': {
+        question: 'What\'s the difference between standard and deep cleaning?',
+        answer: 'Deep cleaning includes everything in standard cleaning, plus: inside cabinets and drawers, appliance deep clean, window interior cleaning, grout and tile deep clean, baseboards, and vents. It\'s recommended for move-in/move-out or seasonal refresh.',
+      },
+      'faq-services-3': {
+        question: 'Do you provide cleaning supplies?',
+        answer: 'Yes, our cleaners bring all necessary cleaning supplies and equipment. If you prefer specific products (eco-friendly, specific brands), let us know and we can accommodate.',
+      },
+      'faq-services-4': {
+        question: 'Can I request eco-friendly cleaning products?',
+        answer: 'Yes, we offer eco-friendly cleaning products for a 10% surcharge. These products are effective and better for the environment and your health.',
+      },
+      'faq-services-5': {
+        question: 'Do you offer ironing service?',
+        answer: 'Yes, ironing service is available at 350 CZK/hour. You can add it to any cleaning booking or book it as a standalone service.',
+      },
+      'faq-recurring-1': {
+        question: 'What are the benefits of recurring cleaning plans?',
+        answer: 'Recurring plans offer priority scheduling, consistent cleaner assignment, discounted rates, and special perks like free cleanings. Our Essential Care plan gives you the 5th visit at 50% off and 6th visit FREE.',
+      },
+      'faq-recurring-2': {
+        question: 'Can I change my recurring schedule?',
+        answer: 'Yes, you can reschedule or adjust your recurring plan with 24 hours notice. We offer flexible scheduling to accommodate your needs.',
+      },
+      'faq-recurring-3': {
+        question: 'Is there a commitment for recurring plans?',
+        answer: 'No long-term commitment is required. You can cancel your recurring plan at any time. We believe in earning your business with every visit.',
+      },
+      'faq-airbnb-1': {
+        question: 'Do you offer Airbnb turnover cleaning?',
+        answer: 'Yes, we specialize in Airbnb turnover service. We understand the importance of quick turnaround times and guest-ready properties. Our service includes quality checks and photo documentation.',
+      },
+      'faq-airbnb-2': {
+        question: 'How quickly can you clean between guests?',
+        answer: 'Depending on property size, our standard turnover takes 2-4 hours. We offer priority scheduling for Airbnb hosts and can accommodate tight schedules.',
+      },
+      'faq-airbnb-3': {
+        question: 'Can you handle key exchange for Airbnb guests?',
+        answer: 'Yes, we offer key handling support for Airbnb hosts. Our cleaners can collect keys from your designated location or use a key safe.',
+      },
+      'faq-trust-1': {
+        question: 'Are your cleaners vetted and insured?',
+        answer: 'Yes, all our cleaners are professionally trained, background-checked, and fully insured. We take trust and security seriously.',
+      },
+      'faq-trust-2': {
+        question: 'What if I\'m not satisfied with the cleaning?',
+        answer: 'Your satisfaction is guaranteed. If you\'re not happy with any aspect of our service, contact us within 24 hours and we\'ll re-clean for free.',
+      },
+      'faq-trust-3': {
+        question: 'Will I have the same cleaner each time?',
+        answer: 'For recurring clients, yes! We assign a dedicated cleaner to your account. For one-time cleanings, we strive for consistency, but cleaner availability may vary.',
+      },
+      'faq-practical-1': {
+        question: 'Do I need to be home during cleaning?',
+        answer: 'No, you don\'t need to be present. Many clients provide key access or arrange entry. Our cleaners are trustworthy and can work independently.',
+      },
+      'faq-practical-2': {
+        question: 'What areas of Prague do you serve?',
+        answer: 'We primarily serve Prague 1, 2, 5, 6, and 7. Other areas are available on request. Contact us to confirm coverage for your location.',
+      },
+      'faq-practical-3': {
+        question: 'Do you speak English?',
+        answer: 'Yes! Our team speaks English, Czech, Russian, and Ukrainian. Communication is easy in your preferred language.',
+      },
+      'faq-practical-4': {
+        question: 'What are your operating hours?',
+        answer: 'We operate Monday-Friday 8:00-18:00, Saturday 9:00-14:00. For existing clients, we offer 24/7 emergency contact. Weekend service has a 15% surcharge.',
+      },
     },
   },
 
@@ -501,7 +647,7 @@ export default {
       'prague-10': 'Prague 10',
     },
     cta: {
-      message: 'Hi! I\'d like to inquire about cleaning services in my area.',
+      message: "Hi! I'd like to inquire about cleaning services in my area.",
       button: 'Contact Us for Other Areas',
     },
   },
@@ -515,7 +661,7 @@ export default {
       badge: 'Fastest response',
       description: 'Message us directly for quick booking and instant replies',
       button: 'Send Message',
-      message: 'Hi! I\'d like to book a cleaning service. Please let me know your availability.',
+      message: "Hi! I'd like to book a cleaning service. Please let me know your availability.",
     },
     messenger: {
       title: 'Messenger',

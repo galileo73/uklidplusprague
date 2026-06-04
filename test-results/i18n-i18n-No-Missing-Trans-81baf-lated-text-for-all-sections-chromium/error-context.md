@@ -6,16 +6,17 @@
 
 # Test info
 
-- Name: contact.spec.ts >> Contact and WhatsApp >> WhatsApp button should have correct phone format
-- Location: tests\e2e\contact.spec.ts:51:3
+- Name: i18n.spec.ts >> i18n No Missing Translation Keys >> should display translated text for all sections
+- Location: tests\e2e\i18n.spec.ts:247:3
 
 # Error details
 
 ```
-Error: expect(received).toMatch(expected)
+Test timeout of 30000ms exceeded.
+```
 
-Expected pattern: /wa\.me\/\d+/
-Received string:  "https://wa.me/?text=howItWorks.cta.message"
+```
+Error: locator.count: Test timeout of 30000ms exceeded.
 ```
 
 # Page snapshot
@@ -49,25 +50,25 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
           - img [ref=e25]
           - text: Book Now
   - main [ref=e27]:
-    - region "hero.headline.0 hero.headline.1" [ref=e28]:
+    - region "Premium Cleaning Services in Prague" [ref=e28]:
       - generic [ref=e32]:
         - generic [ref=e33]:
           - generic [ref=e35]: U+
           - generic [ref=e36]: UKLID PLUS PRAHA
-        - heading "hero.headline.0 hero.headline.1" [level=1] [ref=e37]:
-          - generic [ref=e38]: hero.headline.0
-          - generic [ref=e39]: hero.headline.1
-        - paragraph [ref=e40]: hero.subheadline
+        - heading "Premium Cleaning Services in Prague" [level=1] [ref=e37]:
+          - generic [ref=e38]: Premium Cleaning Services
+          - generic [ref=e39]: in Prague
+        - paragraph [ref=e40]: Trusted by Expats, Professionals & Airbnb Hosts
         - generic [ref=e41]:
           - generic [ref=e42]:
             - img [ref=e43]
-            - generic [ref=e45]: hero.taglines.0
+            - generic [ref=e45]: Reliable cleaners
           - generic [ref=e46]:
             - img [ref=e47]
-            - generic [ref=e49]: hero.taglines.1
+            - generic [ref=e49]: Fast communication
           - generic [ref=e50]:
             - img [ref=e51]
-            - generic [ref=e53]: hero.taglines.2
+            - generic [ref=e53]: Recurring home-care
         - generic [ref=e54]:
           - link "Book via WhatsApp" [ref=e55] [cursor=pointer]:
             - /url: "#contact"
@@ -79,68 +80,68 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
         - /url: "#pricing"
         - generic [ref=e61]: hero.scroll
         - img [ref=e62]
-    - region "whyUklid.heading" [ref=e64]:
+    - region "Why UKLID PLUS PRAHA" [ref=e64]:
       - generic [ref=e65]:
         - generic [ref=e66]:
-          - heading "whyUklid.heading" [level=2] [ref=e67]
-          - paragraph [ref=e68]: whyUklid.subheading
+          - heading "Why UKLID PLUS PRAHA" [level=2] [ref=e67]
+          - paragraph [ref=e68]: Prague's trusted cleaning partner for expats, professionals, and Airbnb hosts
         - generic [ref=e69]:
           - generic [ref=e70]:
             - img [ref=e72]
-            - heading "whyUklid.items.professional.title" [level=3] [ref=e74]
-            - paragraph [ref=e75]: whyUklid.items.professional.description
+            - heading "Professional Team" [level=3] [ref=e74]
+            - paragraph [ref=e75]: All our cleaners are professionally trained, vetted, and insured. We use quality equipment and eco-friendly products.
           - generic [ref=e76]:
             - img [ref=e78]
-            - heading "whyUklid.items.reliable.title" [level=3] [ref=e80]
-            - paragraph [ref=e81]: whyUklid.items.reliable.description
+            - heading "Reliable Service" [level=3] [ref=e80]
+            - paragraph [ref=e81]: Punctual, trustworthy, and consistent. Your cleaner arrives on time, every time. Same cleaner for recurring clients.
           - generic [ref=e82]:
             - img [ref=e84]
-            - heading "whyUklid.items.flexible.title" [level=3] [ref=e87]
-            - paragraph [ref=e88]: whyUklid.items.flexible.description
+            - heading "Flexible Scheduling" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Book when it suits you. Weekday, weekend, or evening slots available. Reschedule or cancel without hassle.
           - generic [ref=e89]:
             - img [ref=e91]
-            - heading "whyUklid.items.satisfaction.title" [level=3] [ref=e93]
-            - paragraph [ref=e94]: whyUklid.items.satisfaction.description
-    - region "differentiators.heading" [ref=e95]:
+            - heading "Satisfaction Guaranteed" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Your happiness matters. Not 100% satisfied? We'll re-clean for free within 24 hours. No questions asked.
+    - region "Why Choose Us" [ref=e95]:
       - generic [ref=e96]:
         - generic [ref=e97]:
-          - heading "differentiators.heading" [level=2] [ref=e98]
-          - paragraph [ref=e99]: differentiators.subheading
+          - heading "Why Choose Us" [level=2] [ref=e98]
+          - paragraph [ref=e99]: What makes UKLID PLUS PRAHA the preferred choice
         - generic [ref=e100]:
           - generic [ref=e101]:
             - img [ref=e103]
-            - heading "differentiators.items.expat-trusted.title" [level=3] [ref=e105]
-            - paragraph [ref=e106]: differentiators.items.expat-trusted.description
+            - heading "Expat-Focused Service" [level=3] [ref=e105]
+            - paragraph [ref=e106]: Serving Prague's international community with professional cleaning services tailored for expats and international residents.
           - generic [ref=e107]:
             - img [ref=e109]
-            - heading "differentiators.items.multilingual.title" [level=3] [ref=e111]
-            - paragraph [ref=e112]: differentiators.items.multilingual.description
+            - heading "Multilingual Communication" [level=3] [ref=e111]
+            - paragraph [ref=e112]: Communicate in your language. Our team speaks English, Czech, Russian, and Ukrainian fluently. No language barriers.
           - generic [ref=e113]:
             - img [ref=e115]
-            - heading "differentiators.items.whatsapp-booking.title" [level=3] [ref=e117]
-            - paragraph [ref=e118]: differentiators.items.whatsapp-booking.description
+            - heading "WhatsApp Booking" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Book your cleaning in minutes via WhatsApp. Quick, convenient, and confirmed within 2 hours. No phone calls needed.
           - generic [ref=e119]:
             - img [ref=e121]
-            - heading "differentiators.items.recurring-plans.title" [level=3] [ref=e123]
-            - paragraph [ref=e124]: differentiators.items.recurring-plans.description
+            - heading "Recurring Cleaning Plans" [level=3] [ref=e123]
+            - paragraph [ref=e124]: Set it and forget it. Weekly, bi-weekly, or monthly cleanings with the same cleaner. Enjoy discounts and priority scheduling.
         - generic [ref=e125]:
           - generic [ref=e126]:
             - img [ref=e128]
-            - heading "differentiators.items.airbnb-support.title" [level=3] [ref=e130]
-            - paragraph [ref=e131]: differentiators.items.airbnb-support.description
+            - heading "Airbnb Host Support" [level=3] [ref=e130]
+            - paragraph [ref=e131]: Specialized turnover service for Airbnb hosts. Fast response times, quality guaranteed, guest-ready properties.
           - generic [ref=e132]:
             - img [ref=e134]
-            - heading "differentiators.items.transparent-pricing.title" [level=3] [ref=e136]
-            - paragraph [ref=e137]: differentiators.items.transparent-pricing.description
+            - heading "Transparent Pricing" [level=3] [ref=e136]
+            - paragraph [ref=e137]: Clear, upfront pricing with no hidden fees. Free quotes provided before booking. Pay by card, cash, or invoice.
           - generic [ref=e138]:
             - img [ref=e140]
-            - heading "differentiators.items.fast-response.title" [level=3] [ref=e142]
-            - paragraph [ref=e143]: differentiators.items.fast-response.description
-    - region "howItWorks.heading" [ref=e144]:
+            - heading "Fast Response Time" [level=3] [ref=e142]
+            - paragraph [ref=e143]: We respond within 2 hours during business hours. Same-day service available for emergencies. Always here when you need us.
+    - region "How It Works" [ref=e144]:
       - generic [ref=e145]:
         - generic [ref=e146]:
-          - heading "howItWorks.heading" [level=2] [ref=e147]
-          - paragraph [ref=e148]: howItWorks.subheading
+          - heading "How It Works" [level=2] [ref=e147]
+          - paragraph [ref=e148]: 5 simple steps to a spotless home
         - generic [ref=e151]:
           - generic [ref=e152]:
             - generic:
@@ -167,16 +168,16 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
               - generic: "5"
             - heading "Enjoy Your Clean Home" [level=3] [ref=e165]
             - paragraph [ref=e166]: Return to a spotless home. Not satisfied? Contact us within 24 hours for a free re-clean. Guaranteed.
-            - link "howItWorks.cta.button" [ref=e167] [cursor=pointer]:
-              - /url: https://wa.me/?text=howItWorks.cta.message
+            - link "Book via WhatsApp" [ref=e167] [cursor=pointer]:
+              - /url: https://wa.me/?text=Hi!%20I'd%20like%20to%20inquire%20about%20cleaning%20services.%20What's%20your%20availability%3F
               - img [ref=e168]
-              - text: howItWorks.cta.button
-    - region "expats.heading" [ref=e170]:
+              - text: Book via WhatsApp
+    - region "Built for Expats" [ref=e170]:
       - generic [ref=e172]:
         - generic [ref=e173]:
           - generic [ref=e174]:
-            - heading "expats.heading" [level=2] [ref=e175]
-            - paragraph [ref=e176]: expats.subheading
+            - heading "Built for Expats" [level=2] [ref=e175]
+            - paragraph [ref=e176]: We understand the challenges of living abroad
           - list [ref=e177]:
             - listitem [ref=e178]:
               - img [ref=e180]
@@ -201,141 +202,141 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
             - listitem [ref=e202]:
               - img [ref=e204]
               - generic [ref=e206]:
-                - text: expats.benefits.communication.title
-                - generic [ref=e207]: "- expats.benefits.communication.description"
+                - text: Fast Communication
+                - generic [ref=e207]: "- WhatsApp booking, quick responses, and clear communication. No waiting, no confusion."
             - listitem [ref=e208]:
               - img [ref=e210]
               - generic [ref=e212]:
-                - text: expats.benefits.quality.title
-                - generic [ref=e213]: "- expats.benefits.quality.description"
+                - text: Quality Guarantee
+                - generic [ref=e213]: "- Not satisfied? We'll re-clean for free within 24 hours. Your satisfaction is our priority."
           - link "Book Your First Clean" [ref=e215] [cursor=pointer]:
             - /url: "#contact"
             - img [ref=e216]
             - text: Book Your First Clean
         - generic [ref=e224]:
           - img [ref=e225]
-          - paragraph [ref=e227]: expats.visual
-    - region "services.heading" [ref=e229]:
+          - paragraph [ref=e227]: Trusted by 2,500+ happy clients
+    - region "Our Services" [ref=e229]:
       - generic [ref=e230]:
         - generic [ref=e231]:
-          - heading "services.heading" [level=2] [ref=e232]
-          - paragraph [ref=e233]: services.subheading
+          - heading "Our Services" [level=2] [ref=e232]
+          - paragraph [ref=e233]: Professional cleaning services tailored to your needs
         - generic [ref=e234]:
           - generic [ref=e235]:
             - img [ref=e237]
-            - heading "services.items.standard-cleaning.title" [level=3] [ref=e239]
-            - paragraph [ref=e240]: services.items.standard-cleaning.description
+            - heading "Standard Cleaning" [level=3] [ref=e239]
+            - paragraph [ref=e240]: Regular cleaning service for your home or apartment. Includes dusting, vacuuming, mopping, and bathroom sanitization.
             - list [ref=e241]:
               - listitem [ref=e242]:
                 - img [ref=e243]
-                - generic [ref=e245]: services.items.standard-cleaning.features.0
+                - generic [ref=e245]: Kitchen cleaning
               - listitem [ref=e246]:
                 - img [ref=e247]
-                - generic [ref=e249]: services.items.standard-cleaning.features.1
+                - generic [ref=e249]: Bathroom sanitization
               - listitem [ref=e250]:
                 - img [ref=e251]
-                - generic [ref=e253]: services.items.standard-cleaning.features.2
-            - link "services.items.standard-cleaning.cta" [ref=e254] [cursor=pointer]:
+                - generic [ref=e253]: Dusting and vacuuming
+            - link "Get Quote" [ref=e254] [cursor=pointer]:
               - /url: /pricing#standard
           - generic [ref=e255]:
             - img [ref=e257]
-            - heading "services.items.deep-cleaning.title" [level=3] [ref=e259]
-            - paragraph [ref=e260]: services.items.deep-cleaning.description
+            - heading "Deep Cleaning" [level=3] [ref=e259]
+            - paragraph [ref=e260]: Thorough cleaning for move-in/move-out or seasonal refresh. Everything cleaned from top to bottom.
             - list [ref=e261]:
               - listitem [ref=e262]:
                 - img [ref=e263]
-                - generic [ref=e265]: services.items.deep-cleaning.features.0
+                - generic [ref=e265]: All standard cleaning items
               - listitem [ref=e266]:
                 - img [ref=e267]
-                - generic [ref=e269]: services.items.deep-cleaning.features.1
+                - generic [ref=e269]: Inside cabinets and drawers
               - listitem [ref=e270]:
                 - img [ref=e271]
-                - generic [ref=e273]: services.items.deep-cleaning.features.2
-            - link "services.items.deep-cleaning.cta" [ref=e274] [cursor=pointer]:
+                - generic [ref=e273]: Appliance deep clean
+            - link "Get Quote" [ref=e274] [cursor=pointer]:
               - /url: /pricing#deep
           - generic [ref=e275]:
             - img [ref=e277]
-            - heading "services.items.airbnb-turnover.title" [level=3] [ref=e279]
-            - paragraph [ref=e280]: services.items.airbnb-turnover.description
+            - heading "Airbnb Turnover" [level=3] [ref=e279]
+            - paragraph [ref=e280]: Fast, reliable turnover service for Airbnb hosts. Guest-ready properties guaranteed.
             - list [ref=e281]:
               - listitem [ref=e282]:
                 - img [ref=e283]
-                - generic [ref=e285]: services.items.airbnb-turnover.features.0
+                - generic [ref=e285]: Quick turnaround time
               - listitem [ref=e286]:
                 - img [ref=e287]
-                - generic [ref=e289]: services.items.airbnb-turnover.features.1
+                - generic [ref=e289]: Fresh linens setup
               - listitem [ref=e290]:
                 - img [ref=e291]
-                - generic [ref=e293]: services.items.airbnb-turnover.features.2
-            - link "services.items.airbnb-turnover.cta" [ref=e294] [cursor=pointer]:
+                - generic [ref=e293]: Restock essentials
+            - link "Learn More" [ref=e294] [cursor=pointer]:
               - /url: /airbnb-hosts
           - generic [ref=e295]:
             - img [ref=e297]
-            - heading "services.items.recurring-plans.title" [level=3] [ref=e300]
-            - paragraph [ref=e301]: services.items.recurring-plans.description
+            - heading "Recurring Plans" [level=3] [ref=e300]
+            - paragraph [ref=e301]: Scheduled cleaning at your convenience. Weekly, bi-weekly, or monthly options with exclusive benefits.
             - list [ref=e302]:
               - listitem [ref=e303]:
                 - img [ref=e304]
-                - generic [ref=e306]: services.items.recurring-plans.features.0
+                - generic [ref=e306]: Priority scheduling
               - listitem [ref=e307]:
                 - img [ref=e308]
-                - generic [ref=e310]: services.items.recurring-plans.features.1
+                - generic [ref=e310]: Consistent cleaner
               - listitem [ref=e311]:
                 - img [ref=e312]
-                - generic [ref=e314]: services.items.recurring-plans.features.2
-            - link "services.items.recurring-plans.cta" [ref=e315] [cursor=pointer]:
+                - generic [ref=e314]: Discounted rates
+            - link "View Plans" [ref=e315] [cursor=pointer]:
               - /url: /pricing#plans
           - generic [ref=e316]:
             - img [ref=e318]
-            - heading "services.items.ironing-service.title" [level=3] [ref=e320]
-            - paragraph [ref=e321]: services.items.ironing-service.description
+            - heading "Ironing Service" [level=3] [ref=e320]
+            - paragraph [ref=e321]: Professional ironing service to keep your wardrobe crisp and ready. Available as add-on or standalone.
             - list [ref=e322]:
               - listitem [ref=e323]:
                 - img [ref=e324]
-                - generic [ref=e326]: services.items.ironing-service.features.0
+                - generic [ref=e326]: Expert ironing
               - listitem [ref=e327]:
                 - img [ref=e328]
-                - generic [ref=e330]: services.items.ironing-service.features.1
+                - generic [ref=e330]: Steam treatment
               - listitem [ref=e331]:
                 - img [ref=e332]
-                - generic [ref=e334]: services.items.ironing-service.features.2
-            - link "services.items.ironing-service.cta" [ref=e335] [cursor=pointer]:
+                - generic [ref=e334]: Hanging or folding
+            - link "Get Quote" [ref=e335] [cursor=pointer]:
               - /url: /pricing#addons
           - generic [ref=e336]:
             - img [ref=e338]
-            - heading "services.items.office-cleaning.title" [level=3] [ref=e340]
-            - paragraph [ref=e341]: services.items.office-cleaning.description
+            - heading "Office Cleaning" [level=3] [ref=e340]
+            - paragraph [ref=e341]: Professional office and commercial space cleaning. Flexible scheduling to minimize disruption.
             - list [ref=e342]:
               - listitem [ref=e343]:
                 - img [ref=e344]
-                - generic [ref=e346]: services.items.office-cleaning.features.0
+                - generic [ref=e346]: Desk and surface cleaning
               - listitem [ref=e347]:
                 - img [ref=e348]
-                - generic [ref=e350]: services.items.office-cleaning.features.1
+                - generic [ref=e350]: Common area maintenance
               - listitem [ref=e351]:
                 - img [ref=e352]
-                - generic [ref=e354]: services.items.office-cleaning.features.2
-            - link "services.items.office-cleaning.cta" [ref=e355] [cursor=pointer]:
+                - generic [ref=e354]: Kitchenette sanitization
+            - link "Get Quote" [ref=e355] [cursor=pointer]:
               - /url: "#contact"
-    - region "recurring.heading" [ref=e356]:
+    - region "Recurring Cleaning Plans" [ref=e356]:
       - generic [ref=e357]:
         - generic [ref=e358]:
-          - heading "recurring.heading" [level=2] [ref=e359]
-          - paragraph [ref=e360]: recurring.subheading
+          - heading "Recurring Cleaning Plans" [level=2] [ref=e359]
+          - paragraph [ref=e360]: Save time and money with regular cleaning
         - generic [ref=e361]:
           - generic [ref=e362]:
             - heading "Essential Care" [level=3] [ref=e363]
-            - paragraph [ref=e364]: recurring.plans.essential.description
+            - paragraph [ref=e364]: Bi-weekly cleaning with great savings
             - list [ref=e365]:
               - listitem [ref=e366]:
                 - img [ref=e367]
-                - generic [ref=e369]: recurring.plans.essential.features.0
+                - generic [ref=e369]: Bi-weekly visits
               - listitem [ref=e370]:
                 - img [ref=e371]
-                - generic [ref=e373]: recurring.plans.essential.features.1
+                - generic [ref=e373]: Same cleaner each time
               - listitem [ref=e374]:
                 - img [ref=e375]
-                - generic [ref=e377]: recurring.plans.essential.features.2
+                - generic [ref=e377]: Priority scheduling
               - listitem [ref=e378]:
                 - img [ref=e379]
                 - generic [ref=e381]: recurring.plans.essential.features.3
@@ -345,27 +346,27 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
               - listitem [ref=e386]:
                 - img [ref=e387]
                 - generic [ref=e389]: recurring.plans.essential.features.5
-            - link "recurring.cta.button" [ref=e390] [cursor=pointer]:
-              - /url: "#contact?text=recurring.cta.message"
+            - link "Choose Plan" [ref=e390] [cursor=pointer]:
+              - /url: "#contact?text=Hi!%20I'm%20interested%20in%20the%20Essential%20Care%20plan."
               - img [ref=e391]
-              - text: recurring.cta.button
+              - text: Choose Plan
           - generic [ref=e393]:
-            - generic [ref=e394]: recurring.bestValue
+            - generic [ref=e394]: Best Value
             - heading "Premium Care" [level=3] [ref=e395]
-            - paragraph [ref=e396]: recurring.plans.premium.description
+            - paragraph [ref=e396]: Weekly cleaning with maximum convenience
             - list [ref=e397]:
               - listitem [ref=e398]:
                 - img [ref=e399]
-                - generic [ref=e401]: recurring.plans.premium.features.0
+                - generic [ref=e401]: Weekly visits
               - listitem [ref=e402]:
                 - img [ref=e403]
-                - generic [ref=e405]: recurring.plans.premium.features.1
+                - generic [ref=e405]: Same cleaner each time
               - listitem [ref=e406]:
                 - img [ref=e407]
-                - generic [ref=e409]: recurring.plans.premium.features.2
+                - generic [ref=e409]: Priority scheduling
               - listitem [ref=e410]:
                 - img [ref=e411]
-                - generic [ref=e413]: recurring.plans.premium.features.3
+                - generic [ref=e413]: 15% off every visit
               - listitem [ref=e414]:
                 - img [ref=e415]
                 - generic [ref=e417]: recurring.plans.premium.features.4
@@ -375,23 +376,23 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
               - listitem [ref=e422]:
                 - img [ref=e423]
                 - generic [ref=e425]: recurring.plans.premium.features.6
-            - link "recurring.cta.button" [ref=e426] [cursor=pointer]:
-              - /url: "#contact?text=recurring.cta.message"
+            - link "Choose Plan" [ref=e426] [cursor=pointer]:
+              - /url: "#contact?text=Hi!%20I'm%20interested%20in%20the%20Premium%20Care%20plan."
               - img [ref=e427]
-              - text: recurring.cta.button
+              - text: Choose Plan
           - generic [ref=e429]:
             - heading "VIP Service" [level=3] [ref=e430]
-            - paragraph [ref=e431]: recurring.plans.vip.description
+            - paragraph [ref=e431]: Custom schedule with premium benefits
             - list [ref=e432]:
               - listitem [ref=e433]:
                 - img [ref=e434]
-                - generic [ref=e436]: recurring.plans.vip.features.0
+                - generic [ref=e436]: Custom frequency
               - listitem [ref=e437]:
                 - img [ref=e438]
-                - generic [ref=e440]: recurring.plans.vip.features.1
+                - generic [ref=e440]: Dedicated cleaner
               - listitem [ref=e441]:
                 - img [ref=e442]
-                - generic [ref=e444]: recurring.plans.vip.features.2
+                - generic [ref=e444]: Priority booking
               - listitem [ref=e445]:
                 - img [ref=e446]
                 - generic [ref=e448]: recurring.plans.vip.features.3
@@ -404,27 +405,27 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
               - listitem [ref=e457]:
                 - img [ref=e458]
                 - generic [ref=e460]: recurring.plans.vip.features.6
-            - link "recurring.cta.button" [ref=e461] [cursor=pointer]:
-              - /url: "#contact?text=recurring.cta.message"
+            - link "Choose Plan" [ref=e461] [cursor=pointer]:
+              - /url: "#contact?text=Hi!%20I'm%20interested%20in%20the%20VIP%20Service%20plan."
               - img [ref=e462]
-              - text: recurring.cta.button
-    - region "pricing.heading" [ref=e464]:
+              - text: Choose Plan
+    - region "Transparent Pricing" [ref=e464]:
       - generic [ref=e465]:
         - generic [ref=e466]:
-          - heading "pricing.heading" [level=2] [ref=e467]
-          - paragraph [ref=e468]: pricing.subheading
+          - heading "Transparent Pricing" [level=2] [ref=e467]
+          - paragraph [ref=e468]: Clear rates for every apartment size
         - generic [ref=e470]:
-          - button "pricing.tabs.standard" [ref=e471]: pricing.tabs.standard
-          - button "pricing.tabs.deep" [ref=e473]
-          - button "pricing.tabs.addons" [ref=e474]
+          - button "Standard" [ref=e471]: Standard
+          - button "Deep Clean" [ref=e473]
+          - button "Add-ons" [ref=e474]
         - generic [ref=e477]:
           - paragraph [ref=e479]: Regular cleaning for your home. Includes all essentials.
           - table [ref=e481]:
             - rowgroup [ref=e482]:
-              - row "pricing.table.apartment pricing.table.size pricing.table.price" [ref=e483]:
-                - columnheader "pricing.table.apartment" [ref=e484]
-                - columnheader "pricing.table.size" [ref=e485]
-                - columnheader "pricing.table.price" [ref=e486]
+              - row "Apartment Size From" [ref=e483]:
+                - columnheader "Apartment" [ref=e484]
+                - columnheader "Size" [ref=e485]
+                - columnheader "From" [ref=e486]
             - rowgroup [ref=e487]:
               - row "pricing.categories.standard.items.0.apartment ~35 m² 1,200 CZK" [ref=e488]:
                 - cell "pricing.categories.standard.items.0.apartment" [ref=e489]
@@ -459,57 +460,57 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
                 - cell "100+ m²" [ref=e518]
                 - cell "from 2,190 CZK" [ref=e519]
         - generic [ref=e520]:
-          - heading "pricing.offers.heading" [level=3] [ref=e521]
+          - heading "Special Offers" [level=3] [ref=e521]
           - generic [ref=e522]:
             - generic [ref=e523]:
-              - heading "pricing.offers.plans.essential.name" [level=4] [ref=e524]
-              - paragraph [ref=e525]: pricing.offers.plans.essential.description
+              - heading "Essential Care" [level=4] [ref=e524]
+              - paragraph [ref=e525]: Bi-weekly cleaning with great savings
               - list [ref=e526]:
                 - listitem [ref=e527]:
                   - img [ref=e528]
-                  - generic [ref=e530]: pricing.offers.plans.essential.features.0
+                  - generic [ref=e530]: Bi-weekly visits
                 - listitem [ref=e531]:
                   - img [ref=e532]
-                  - generic [ref=e534]: pricing.offers.plans.essential.features.1
+                  - generic [ref=e534]: Same cleaner each time
                 - listitem [ref=e535]:
                   - img [ref=e536]
-                  - generic [ref=e538]: pricing.offers.plans.essential.features.2
+                  - generic [ref=e538]: Priority scheduling
                 - listitem [ref=e539]:
                   - img [ref=e540]
-                  - generic [ref=e542]: pricing.offers.plans.essential.features.3
-              - link "pricing.offers.plans.essential.cta" [ref=e543] [cursor=pointer]:
+                  - generic [ref=e542]: 50% off 5th visit
+              - link "Get Started" [ref=e543] [cursor=pointer]:
                 - /url: "#contact"
             - generic [ref=e544]:
-              - generic [ref=e545]: pricing.offers.popular
-              - heading "pricing.offers.plans.premium.name" [level=4] [ref=e546]
-              - paragraph [ref=e547]: pricing.offers.plans.premium.description
+              - generic [ref=e545]: Most Popular
+              - heading "Premium Care" [level=4] [ref=e546]
+              - paragraph [ref=e547]: Weekly cleaning with maximum convenience
               - list [ref=e548]:
                 - listitem [ref=e549]:
                   - img [ref=e550]
-                  - generic [ref=e552]: pricing.offers.plans.premium.features.0
+                  - generic [ref=e552]: Weekly visits
                 - listitem [ref=e553]:
                   - img [ref=e554]
-                  - generic [ref=e556]: pricing.offers.plans.premium.features.1
+                  - generic [ref=e556]: Same cleaner each time
                 - listitem [ref=e557]:
                   - img [ref=e558]
-                  - generic [ref=e560]: pricing.offers.plans.premium.features.2
+                  - generic [ref=e560]: Priority scheduling
                 - listitem [ref=e561]:
                   - img [ref=e562]
-                  - generic [ref=e564]: pricing.offers.plans.premium.features.3
-              - link "pricing.offers.plans.premium.cta" [ref=e565] [cursor=pointer]:
+                  - generic [ref=e564]: 15% off every visit
+              - link "Get Started" [ref=e565] [cursor=pointer]:
                 - /url: "#contact"
         - generic [ref=e566]:
-          - paragraph [ref=e567]: pricing.cta.text
-          - link "pricing.cta.button" [ref=e568] [cursor=pointer]:
-            - /url: https://wa.me/?text=pricing.cta.message
+          - paragraph [ref=e567]: Need a custom quote?
+          - link "Get Free Quote" [ref=e568] [cursor=pointer]:
+            - /url: https://wa.me/?text=Hi!%20I'd%20like%20to%20get%20a%20quote%20for%20cleaning%20services.
             - img [ref=e569]
-            - text: pricing.cta.button
-    - region "airbnb.heading" [ref=e571]:
+            - text: Get Free Quote
+    - region "Airbnb Host Partner" [ref=e571]:
       - generic [ref=e573]:
         - generic [ref=e574]:
           - generic [ref=e575]:
-            - heading "airbnb.heading" [level=2] [ref=e576]
-            - paragraph [ref=e577]: airbnb.subheading
+            - heading "Airbnb Host Partner" [level=2] [ref=e576]
+            - paragraph [ref=e577]: Professional turnover service for Prague hosts
           - list [ref=e578]:
             - listitem [ref=e579]:
               - img [ref=e581]
@@ -529,8 +530,8 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
             - listitem [ref=e597]:
               - img [ref=e599]
               - generic [ref=e601]:
-                - text: airbnb.benefits.keys.title
-                - generic [ref=e602]: "- airbnb.benefits.keys.description"
+                - text: Key Handling
+                - generic [ref=e602]: "- Key collection and return service available. Flexible access arrangements."
             - listitem [ref=e603]:
               - img [ref=e605]
               - generic [ref=e607]:
@@ -547,124 +548,124 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
             - text: Partner With Us
         - generic [ref=e625]:
           - img [ref=e626]
-          - paragraph [ref=e628]: airbnb.visual
-    - region "gallery.heading & After" [ref=e630]:
+          - paragraph [ref=e628]: Trusted by 50+ Airbnb hosts
+    - region "Our Work & After" [ref=e630]:
       - generic [ref=e631]:
         - generic [ref=e632]:
-          - heading "gallery.heading & After" [level=2] [ref=e633]
-          - paragraph [ref=e634]: gallery.subheading
+          - heading "Our Work & After" [level=2] [ref=e633]
+          - paragraph [ref=e634]: See the difference professional cleaning makes
         - generic [ref=e635]:
-          - button "gallery.categories.all" [pressed] [ref=e636]
-          - button "gallery.categories.standard-cleaning" [ref=e637]
-          - button "gallery.categories.deep-cleaning" [ref=e638]
-          - button "gallery.categories.airbnb-turnover" [ref=e639]
-          - button "gallery.categories.office-cleaning" [ref=e640]
-          - button "gallery.categories.addons" [ref=e641]
+          - button "All Projects" [pressed] [ref=e636]
+          - button "Standard Cleaning" [ref=e637]
+          - button "Deep Cleaning" [ref=e638]
+          - button "Airbnb Turnover" [ref=e639]
+          - button "Office Cleaning" [ref=e640]
+          - button "Add-on Services" [ref=e641]
         - generic [ref=e642]:
           - generic [ref=e643]:
             - generic [ref=e644]:
               - generic [ref=e647]:
                 - img [ref=e649]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e653]:
                 - img [ref=e655]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e657]
-              - generic [ref=e658]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e657]
+              - generic [ref=e658]: Before
             - generic [ref=e659]:
-              - heading "gallery.items.kitchen-deep-clean.title" [level=3] [ref=e660]
-              - paragraph [ref=e661]: gallery.categories.deep-cleaning
+              - heading "Kitchen Deep Clean" [level=3] [ref=e660]
+              - paragraph [ref=e661]: Deep Cleaning
           - generic [ref=e662]:
             - generic [ref=e663]:
               - generic [ref=e666]:
                 - img [ref=e668]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e672]:
                 - img [ref=e674]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e676]
-              - generic [ref=e677]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e676]
+              - generic [ref=e677]: Before
             - generic [ref=e678]:
-              - heading "gallery.items.bathroom-renovation.title" [level=3] [ref=e679]
-              - paragraph [ref=e680]: gallery.categories.deep-cleaning
+              - heading "Bathroom Sanitization" [level=3] [ref=e679]
+              - paragraph [ref=e680]: Deep Cleaning
           - generic [ref=e681]:
             - generic [ref=e682]:
               - generic [ref=e685]:
                 - img [ref=e687]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e691]:
                 - img [ref=e693]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e695]
-              - generic [ref=e696]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e695]
+              - generic [ref=e696]: Before
             - generic [ref=e697]:
-              - heading "gallery.items.living-room-standard.title" [level=3] [ref=e698]
-              - paragraph [ref=e699]: gallery.categories.standard-cleaning
+              - heading "Living Room Standard Clean" [level=3] [ref=e698]
+              - paragraph [ref=e699]: Standard Cleaning
           - generic [ref=e700]:
             - generic [ref=e701]:
               - generic [ref=e704]:
                 - img [ref=e706]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e710]:
                 - img [ref=e712]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e714]
-              - generic [ref=e715]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e714]
+              - generic [ref=e715]: Before
             - generic [ref=e716]:
-              - heading "gallery.items.bedroom-makeover.title" [level=3] [ref=e717]
-              - paragraph [ref=e718]: gallery.categories.standard-cleaning
+              - heading "Bedroom Refresh" [level=3] [ref=e717]
+              - paragraph [ref=e718]: Standard Cleaning
           - generic [ref=e719]:
             - generic [ref=e720]:
               - generic [ref=e723]:
                 - img [ref=e725]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e729]:
                 - img [ref=e731]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e733]
-              - generic [ref=e734]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e733]
+              - generic [ref=e734]: Before
             - generic [ref=e735]:
-              - heading "gallery.items.airbnb-turnover.title" [level=3] [ref=e736]
-              - paragraph [ref=e737]: gallery.categories.airbnb-turnover
+              - heading "Airbnb Turnover Service" [level=3] [ref=e736]
+              - paragraph [ref=e737]: Airbnb Turnover
           - generic [ref=e738]:
             - generic [ref=e739]:
               - generic [ref=e742]:
                 - img [ref=e744]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e748]:
                 - img [ref=e750]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e752]
-              - generic [ref=e753]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e752]
+              - generic [ref=e753]: Before
             - generic [ref=e754]:
-              - heading "gallery.items.office-cleaning.title" [level=3] [ref=e755]
-              - paragraph [ref=e756]: gallery.categories.office-cleaning
+              - heading "Office Cleaning" [level=3] [ref=e755]
+              - paragraph [ref=e756]: Office Cleaning
           - generic [ref=e757]:
             - generic [ref=e758]:
               - generic [ref=e761]:
                 - img [ref=e763]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e767]:
                 - img [ref=e769]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e771]
-              - generic [ref=e772]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e771]
+              - generic [ref=e772]: Before
             - generic [ref=e773]:
-              - heading "gallery.items.oven-deep-clean.title" [level=3] [ref=e774]
-              - paragraph [ref=e775]: gallery.categories.addons
+              - heading "Oven Deep Clean" [level=3] [ref=e774]
+              - paragraph [ref=e775]: Add-on Services
           - generic [ref=e776]:
             - generic [ref=e777]:
               - generic [ref=e780]:
                 - img [ref=e782]
-                - text: gallery.beforeLabel
+                - text: Before
               - generic [ref=e786]:
                 - img [ref=e788]
-                - text: gallery.afterLabel
-              - button "gallery.viewAfter" [ref=e790]
-              - generic [ref=e791]: gallery.beforeLabel
+                - text: After
+              - button "View After" [ref=e790]
+              - generic [ref=e791]: Before
             - generic [ref=e792]:
-              - heading "gallery.items.window-cleaning.title" [level=3] [ref=e793]
-              - paragraph [ref=e794]: gallery.categories.addons
+              - heading "Window Cleaning" [level=3] [ref=e793]
+              - paragraph [ref=e794]: Add-on Services
     - region "Google Reviews" [ref=e795]:
       - generic [ref=e796]:
         - generic [ref=e797]:
@@ -788,11 +789,11 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
               - generic [ref=e969]:
                 - paragraph [ref=e970]: James H.
                 - paragraph [ref=e971]: Software Developer, Prague 5
-    - region "faq.heading" [ref=e972]:
+    - region "Frequently Asked Questions" [ref=e972]:
       - generic [ref=e974]:
         - generic [ref=e975]:
-          - heading "faq.heading" [level=2] [ref=e976]
-          - paragraph [ref=e977]: faq.subheading
+          - heading "Frequently Asked Questions" [level=2] [ref=e976]
+          - paragraph [ref=e977]: Find answers to common questions
         - generic [ref=e979]:
           - generic [ref=e980]:
             - button "How do I book a cleaning service?" [expanded] [ref=e981]:
@@ -1034,112 +1035,153 @@ Received string:  "https://wa.me/?text=howItWorks.cta.message"
       - generic [ref=e1273]:
         - paragraph [ref=e1274]: © 2026 UKLID PLUS PRAHA. All rights reserved.
         - paragraph [ref=e1275]: Professional cleaning services for expats in Prague
-  - link "Chat with us on WhatsApp":
+  - link "Chat with us on WhatsApp" [ref=e1276] [cursor=pointer]:
     - /url: "#contact?text=Hi!%20I%20would%20like%20to%20book%20a%20cleaning%20service."
-    - generic: Chat Now
+    - img [ref=e1278]
+    - generic [ref=e1280]: Chat Now
 ```
 
 # Test source
 
 ```ts
-  1  | import { test, expect } from '@playwright/test';
-  2  | 
-  3  | test.describe('Contact and WhatsApp', () => {
-  4  |   test.beforeEach(async ({ page }) => {
-  5  |     await page.goto('/');
-  6  |   });
-  7  | 
-  8  |   test('should have WhatsApp link', async ({ page }) => {
-  9  |     // Find WhatsApp link
-  10 |     const whatsappLink = page.locator('a[href*="wa.me"], a[href*="whatsapp"]');
-  11 | 
-  12 |     if (await whatsappLink.count() > 0) {
-  13 |       await expect(whatsappLink.first()).toBeVisible();
-  14 |       const href = await whatsappLink.first().getAttribute('href');
-  15 |       expect(href).toContain('wa.me');
-  16 |     }
-  17 |   });
-  18 | 
-  19 |   test('should have phone number link', async ({ page }) => {
-  20 |     // Find phone link
-  21 |     const phoneLink = page.locator('a[href^="tel:"]');
-  22 | 
-  23 |     if (await phoneLink.count() > 0) {
-  24 |       await expect(phoneLink.first()).toBeVisible();
-  25 |       const href = await phoneLink.first().getAttribute('href');
-  26 |       expect(href).toContain('tel:');
-  27 |     }
-  28 |   });
-  29 | 
-  30 |   test('should have email contact', async ({ page }) => {
-  31 |     // Find email link
-  32 |     const emailLink = page.locator('a[href^="mailto:"]');
-  33 | 
-  34 |     if (await emailLink.count() > 0) {
-  35 |       const href = await emailLink.first().getAttribute('href');
-  36 |       expect(href).toContain('mailto:');
-  37 |     }
-  38 |   });
-  39 | 
-  40 |   test('should display contact section', async ({ page }) => {
-  41 |     // Scroll to contact or find contact section
-  42 |     const contactSection = page.locator('section').filter({
-  43 |       hasText: /kontakt|contact/i
-  44 |     });
-  45 | 
-  46 |     if (await contactSection.count() > 0) {
-  47 |       await expect(contactSection.first()).toBeVisible();
-  48 |     }
-  49 |   });
-  50 | 
-  51 |   test('WhatsApp button should have correct phone format', async ({ page }) => {
-  52 |     const whatsappLink = page.locator('a[href*="wa.me"]');
-  53 | 
-  54 |     if (await whatsappLink.count() > 0) {
-  55 |       const href = await whatsappLink.first().getAttribute('href');
-  56 |       // Should contain phone number in international format
-> 57 |       expect(href).toMatch(/wa\.me\/\d+/);
-     |                    ^ Error: expect(received).toMatch(expected)
-  58 |     }
-  59 |   });
-  60 | 
-  61 |   test('should have working contact form if present', async ({ page }) => {
-  62 |     await page.goto('/contact');
-  63 | 
-  64 |     const form = page.locator('form');
-  65 | 
-  66 |     if (await form.count() > 0) {
-  67 |       // Check form has required fields
-  68 |       const nameInput = form.locator('input[name*="name"], input[placeholder*="jmén"], input[placeholder*="name"]');
-  69 |       const emailInput = form.locator('input[type="email"], input[name*="email"], input[placeholder*="email"]');
-  70 |       const submitButton = form.locator('button[type="submit"]');
-  71 | 
-  72 |       if (await nameInput.count() > 0) {
-  73 |         await expect(nameInput.first()).toBeVisible();
-  74 |       }
-  75 |       if (await emailInput.count() > 0) {
-  76 |         await expect(emailInput.first()).toBeVisible();
-  77 |       }
-  78 |       if (await submitButton.count() > 0) {
-  79 |         await expect(submitButton).toBeVisible();
-  80 |       }
-  81 |     }
-  82 |   });
-  83 | 
-  84 |   test('contact information should be visible in footer', async ({ page }) => {
-  85 |     // Scroll to bottom
-  86 |     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  87 |     await page.waitForTimeout(300);
-  88 | 
-  89 |     // Footer should contain contact info
-  90 |     const footer = page.locator('footer');
-  91 |     await expect(footer).toBeVisible();
-  92 | 
-  93 |     // Should have some contact information
-  94 |     const contactInfo = footer.locator('text=/\\+420|@|Praha/i');
-  95 |     if (await contactInfo.count() > 0) {
-  96 |       await expect(contactInfo.first()).toBeVisible();
-  97 |     }
-  98 |   });
-  99 | });
+  160 |     await expect(heroHeading).not.toBeEmpty();
+  161 | 
+  162 |     // The heading should have some content
+  163 |     const headingText = await heroHeading.textContent();
+  164 |     expect(headingText?.length).toBeGreaterThan(3);
+  165 |   });
+  166 | 
+  167 |   test('should translate services section', async ({ page }) => {
+  168 |     // Scroll to services section
+  169 |     await page.locator('#services').scrollIntoViewIfNeeded();
+  170 | 
+  171 |     // Check that service cards have translated content
+  172 |     const serviceCards = page.locator('#services [class*="card"]').or(
+  173 |       page.locator('#services article').or(page.locator('#services > div > div'))
+  174 |     );
+  175 | 
+  176 |     const count = await serviceCards.count();
+  177 |     expect(count).toBeGreaterThan(0);
+  178 | 
+  179 |     // Each service card should have a title
+  180 |     for (let i = 0; i < Math.min(count, 3); i++) {
+  181 |       const card = serviceCards.nth(i);
+  182 |       const title = card.locator('h3');
+  183 |       await expect(title).not.toBeEmpty();
+  184 |     }
+  185 |   });
+  186 | 
+  187 |   test('should translate contact section', async ({ page }) => {
+  188 |     // Scroll to contact section
+  189 |     await page.locator('#contact').scrollIntoViewIfNeeded();
+  190 | 
+  191 |     // Check that contact heading is translated
+  192 |     const contactHeading = page.locator('#contact h2');
+  193 |     await expect(contactHeading).not.toBeEmpty();
+  194 |   });
+  195 | });
+  196 | 
+  197 | test.describe('i18n SEO Language Attributes', () => {
+  198 |   test('should have html lang attribute', async ({ page }) => {
+  199 |     await page.goto('/');
+  200 | 
+  201 |     // Check that html has a lang attribute
+  202 |     const htmlLang = await page.locator('html').getAttribute('lang');
+  203 |     expect(htmlLang).toBeTruthy();
+  204 |   });
+  205 | 
+  206 |   test('should update lang attribute when language changes', async ({ page }) => {
+  207 |     await page.goto('/');
+  208 | 
+  209 |     // Get initial lang
+  210 |     const initialLang = await page.locator('html').getAttribute('lang');
+  211 | 
+  212 |     // Switch to Czech
+  213 |     const langButton = page.locator('header button').filter({ hasText: /^EN$|^CZ$/ }).first();
+  214 |     await langButton.click();
+  215 | 
+  216 |     const czOption = page.locator('button:has-text("CZ")').or(page.locator('button:has-text("Čeština")'));
+  217 |     await czOption.first().click();
+  218 | 
+  219 |     await page.waitForTimeout(500);
+  220 | 
+  221 |     // Check that lang attribute updated
+  222 |     const newLang = await page.locator('html').getAttribute('lang');
+  223 | 
+  224 |     // The language should have changed to 'cz' or similar
+  225 |     // Note: The implementation may need to update this dynamically
+  226 |     // For now, we just verify it's a valid language code
+  227 |     expect(newLang).toBeTruthy();
+  228 |   });
+  229 | });
+  230 | 
+  231 | test.describe('i18n No Missing Translation Keys', () => {
+  232 |   test('should not show translation keys as visible text', async ({ page }) => {
+  233 |     await page.goto('/');
+  234 | 
+  235 |     // Get page content
+  236 |     const content = await page.content();
+  237 | 
+  238 |     // Should not contain raw translation keys like "hero.heading" or "services.title"
+  239 |     // Translation keys typically follow pattern: namespace.key or namespace.key.subkey
+  240 |     const hasRawKeys = /['"]?[a-z]+\.[a-z]+(\.[a-z0-9_-]+)*['"]?/i.test(content);
+  241 | 
+  242 |     // This is a loose check - we verify no obvious translation key patterns
+  243 |     // appear as visible content
+  244 |     expect(hasRawKeys).toBe(false);
+  245 |   });
+  246 | 
+  247 |   test('should display translated text for all sections', async ({ page }) => {
+  248 |     await page.goto('/');
+  249 | 
+  250 |     // Scroll through the page to trigger lazy-loaded content
+  251 |     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  252 |     await page.waitForTimeout(500);
+  253 |     await page.evaluate(() => window.scrollTo(0, 0));
+  254 | 
+  255 |     // Check main sections have content
+  256 |     const sections = ['#hero', '#why-us', '#services', '#pricing', '#contact'];
+  257 | 
+  258 |     for (const section of sections) {
+  259 |       const sectionEl = page.locator(section);
+> 260 |       if (await sectionEl.count() > 0) {
+      |                           ^ Error: locator.count: Test timeout of 30000ms exceeded.
+  261 |         const text = await sectionEl.textContent();
+  262 |         // Section should have substantial text content (translated)
+  263 |         expect(text?.length).toBeGreaterThan(50);
+  264 |       }
+  265 |     }
+  266 |   });
+  267 | });
+  268 | 
+  269 | test.describe('i18n Mobile Menu Language Selector', () => {
+  270 |   test.use({ viewport: { width: 375, height: 667 } });
+  271 | 
+  272 |   test('should have language selector in mobile menu', async ({ page }) => {
+  273 |     await page.goto('/');
+  274 | 
+  275 |     // Open mobile menu
+  276 |     const menuButton = page.locator('button[aria-label*="menu"]').or(
+  277 |       page.locator('button[aria-label*="Menu"]')
+  278 |     ).or(
+  279 |       page.locator('button').filter({ hasText: /^☰$/ })
+  280 |     );
+  281 | 
+  282 |     if (await menuButton.count() > 0) {
+  283 |       await menuButton.first().click();
+  284 | 
+  285 |       // Check for language options in mobile menu
+  286 |       const mobileMenu = page.locator('[role="dialog"]').or(page.locator('[data-testid="mobile-menu"]'));
+  287 | 
+  288 |       // Mobile menu should have language selector or options
+  289 |       const langOptions = mobileMenu.locator('button:has-text("EN")').or(
+  290 |         mobileMenu.locator('button:has-text("CZ")')
+  291 |       );
+  292 | 
+  293 |       if (await langOptions.count() > 0) {
+  294 |         await expect(langOptions.first()).toBeVisible();
+  295 |       }
+  296 |     }
+  297 |   });
+  298 | });
 ```

@@ -22,13 +22,12 @@ export interface Language {
 }
 
 // Service types
+// Note: All visible text is loaded from i18n using keys like services.items.{id}.title
 export interface Service {
   id: string;
   icon: string;
-  title: string;
-  description: string;
-  features?: string[];
-  cta?: { label: string; href: string };
+  featureCount: number;
+  cta?: { href: string };
 }
 
 // Pricing types
@@ -81,10 +80,10 @@ export interface Review {
 }
 
 // FAQ types
+// Note: All visible text (question, answer) is loaded from i18n
+// using keys like: faq.questions.{id}.question, faq.questions.{id}.answer
 export interface FAQItem {
   id: string;
-  question: string;
-  answer: string;
 }
 
 // Service area types
@@ -95,27 +94,25 @@ export interface ServiceArea {
 }
 
 // Differentiator types
+// Note: All visible text is loaded from i18n using keys like differentiators.items.{id}.title
 export interface Differentiator {
   id: string;
   icon: string;
-  title: string;
-  description: string;
 }
 
 // How it works step types
+// Note: All visible text is loaded from i18n using keys like howItWorks.steps.{id}.title
 export interface HowItWorksStep {
   id: string;
   number: number;
-  title: string;
-  description: string;
 }
 
 // Gallery item types
+// Note: All visible text (title) is loaded from i18n using keys like gallery.items.{id}.title
 export interface GalleryItem {
   id: string;
   before: string;
   after: string;
-  title: string;
   category?: string;
 }
 
@@ -173,9 +170,8 @@ export interface LocalBusinessSchema extends JSONLDSchema {
 }
 
 // Why Uklid section type
+// Note: All visible text is loaded from i18n using keys like whyUklid.items.{id}.title
 export interface WhyUklidItem {
   id: string;
   icon: string;
-  title: string;
-  description: string;
 }

@@ -1,5 +1,5 @@
 export default {
-  // Header
+  // Header Navigation
   nav: {
     home: 'Domů',
     services: 'Služby',
@@ -10,16 +10,15 @@ export default {
     scroll: 'Posunout',
   },
 
-  // Hero
+  // Hero Section
   hero: {
-    title1: 'Prémiové Čistící Služby',
-    title2: 'v Praze',
-    subtitle: 'Důvěřují nám Expati, Profesionálové & Airbnb Hostitelé',
-    taglines: {
-      reliable: 'Spolehliví uklízeči',
-      fast: 'Rychlá komunikace',
-      recurring: 'Pravidelný úklid',
-    },
+    headline: ['Prémiové Čistící Služby', 'v Praze'],
+    subheadline: 'Důvěřují nám Expati, Profesionálové & Airbnb Hostitelé',
+    taglines: [
+      'Spolehliví uklízeči',
+      'Rychlá komunikace',
+      'Pravidelný úklid',
+    ],
     cta: {
       whatsapp: 'Rezervovat přes WhatsApp',
       pricing: 'Zobrazit Ceny',
@@ -28,260 +27,435 @@ export default {
 
   // Why UKLID PLUS
   whyUklid: {
-    title: 'Proč UKLID PLUS PRAHA',
-    subtitle: 'Důvěryhodný partner pro úklid v Praze pro expaty, profesionály a Airbnb hostitele',
+    heading: 'Proč UKLID PLUS PRAHA',
+    subheading: 'Důvěryhodný partner pro úklid v Praze pro expaty, profesionály a Airbnb hostitele',
+    items: {
+      'professional': {
+        title: 'Profesionální Tým',
+        description: 'Všichni naši uklízeči jsou profesionálně vyškoleni, prověřeni a pojištěni. Používáme kvalitní vybavení a ekologické produkty.',
+      },
+      'reliable': {
+        title: 'Spolehlivá Služba',
+        description: 'Včasní, důvěryhodní a konzistentní. Váš uklízeč přijede včas, pokaždé. Stejný uklízeč pro pravidelné klienty.',
+      },
+      'flexible': {
+        title: 'Flexibilní Plánování',
+        description: 'Rezervujte, když vám to vyhovuje. Dostupné sloty v pracovní dny, víkendy nebo večery. Přeplánujte nebo zrušte bez problémů.',
+      },
+      'satisfaction': {
+        title: 'Garance Spokojenosti',
+        description: 'Vaše spokojenost je důležitá. Nejste 100% spokojeni? Znovu uklidíme zdarma do 24 hodin. Bez dotazů.',
+      },
+    },
   },
 
   // Differentiators
   differentiators: {
-    'expat-trusted': {
-      title: 'Služby pro Expaty',
-      description: 'Sloužíme mezinárodní komunitě v Praze s profesionálními úklidovými službami přizpůsobenými pro expaty a mezinárodní rezidenty.',
-    },
-    multilingual: {
-      title: 'Vícejazyčná Komunikace',
-      description: 'Komunikujte ve svém jazyce. Náš tým plynně hovoří anglicky, česky, rusky a ukrajinsky. Žádné jazykové bariéry.',
-    },
-    'whatsapp-booking': {
-      title: 'Rezervace přes WhatsApp',
-      description: 'Rezervujte úklid během několika minut přes WhatsApp. Rychlé, pohodlné, potvrzeno do 2 hodin. Žádné telefonáty.',
-    },
-    'recurring-plans': {
-      title: 'Pravidelné Úklidové Plány',
-      description: 'Nastavte a zapomeňte. Týdenní, čtrnáctidenní nebo měsíční úklid se stejným uklízečem. Užijte si slevy a prioritní plánování.',
-    },
-    'airbnb-support': {
-      title: 'Podpora pro Airbnb Hostitele',
-      description: 'Specializovaná služba pro hostitele Airbnb. Rychlá odezva, garance kvality, nemovitosti připravené pro hosty.',
-    },
-    'transparent-pricing': {
-      title: 'Transparentní Ceny',
-      description: 'Jasné, předem stanovené ceny bez skrytých poplatků. Bezplatné cenové nabídky před rezervací. Platba kartou, hotově nebo fakturou.',
-    },
-    'fast-response': {
-      title: 'Rychlá Odezva',
-      description: 'Reagujeme do 2 hodin během pracovní doby. Služba ve stejný den k dispozici pro naléhavé případy. Vždy tu pro vás, když nás potřebujete.',
-    },
-    'quality-guarantee': {
-      title: 'Garance Kvality',
-      description: 'Nejste spokojeni? Znovu uklidíme zdarma do 24 hodin. Vaše spokojenost je naší prioritou. Plně pojištěno a zaručeno.',
+    heading: 'Proč Nás Vybrat',
+    subheading: 'Co dělá UKLID PLUS PRAHA preferovanou volbou',
+    items: {
+      'expat-trusted': {
+        title: 'Služby pro Expaty',
+        description: 'Sloužíme mezinárodní komunitě v Praze s profesionálními úklidovými službami přizpůsobenými pro expaty a mezinárodní rezidenty.',
+      },
+      'multilingual': {
+        title: 'Vícejazyčná Komunikace',
+        description: 'Komunikujte ve svém jazyce. Náš tým plynně hovoří anglicky, česky, rusky a ukrajinsky. Žádné jazykové bariéry.',
+      },
+      'whatsapp-booking': {
+        title: 'Rezervace přes WhatsApp',
+        description: 'Rezervujte úklid během několika minut přes WhatsApp. Rychlé, pohodlné, potvrzeno do 2 hodin. Žádné telefonáty.',
+      },
+      'recurring-plans': {
+        title: 'Pravidelné Úklidové Plány',
+        description: 'Nastavte a zapomeňte. Týdenní, čtrnáctidenní nebo měsíční úklid se stejným uklízečem. Užijte si slevy a prioritní plánování.',
+      },
+      'airbnb-support': {
+        title: 'Podpora pro Airbnb Hostitele',
+        description: 'Specializovaná služba pro hostitele Airbnb. Rychlá odezva, garance kvality, nemovitosti připravené pro hosty.',
+      },
+      'transparent-pricing': {
+        title: 'Transparentní Ceny',
+        description: 'Jasné, předem stanovené ceny bez skrytých poplatků. Bezplatné cenové nabídky před rezervací. Platba kartou, hotově nebo fakturou.',
+      },
+      'fast-response': {
+        title: 'Rychlá Odezva',
+        description: 'Reagujeme do 2 hodin během pracovní doby. Služba ve stejný den k dispozici pro naléhavé případy. Vždy tu pro vás, když nás potřebujete.',
+      },
+      'quality-guarantee': {
+        title: 'Garance Kvality',
+        description: 'Nejste spokojeni? Znovu uklidíme zdarma do 24 hodin. Vaše spokojenost je naší prioritou. Plně pojištěno a zaručeno.',
+      },
     },
   },
 
   // How It Works
   howItWorks: {
-    title: 'Jak To Funguje',
-    subtitle: '5 jednoduchých kroků k čistému domovu',
+    heading: 'Jak To Funguje',
+    subheading: '5 jednoduchých kroků k čistému domovu',
     steps: {
-      contact: {
+      'contact': {
         title: 'Kontaktujte Nás',
         description: 'Ozvěte se přes WhatsApp, telefon nebo náš kontaktní formulář. Řekněte nám o svých potřebách úklidu a preferovaném čase.',
       },
-      quote: {
+      'quote': {
         title: 'Získejte Cenovou Nabídku',
         description: 'Obdržte jasnou, transparentní nabídku do 2 hodin. Žádné skryté poplatky, žádná překvapení. Potvrďte rezervaci, až budete připraveni.',
       },
-      schedule: {
+      'schedule': {
         title: 'Naplánujte Úklid',
         description: 'Vyberte si čas, který vám vyhovuje. Nabízíme flexibilní plánování včetně víkendů. Služba ve stejný den k dispozici.',
       },
-      clean: {
+      'clean': {
         title: 'Uklízíme',
         description: 'Náš profesionální uklízeč přijede včas s vším potřebným vybavením. Užijte si svůj volný čas.',
       },
-      relax: {
+      'relax': {
         title: 'Užijte Si Čistý Domov',
         description: 'Vraťte se do bezvadného domova. Nejste spokojeni? Kontaktujte nás do 24 hodin pro bezplatný přeuklid. Garantováno.',
       },
     },
-    timeEstimates: {
-      contact: '2 minuty',
-      quote: 'Do 2 hodin',
-      schedule: 'Flexibilní',
-      clean: 'Obvykle 2-4 hodiny',
-      relax: 'Okamžitě',
+    cta: {
+      message: 'Dobrý den! Mám zájem o úklidové služby. Jaká je vaše dostupnost?',
+      button: 'Rezervovat přes WhatsApp',
     },
   },
 
   // Services
   services: {
-    title: 'Naše Služby',
-    subtitle: 'Profesionální úklidové služby přizpůsobené vašim potřebám',
-    standard: {
-      title: 'Standardní Úklid',
-      description: 'Pravidelný úklid domácnosti pro průběžnou údržbu',
-      features: {
-        dusting: 'Vytírání všech povrchů',
-        vacuuming: 'Vysávání koberců a podlah',
-        mopping: 'Mokré čištění tvrdých podlah',
-        bathroom: 'Desinfekce koupelny',
-        kitchen: 'Čištění kuchyně',
-        trash: 'Odvoz odpadu',
+    heading: 'Naše Služby',
+    subheading: 'Profesionální úklidové služby přizpůsobené vašim potřebám',
+    items: {
+      'standard-cleaning': {
+        title: 'Standardní Úklid',
+        description: 'Pravidelný úklid vašeho domova nebo bytu. Zahrnuje vytírání, vysávání, mytí podlah a desinfekci koupelny.',
+        features: [
+          'Úklid kuchyně',
+          'Desinfekce koupelny',
+          'Vytírání a vysávání',
+          'Mytí podlah',
+          'Odvoz odpadu',
+          'Úprava postele (na přání)',
+        ],
+        cta: 'Získat Nabídku',
       },
-      cta: 'Rezervovat Standardní Úklid',
-    },
-    deep: {
-      title: 'Hluboký Úklid',
-      description: 'Důkladný úklid pro čerstvý začátek',
-      features: {
-        everything: 'Vše ze standardního',
-        cabinets: 'Uvnitř skříněk a zásuvek',
-        appliances: 'Hluboké čištění spotřebičů',
-        windows: 'Čištění vnitřních oken',
-        grout: 'Hluboké čištění spár a dlaždic',
-        baseboards: 'Patní lišty a ventily',
+      'deep-cleaning': {
+        title: 'Hluboký Úklid',
+        description: 'Důkladný úklid pro stěhování nebo sezónní obnovu. Vše uklizeno odshora dolů.',
+        features: [
+          'Vše ze standardního úklidu',
+          'Uvnitř skříněk a zásuvek',
+          'Hluboký úklid spotřebičů',
+          'Mytí oken (interiér)',
+          'Hluboký úklid spár a dlaždic',
+          'Patní lišty a ventily',
+        ],
+        cta: 'Získat Nabídku',
       },
-      cta: 'Rezervovat Hluboký Úklid',
-    },
-    airbnb: {
-      title: 'Airbnb Turnover',
-      description: 'Nemovitosti připravené pro hosty mezi rezervacemi',
-      features: {
-        turnover: 'Kompletní turnover služba',
-        linen: 'Výměna čistého prádla',
-        restock: 'Doplnění spotřebičů',
-        check: 'Kontrola kvality',
-        photos: 'Fotodokumentace',
-        urgent: 'Nouzový turnover k dispozici',
+      'airbnb-turnover': {
+        title: 'Airbnb Turnover',
+        description: 'Rychlá, spolehlivá služba pro hostitele Airbnb. Garance nemovitostí připravených pro hosty.',
+        features: [
+          'Rychlý turnaround',
+          'Příprava čistého prádla',
+          'Doplnění nezbytností',
+          'Kontrola kvality',
+          'Fotodokumentace',
+          'Podpora předávání klíčů',
+        ],
+        cta: 'Zjistit Více',
       },
-      cta: 'Rezervovat Airbnb Úklid',
-    },
-    recurring: {
-      title: 'Pravidelné Plány',
-      description: 'Nastavte a zapomeňte',
-      features: {
-        weekly: 'Týdenní úklid',
-        biweekly: 'Čtrnáctidenní úklid',
-        monthly: 'Měsíční úklid',
-        discount: 'Speciální slevy',
-        priority: 'Prioritní plánování',
-        same: 'Stejný uklízeč pokaždé',
+      'recurring-plans': {
+        title: 'Pravidelné Plány',
+        description: 'Plánovaný úklid podle vašich potřeb. Týdenní, čtrnáctidenní nebo měsíční možnosti s exkluzivními výhodami.',
+        features: [
+          'Prioritní plánování',
+          'Stálý uklízeč',
+          'Zvýhodněné sazby',
+          'Flexibilní přeplánování',
+          'Bezplatné zrušení',
+          'Speciální výhody',
+        ],
+        cta: 'Zobrazit Plány',
       },
-      cta: 'Zobrazit Plány',
+      'ironing-service': {
+        title: 'Žehlení',
+        description: 'Profesionální služba žehlení pro udržení vašeho šatníku v perfektním stavu. Dostupné jako doplněk nebo samostatně.',
+        features: [
+          'Expertní žehlení',
+          'Parní ošetření',
+          'Zavěšení nebo skládání',
+          'Rychlý turnaround',
+          'Péče o oblečení',
+          'Vyzvednutí možné',
+        ],
+        cta: 'Získat Nabídku',
+      },
+      'office-cleaning': {
+        title: 'Úklid Kanceláří',
+        description: 'Profesionální úklid kanceláří a komerčních prostor. Flexibilní plánování pro minimalizaci narušení.',
+        features: [
+          'Úklid psacích stolů a povrchů',
+          'Údržba společných prostor',
+          'Desinfekce kuchyňky',
+          'Úklid toalet',
+          'Péče o podlahy',
+          'Flexibilní hodiny',
+        ],
+        cta: 'Získat Nabídku',
+      },
     },
   },
 
   // Pricing
   pricing: {
-    title: 'Transparentní Ceny',
-    subtitle: 'Jasná sazby pro každou velikost bytu',
+    heading: 'Transparentní Ceny',
+    subheading: 'Jasná sazby pro každou velikost bytu',
     perHour: 'za hodinu',
-    standard: {
-      title: 'Standardní Úklid',
-      description: 'Pravidelný údržbový úklid',
+    tabs: {
+      standard: 'Standardní',
+      deep: 'Hluboký',
+      addons: 'Doplňky',
     },
-    deep: {
-      title: 'Hluboký Úklid',
-      description: 'Důkladné a detailní čištění',
-    },
-    airbnb: {
-      title: 'Airbnb Turnover',
-      description: 'Příprava pro hosty',
-    },
-    addons: {
-      title: 'Přídavné Služby',
-      items: {
-        ironing: 'Žehlení',
-        fridge: 'Hluboké čištění lednice',
-        oven: 'Hluboké čištění trouby',
-        windows: 'Čištění oken',
-        eco: 'Ekologické produkty',
+    offers: {
+      heading: 'Speciální Nabídky',
+      popular: 'Nejpopulárnější',
+      plans: {
+        'essential': {
+          name: 'Essential Care',
+          description: 'Čtrnáctidenní úklid se skvělými úsporami',
+          features: [
+            'Čtrnáctidenní návštěvy',
+            'Stejný uklízeč pokaždé',
+            'Prioritní plánování',
+            '50% sleva na 5. návštěvu',
+            '6. návštěva ZDARMA',
+          ],
+          cta: 'Začít',
+        },
+        'premium': {
+          name: 'Premium Care',
+          description: 'Týdenní úklid s maximálním pohodlím',
+          features: [
+            'Týdenní návštěvy',
+            'Stejný uklízeč pokaždé',
+            'Prioritní plánování',
+            '15% sleva na každou návštěvu',
+            'Flexibilní přeplánování',
+          ],
+          cta: 'Začít',
+        },
+        'vip': {
+          name: 'VIP Služba',
+          description: 'Vlastní plán s prémiovými výhodami',
+          features: [
+            'Vlastní frekvence',
+            'Vyhrazený uklízeč',
+            'Prioritní rezervace',
+            'Speciální požadavky vítány',
+            'Prémiová podpora',
+          ],
+          cta: 'Kontaktujte Nás',
+        },
       },
     },
-    cta: 'Získat Bezplatnou Nabídku',
-    note: 'Ceny se mohou lišit podle stavu nemovitosti. Kontaktujte nás pro přesnou nabídku.',
+    cta: {
+      text: 'Potřebujete vlastní nabídku?',
+      message: 'Dobrý den! Mám zájem o cenovou nabídku úklidových služeb.',
+      button: 'Získat Bezplatnou Nabídku',
+    },
+    table: {
+      apartment: 'Byt',
+      size: 'Velikost',
+      price: 'Od',
+    },
+    categories: {
+      'studio': {
+        id: 'studio',
+        label: 'Garsónka',
+        items: [
+          { apartment: 'Garsónka', size: '30-40 m²', price: '1 200 Kč' },
+        ],
+      },
+      '1bedroom': {
+        id: '1bedroom',
+        label: '1+kk',
+        items: [
+          { apartment: '1+kk', size: '40-60 m²', price: '1 500 Kč' },
+        ],
+      },
+      '2bedroom': {
+        id: '2bedroom',
+        label: '2+kk',
+        items: [
+          { apartment: '2+kk', size: '60-80 m²', price: '1 800 Kč' },
+        ],
+      },
+      '3bedroom': {
+        id: '3bedroom',
+        label: '3+kk',
+        items: [
+          { apartment: '3+kk', size: '80-100 m²', price: '2 200 Kč' },
+        ],
+      },
+      '4bedroom': {
+        id: '4bedroom',
+        label: '4+kk',
+        items: [
+          { apartment: '4+kk', size: '100+ m²', price: '2 600 Kč' },
+        ],
+      },
+    },
+    addons: {
+      heading: 'Doplňkové Služby',
+      items: {
+        'ironing': 'Žehlení (+350 Kč/hod)',
+        'fridge': 'Hluboký úklid lednice (+300 Kč)',
+        'oven': 'Hluboký úklid trouby (+300 Kč)',
+        'windows': 'Mytí oken (+50 Kč/okno)',
+        'eco': 'Ekologické produkty (+10%)',
+      },
+    },
   },
 
   // Recurring Plans
   recurring: {
-    title: 'Pravidelné Úklidové Plány',
-    subtitle: 'Ušetřete čas a peníze s pravidelným úklidem',
+    heading: 'Pravidelné Úklidové Plány',
+    subheading: 'Ušetřete čas a peníze s pravidelným úklidem',
+    bestValue: 'Nejlepší Hodnota',
     plans: {
-      essential: {
+      'essential': {
         name: 'Essential Care',
-        frequency: 'Čtrnáctidenní',
-        discount: '50% sleva na 5. návštěvu, 6. ZDARMA',
+        description: 'Čtrnáctidenní úklid se skvělými úsporami',
+        features: [
+          'Čtrnáctidenní návštěvy',
+          'Stejný uklízeč pokaždé',
+          'Prioritní plánování',
+        ],
       },
-      premium: {
+      'premium': {
         name: 'Premium Care',
-        frequency: 'Týdenní',
-        discount: '15% sleva na každou návštěvu',
+        description: 'Týdenní úklid s maximálním pohodlím',
+        features: [
+          'Týdenní návštěvy',
+          'Stejný uklízeč pokaždé',
+          'Prioritní plánování',
+          '15% sleva na každou návštěvu',
+        ],
       },
-      vip: {
-        name: 'VIP Service',
-        frequency: 'Na míru',
-        discount: 'Priorita + vyhrazený uklízeč',
+      'vip': {
+        name: 'VIP Služba',
+        description: 'Vlastní plán s prémiovými výhodami',
+        features: [
+          'Vlastní frekvence',
+          'Vyhrazený uklízeč',
+          'Prioritní rezervace',
+        ],
       },
     },
-    benefits: {
-      title: 'Všechny plány zahrnují:',
-      items: {
-        same: 'Stejný uklízeč pokaždé',
-        priority: 'Prioritní plánování',
-        discount: 'Speciální slevy',
-        flexible: 'Flexibilní přeplánování',
-      },
+    cta: {
+      message: 'Dobrý den! Mám zájem o plán {{plan}}.',
+      button: 'Vybrat Plán',
     },
-    cta: 'Vyberte Svůj Plán',
-    contact: 'Kontaktujte nás pro vlastní plány',
   },
 
-  // Expats
+  // Expats Section
   expats: {
-    title: 'Vytvořeno pro Expaty',
-    subtitle: 'Rozumíme výzvám života v zahraničí',
-    features: {
-      language: {
+    heading: 'Vytvořeno pro <span class="text-accent-primary">Expaty</span>',
+    subheading: 'Rozumíme výzvám života v zahraničí',
+    benefits: {
+      'language': {
         title: 'Žádná Jazyková Bariéra',
         description: 'Náš tým hovoří anglicky, česky, rusky a ukrajinsky. Komunikujte ve svém preferovaném jazyce.',
       },
-      communication: {
+      'communication': {
         title: 'Rychlá Komunikace',
         description: 'Rezervace přes WhatsApp, rychlé odpovědi a jasná komunikace. Žádné čekání, žádné nejasnosti.',
       },
-      quality: {
+      'quality': {
         title: 'Garance Kvality',
         description: 'Nejste spokojeni? Znovu uklidíme zdarma do 24 hodin. Vaše spokojenost je naší prioritou.',
       },
-      trust: {
+      'trust': {
         title: 'Důvěryhodný Tým',
         description: 'Všichni uklízeči jsou prověřeni, proškoleni a pojištěni. Váš domov je v bezpečných rukou.',
       },
     },
     cta: 'Rezervovat První Úklid',
+    visual: 'Důvěřuje nám 2 500+ spokojených klientů',
   },
 
   // Airbnb Section
   airbnb: {
-    title: 'Partner pro Airbnb Hostitele',
-    subtitle: 'Profesionální služba pro hostitele v Praze',
-    features: {
-      response: {
+    heading: 'Partner pro Airbnb Hostitele',
+    subheading: 'Profesionální služba pro hostitele v Praze',
+    benefits: {
+      'response': {
         title: 'Rychlá Odezva',
         description: 'Reagujeme do 2 hodin. Nouzový turnover k dispozici pro těsné termíny.',
       },
-      quality: {
+      'quality': {
         title: 'Kontrola Kvality',
         description: 'Každý turnover zahrnuje kontrolu kvality. Fotodokumentace k dispozici.',
       },
-      linen: {
+      'linen': {
         title: 'Služba Prádla',
         description: 'Výměna čistého prádla zahrnuta. Postaráme se o prádlo, vy nemusíte.',
       },
-      keys: {
+      'keys': {
         title: 'Předávání Klíčů',
         description: 'Služba vyzvednutí a vrácení klíčů k dispozici. Flexibilní možnosti přístupu.',
       },
     },
     cta: 'Staňte Se Partnerem',
+    visual: 'Důvěřuje nám 50+ Airbnb hostitelů',
   },
 
   // Gallery
   gallery: {
-    title: 'Naše Práce',
-    subtitle: 'Podívejte se na rozdíl, který dělá profesionální úklid',
+    heading: 'Naše Práce',
+    subheading: 'Podívejte se na rozdíl, který dělá profesionální úklid',
     before: 'Před',
     after: 'Po',
+    beforeLabel: 'Před',
+    afterLabel: 'Po',
+    viewBefore: 'Zobrazit Před',
+    viewAfter: 'Zobrazit Po',
+    empty: 'Galerie brzy připravena',
+    categories: {
+      'all': 'Všechny Projekty',
+      'standard-cleaning': 'Standardní Úklid',
+      'deep-cleaning': 'Hluboký Úklid',
+      'airbnb-turnover': 'Airbnb Turnover',
+      'office-cleaning': 'Úklid Kanceláří',
+      'addons': 'Doplňkové Služby',
+    },
+    items: {
+      'kitchen-deep-clean': {
+        title: 'Hluboký Úklid Kuchyně',
+      },
+      'bathroom-renovation': {
+        title: 'Desinfekce Koupelny',
+      },
+      'living-room-standard': {
+        title: 'Standardní Úklid Obývacího Pokoje',
+      },
+      'bedroom-makeover': {
+        title: 'Obnova Ložnice',
+      },
+      'airbnb-turnover': {
+        title: 'Airbnb Turnover Služba',
+      },
+      'office-cleaning': {
+        title: 'Úklid Kanceláře',
+      },
+      'oven-deep-clean': {
+        title: 'Hluboký Úklid Trouby',
+      },
+      'window-cleaning': {
+        title: 'Mytí Oken',
+      },
+    },
   },
 
   // Reviews
@@ -348,138 +522,110 @@ export default {
         quote: 'Při stěhování do Prahy z UK jsem se bál, jak najdu služby v angličtině. UKLID PLUS vše usnadnil. Jejich hluboký úklid dokonale připravil můj nový byt. Profesionální a přátelské.',
         author: 'James H.',
       },
-      'testimonial-4': {
-        quote: 'Kvalita úklidu je vynikající. Všímají si detailů, na které bych nikdy nepomyslel. Můj byt nebyl nikdy čistší. Rezervace přes WhatsApp je super pohodlná.',
-        author: 'Anna K.',
-      },
-      'testimonial-5': {
-        quote: 'Я очень довольна их услугами! Команда говорит по-русски, что для меня важно. Качество уборки отличное, всегда вовремя. Рекомендую всем знакомым.',
-        author: 'Elena V.',
-      },
-      'testimonial-6': {
-        quote: 'Naše firma používá UKLID PLUS pro úklid kanceláří již 2 roky. Konzistentní kvalita, spolehlivé plánování a skvělá komunikace. Stali se nezbytným partnerem pro naše podnikání.',
-        author: 'David L.',
-      },
-      'testimonial-7': {
-        quote: 'Služba žehlení je zachránce! Nesnáším žehlení a teď se o to nemusím starat. Rychlý obrat a mé košile vypadají dokonale pokaždé.',
-        author: 'Robert P.',
-      },
-      'testimonial-8': {
-        quote: 'Мені дуже подобається сервіс! Співробітники дуже уважні та професійні. Прибрання завжди якісне, а ціни розумні. Дякую!',
-        author: 'Olena S.',
-      },
     },
   },
 
   // FAQ
   faq: {
-    title: 'Často Kladené Otázky',
-    subtitle: 'Najděte odpovědi na běžné otázky',
-    categories: {
-      booking: 'Rezervace & Ceny',
-      services: 'Služby',
-      recurring: 'Pravidelné Plány',
-      airbnb: 'Airbnb Hostitelé',
-      trust: 'Důvěra & Kvalita',
-      practical: 'Praktické Informace',
-    },
-    questions: {
-      'faq-booking-1': {
-        q: 'Jak mohu rezervovat úklidovou službu?',
-        a: 'Rezervovat můžete snadno přes WhatsApp, telefon nebo náš kontaktní formulář. Pošlete nám zprávu s vašimi potřebami úklidu a do 2 hodin odpovíme s nabídkou a dostupnými termíny.',
-      },
-      'faq-booking-2': {
-        q: 'Kolik stojí úklid?',
-        a: 'Standardní úklid začíná od 1 200 Kč pro garsonku. Hluboký úklid začíná od 2 390 Kč. Poskytujeme bezplatné cenové nabídky před rezervací, bez skrytých poplatků. Podívejte se na náš ceník pro podrobné sazby.',
-      },
-      'faq-booking-3': {
-        q: 'Je zde minimální doba rezervace?',
-        a: 'Ano, naše minimum je 2 hodiny. To zajišťuje, že můžeme poskytnout důkladný úklid pro jakýkoliv prostor.',
-      },
-      'faq-booking-4': {
-        q: 'Nabízíte službu ve stejný den?',
-        a: 'Ano, služba ve stejný den je k dispozici za další 25% příplatek. Kontaktujte nás brzy ráno pro nejlepší dostupnost.',
-      },
-      'faq-booking-5': {
-        q: 'Jaké platební metody přijímáte?',
-        a: 'Přijímáme hotovost, bankovní převod a kartu. Pro pravidelné klienty můžeme zajistit měsíční fakturaci.',
-      },
-      'faq-services-1': {
-        q: 'Co je zahrnuto ve standardním úklidu?',
-        a: 'Standardní úklid zahrnuje vytírání, vysávání, mokré čištění, desinfekci koupelny, čištění kuchyně a odvoz odpadu. Úprava postele na přání. Zaměřujeme se na všechny viditelné povrchy.',
-      },
-      'faq-services-2': {
-        q: 'Jaký je rozdíl mezi standardním a hlubokým úklidem?',
-        a: 'Hluboký úklid zahrnuje vše ze standardního úklidu, plus: uvnitř skříněk a zásuvek, hluboké čištění spotřebičů, čištění vnitřních oken, hluboké čištění spár a dlaždic, patní lišty a ventily. Doporučeno pro stěhování nebo sezónní obnovu.',
-      },
-      'faq-services-3': {
-        q: 'Poskytujete úklidové prostředky?',
-        a: 'Ano, naši uklízeči přinášejí všechny potřebné úklidové prostředky a vybavení. Pokud preferujete konkrétní produkty (ekologické, specifické značky), dejte nám vědět a vyhovíme.',
-      },
-      'faq-services-4': {
-        q: 'Mohu požádat o ekologické čistící prostředky?',
-        a: 'Ano, nabízíme ekologické čistící prostředky za 10% příplatek. Tyto produkty jsou účinné a šetrnější k životnímu prostředí i vašemu zdraví.',
-      },
-      'faq-services-5': {
-        q: 'Nabízíte službu žehlení?',
-        a: 'Ano, služba žehlení je k dispozici za 350 Kč/hodinu. Můžete ji přidat k jakékoli rezervaci úklidu nebo rezervovat jako samostatnou službu.',
-      },
-      'faq-recurring-1': {
-        q: 'Jaké jsou výhody pravidelných úklidových plánů?',
-        a: 'Pravidelné plány nabízejí prioritní plánování, stálého uklízeče, slevy a speciální výhody jako bezplatné úklidy. Náš plán Essential Care vám dává 5. návštěvu za 50% a 6. ZDARMA.',
-      },
-      'faq-recurring-2': {
-        q: 'Mohu změnit svůj pravidelný rozvrh?',
-        a: 'Ano, můžete přeplánovat nebo upravit svůj pravidelný plán s 24hodinovým předstihem. Nabízíme flexibilní plánování podle vašich potřeb.',
-      },
-      'faq-recurring-3': {
-        q: 'Je zde závazek pro pravidelné plány?',
-        a: 'Ne, není vyžadován žádný dlouhodobý závazek. Svůj pravidelný plán můžete kdykoliv zrušit. Věříme, že si musíme zasloužit vaši důvěru každou návštěvou.',
-      },
-      'faq-airbnb-1': {
-        q: 'Nabízíte úklid pro Airbnb?',
-        a: 'Ano, specializujeme se na službu Airbnb turnover. Rozumíme důležitosti rychlého turnaroundu a nemovitostí připravených pro hosty. Naše služba zahrnuje kontroly kvality a fotodokumentaci.',
-      },
-      'faq-airbnb-2': {
-        q: 'Jak rychle můžete uklidit mezi hosty?',
-        a: 'V závislosti na velikosti nemovitosti trvá standardní turnover 2-4 hodiny. Nabízíme prioritní plánování pro Airbnb hostitele a můžeme vyhovět těsným termínům.',
-      },
-      'faq-airbnb-3': {
-        q: 'Můžete zajistit předávání klíčů pro Airbnb hosty?',
-        a: 'Ano, nabízíme podporu předávání klíčů pro Airbnb hostitele. Naši uklízeči mohou vyzvednout klíče na určeném místě nebo použít klíčovou schránku.',
-      },
-      'faq-trust-1': {
-        q: 'Jsou vaši uklízeči prověřeni a pojištěni?',
-        a: 'Ano, všichni naši uklízeči jsou profesionálně vyškoleni, prověřeni a plně pojištěni. Bezpečnost a důvěru bereme vážně.',
-      },
-      'faq-trust-2': {
-        q: 'Co když nebudu spokojen s úklidem?',
-        a: 'Vaše spokojenost je zaručena. Pokud nejste spokojeni s jakýmkoli aspektem naší služby, kontaktujte nás do 24 hodin a znovu uklidíme zdarma.',
-      },
-      'faq-trust-3': {
-        q: 'Budu mít stejného uklízeče pokaždé?',
-        a: 'Pro pravidelné klienty ano! Přidělujeme vyhrazeného uklízeče k vašemu účtu. Pro jednorázové úklidy se snažíme o konzistenci, ale dostupnost uklízečů se může lišit.',
-      },
-      'faq-practical-1': {
-        q: 'Musím být doma během úklidu?',
-        a: 'Ne, nemusíte být přítomni. Mnoho klientů poskytuje přístup ke klíčům nebo zajistí vstup. Naši uklízeči jsou důvěryhodní a mohou pracovat samostatně.',
-      },
-      'faq-practical-2': {
-        q: 'Které oblasti Prahy obsluhujete?',
-        a: 'Primárně obsluhujeme Prahu 1, 2, 5, 6 a 7. Jiné oblasti jsou k dispozici na vyžádání. Kontaktujte nás pro potvrzení pokrytí vaší lokality.',
-      },
-      'faq-practical-3': {
-        q: 'Hovoříte anglicky?',
-        a: 'Ano! Náš tým hovoří anglicky, česky, rusky a ukrajinsky. Komunikace je snadná ve vašem preferovaném jazyce.',
-      },
-      'faq-practical-4': {
-        q: 'Jaké jsou vaše provozní hodiny?',
-        a: 'Provozueme pondělí-pátek 8:00-18:00, sobota 9:00-14:00. Pro stávající klienty nabízíme 24/7 nouzový kontakt. Víkendová služba má 15% příplatek.',
-      },
-    },
+    heading: 'Často Kladené Otázky',
+    subheading: 'Najděte odpovědi na běžné otázky',
     cta: {
       text: 'Stále máte otázky? Kontaktujte nás přes WhatsApp pro rychlé odpovědi.',
       button: 'Kontaktovat na WhatsApp',
+    },
+    questions: {
+      'faq-booking-1': {
+        question: 'Jak si mohu objednat úklid?',
+        answer: 'Objednat můžete snadno přes WhatsApp, telefon nebo náš kontaktní formulář. Pošlete nám zprávu s vašimi požadavky na úklid a my odpovíme do 2 hodin s cenovou nabídkou a dostupnými termíny.',
+      },
+      'faq-booking-2': {
+        question: 'Kolik stojí úklid?',
+        answer: 'Standardní úklid začíná od 1 200 Kč pro byt o jedné místnosti. Hloubkový úklid začíná od 2 390 Kč. Poskytujeme bezplatné kalkulace před objednáním, bez skrytých poplatků. Podívejte se na naši stránku s cenami pro detailní sazby.',
+      },
+      'faq-booking-3': {
+        question: 'Je zde minimální doba objednání?',
+        answer: 'Ano, naše minimum je 2 hodiny. To zajišťuje důkladný úklid jakéhokoliv prostoru.',
+      },
+      'faq-booking-4': {
+        question: 'Nabízíte službu ve stejný den?',
+        answer: 'Ano, služba ve stejný den je k dispozici za další 25% příplatek. Kontaktujte nás brzy během dne pro nejlepší dostupnost.',
+      },
+      'faq-booking-5': {
+        question: 'Jaké platební metody přijímáte?',
+        answer: 'Přijímáme hotovost, bankovní převod a kartu. Pro pravidelné klienty můžeme zajistit měsíční fakturaci.',
+      },
+      'faq-services-1': {
+        question: 'Co je zahrnuto ve standardním úklidu?',
+        answer: 'Standardní úklid zahrnuje vytírání prachu, vysávání, mytí podlah, dezinfekci koupelny, úklid kuchyně a odvoz odpadu. Ústelování postele je k dispozici na vyžádání. Zaměřujeme se na všechny viditelné povrchy.',
+      },
+      'faq-services-2': {
+        question: 'Jaký je rozdíl mezi standardním a hloubkovým úklidem?',
+        answer: 'Hloubkový úklid zahrnuje vše ze standardního úklidu, plus: uvnitř skříní a zásuvek, hloubkové čištění spotřebičů, mytí oken zevnitř, hloubkové čištění spár a dlaždic, sokly a větrání. Doporučuje se při stěhování nebo sezónním osvěžení.',
+      },
+      'faq-services-3': {
+        question: 'Poskytujete čistící prostředky?',
+        answer: 'Ano, naši uklízeči přinášejí všechny potřebné čistící prostředky a vybavení. Pokud preferujete konkrétní produkty (ekologické, určité značky), dejte nám vědět a můžeme vyhovět.',
+      },
+      'faq-services-4': {
+        question: 'Mohu si vyžádat ekologické čistící prostředky?',
+        answer: 'Ano, nabízíme ekologické čistící prostředky za 10% příplatek. Tyto produkty jsou účinné a šetrnější k životnímu prostředí a vašemu zdraví.',
+      },
+      'faq-services-5': {
+        question: 'Nabízíte žehlicí službu?',
+        answer: 'Ano, žehlicí služba je k dispozici za 350 Kč/hodinu. Můžete ji přidat k jakémukoli úklidu nebo ji objednat jako samostatnou službu.',
+      },
+      'faq-recurring-1': {
+        question: 'Jaké jsou výhody pravidelných úklidových plánů?',
+        answer: 'Pravidelné plány nabízejí prioritní plánování, stálého uklízeče, slevy a speciální výhody jako bezplatné úklidy. Náš plán Essential Care vám dává 5. návštěvu za 50% a 6. ZDARMA.',
+      },
+      'faq-recurring-2': {
+        question: 'Mohu změnit svůj pravidelný plán?',
+        answer: 'Ano, můžete přeplánovat nebo upravit svůj pravidelný plán s 24hodinovým předstihem. Nabízíme flexibilní plánování pro vyhovění vašim potřebám.',
+      },
+      'faq-recurring-3': {
+        question: 'Je zde závazek pro pravidelné plány?',
+        answer: 'Ne, není vyžadován dlouhodobý závazek. Můžete zrušit svůj pravidelný plán kdykoliv. Věříme v získání vaší důvěry každou návštěvou.',
+      },
+      'faq-airbnb-1': {
+        question: 'Nabízíte úklid pro Airbnb?',
+        answer: 'Ano, specializujeme se na službu Airbnb úklidu. Rozumíme důležitosti rychlého obratu a připravenosti pro hosty. Naše služba zahrnuje kontrolu kvality a fotodokumentaci.',
+      },
+      'faq-airbnb-2': {
+        question: 'Jak rychle můžete uklidit mezi hosty?',
+        answer: 'V závislosti na velikosti nemovitosti trvá standardní obrat 2-4 hodiny. Nabízíme prioritní plánování pro Airbnb hostitele a můžeme vyhovět těsným rozvrhům.',
+      },
+      'faq-airbnb-3': {
+        question: 'Můžete zajistit předání klíčů pro Airbnb hosty?',
+        answer: 'Ano, nabízíme podporu předání klíčů pro Airbnb hostitele. Naši uklízeči mohou vyzvednout klíče na určeném místě nebo použít klíčovou schránku.',
+      },
+      'faq-trust-1': {
+        question: 'Jsou vaši uklízeči prověřeni a pojištěni?',
+        answer: 'Ano, všichni naši uklízeči jsou profesionálně vyškoleni, prověřeni a plně pojištěni. Bereme důvěru a bezpečnost vážně.',
+      },
+      'faq-trust-2': {
+        question: 'Co když nejsem spokojen s úklidem?',
+        answer: 'Vaše spokojenost je zaručena. Pokud nejste spokojeni s jakýmkoli aspektem naší služby, kontaktujte nás do 24 hodin a znovu uklidíme zdarma.',
+      },
+      'faq-trust-3': {
+        question: 'Budu mít stejného uklízeče pokaždé?',
+        answer: 'Pro pravidelné klienty, ano! Přiřazujeme vyhrazeného uklízeče k vašemu účtu. Pro jednorázové úklidy usilujeme o konzistenci, ale dostupnost uklízeče se může lišit.',
+      },
+      'faq-practical-1': {
+        question: 'Musím být doma během úklidu?',
+        answer: 'Ne, nemusíte být přítomni. Mnoho klientů poskytuje přístup ke klíčům nebo zajistí vstup. Naši uklízeči jsou důvěryhodní a mohou pracovat samostatně.',
+      },
+      'faq-practical-2': {
+        question: 'Které oblasti Prahy obsluhujete?',
+        answer: 'Primárně obsluhujeme Prahu 1, 2, 5, 6 a 7. Další oblasti jsou k dispozici na vyžádání. Kontaktujte nás pro potvrzení pokrytí vaší lokality.',
+      },
+      'faq-practical-3': {
+        question: 'Mluvíte anglicky?',
+        answer: 'Ano! Náš tým mluví anglicky, česky, rusky a ukrajinsky. Komunikace je snadná ve vašem preferovaném jazyce.',
+      },
+      'faq-practical-4': {
+        question: 'Jaké jsou vaše provozní hodiny?',
+        answer: 'Provozujeme pondělí-pátek 8:00-18:00, sobota 9:00-14:00. Pro existující klienty nabízíme 24/7 nouzový kontakt. Víkendová služba má 15% příplatek.',
+      },
     },
   },
 

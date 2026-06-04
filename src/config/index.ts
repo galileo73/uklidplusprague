@@ -144,6 +144,5 @@ export {
   faqCategories,
   getFAQsByCategory,
   getFAQById,
-  searchFAQs,
   getFeaturedFAQs,
 } from '../data/faq';
