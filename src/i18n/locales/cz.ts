@@ -8,6 +8,8 @@ export default {
     contact: 'Kontakt',
     bookNow: 'Rezervovat',
     scroll: 'Posunout',
+    privacy: 'Zásady Ochrany Soukromí',
+    terms: 'Obchodní Podmínky',
   },
 
   // Hero Section
@@ -270,50 +272,48 @@ export default {
       price: 'Od',
     },
     categories: {
-      'studio': {
-        id: 'studio',
-        label: 'Garsónka',
-        items: [
-          { apartment: 'Garsónka', size: '30-40 m²', price: '1 200 Kč' },
-        ],
+      'standard': {
+        heading: 'Standardní Úklid',
+        description: 'Pravidelný úklid vašeho domova. Zahrnuje všechno nezbytné.',
+        items: {
+          '0': { apartment: '1+kk (garsónka)' },
+          '1': { apartment: '1+1 (1 ložnice)' },
+          '2': { apartment: '2+kk' },
+          '3': { apartment: '2+1' },
+          '4': { apartment: '3+kk' },
+          '5': { apartment: '3+1' },
+          '6': { apartment: '3+2' },
+          '7': { apartment: '4+kk / větší' },
+        },
       },
-      '1bedroom': {
-        id: '1bedroom',
-        label: '1+kk',
-        items: [
-          { apartment: '1+kk', size: '40-60 m²', price: '1 500 Kč' },
-        ],
-      },
-      '2bedroom': {
-        id: '2bedroom',
-        label: '2+kk',
-        items: [
-          { apartment: '2+kk', size: '60-80 m²', price: '1 800 Kč' },
-        ],
-      },
-      '3bedroom': {
-        id: '3bedroom',
-        label: '3+kk',
-        items: [
-          { apartment: '3+kk', size: '80-100 m²', price: '2 200 Kč' },
-        ],
-      },
-      '4bedroom': {
-        id: '4bedroom',
-        label: '4+kk',
-        items: [
-          { apartment: '4+kk', size: '100+ m²', price: '2 600 Kč' },
-        ],
+      'deep': {
+        heading: 'Hluboký Úklid',
+        description: 'Důkladný úklid pro stěhování nebo sezónní obnovu.',
+        items: {
+          '0': { apartment: '1+kk (garsónka)' },
+          '1': { apartment: '1+1 (1 ložnice)' },
+          '2': { apartment: '2+kk' },
+          '3': { apartment: '2+1' },
+          '4': { apartment: '3+kk' },
+          '5': { apartment: '3+1' },
+          '6': { apartment: '3+2' },
+          '7': { apartment: '4+kk / větší' },
+        },
       },
     },
     addons: {
       heading: 'Doplňkové Služby',
       items: {
-        'ironing': 'Žehlení (+350 Kč/hod)',
-        'fridge': 'Hluboký úklid lednice (+300 Kč)',
-        'oven': 'Hluboký úklid trouby (+300 Kč)',
-        'windows': 'Mytí oken (+50 Kč/okno)',
-        'eco': 'Ekologické produkty (+10%)',
+        'ironing': 'Služba Žehlení',
+        'fridge': 'Hluboký Úklid Lednice',
+        'oven': 'Hluboký Úklid Trouby',
+        'windows': 'Mytí Oken',
+        'balcony': 'Balkón/Terasa',
+        'extra-bathroom': 'Další Koupelna',
+        'pet-fee': 'Poplatek za Mazlíčky (odstranění chlupů)',
+        'eco-products': 'Ekologické Produkty',
+        'weekend': 'Víkendová Služba',
+        'express': 'Expresní Služba (<24h)',
       },
     },
   },
@@ -390,21 +390,29 @@ export default {
     heading: 'Partner pro Airbnb Hostitele',
     subheading: 'Profesionální služba pro hostitele v Praze',
     benefits: {
-      'response': {
-        title: 'Rychlá Odezva',
-        description: 'Reagujeme do 2 hodin. Nouzový turnover k dispozici pro těsné termíny.',
+      'turnover': {
+        title: 'Rychlý Turnover',
+        description: 'Služba turnover ve stejný den k dispozici. Reagujeme do 2 hodin na naléhavé požadavky.',
       },
-      'quality': {
-        title: 'Kontrola Kvality',
-        description: 'Každý turnover zahrnuje kontrolu kvality. Fotodokumentace k dispozici.',
+      'express': {
+        title: 'Expresní Služba',
+        description: 'Potřebujete rychle? Expresní úklid do 24 hodin pro naléhavé situace.',
       },
-      'linen': {
-        title: 'Služba Prádla',
-        description: 'Výměna čistého prádla zahrnuta. Postaráme se o prádlo, vy nemusíte.',
+      'sameday': {
+        title: 'Rezervace ve Stejný Den',
+        description: 'Rezervujte ráno, uklidíme večer. Perfektní pro nečekané příjezdy hostů.',
       },
       'keys': {
         title: 'Předávání Klíčů',
-        description: 'Služba vyzvednutí a vrácení klíčů k dispozici. Flexibilní možnosti přístupu.',
+        description: 'Služba vyzvednutí a vrácení klíčů k dispozici. Flexibilní možnosti přístupu pro hostitele.',
+      },
+      'guarantee': {
+        title: 'Garance Kvality',
+        description: 'Nejste spokojeni? Znovu uklidíme zdarma do 24 hodin. Vaši hosté si zaslouží to nejlepší.',
+      },
+      'priority': {
+        title: 'Prioritní Plánování',
+        description: 'Jako partnerský hostitel máte prioritní rezervaci a vyhrazenou podporu.',
       },
     },
     cta: 'Staňte Se Partnerem',

@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { businessInfo, footerNavItems, socialLinks, contactInfo } from '../../config';
 import { getWhatsAppLink } from '../../utils/whatsapp';
-import { useLanguage } from '../../i18n/LanguageContext';
 import { useTranslation } from 'react-i18next';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const { currentLanguage, setLanguage, languageOptions } = useLanguage();
   const { t } = useTranslation();
 
   const handleNavClick = (href: string) => {
@@ -162,32 +160,6 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </motion.div>
-
-          {/* Languages Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            <h3 className="text-text-primary font-semibold mb-4">{t('footer.language')}</h3>
-            <div className="flex gap-2">
-              {languageOptions.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => setLanguage(lang.code)}
-                  className={`text-sm font-medium px-2 py-1 transition-colors ${
-                    currentLanguage === lang.code
-                      ? 'text-accent-primary'
-                      : 'text-text-secondary hover:text-accent-primary'
-                  }`}
-                  aria-label={`Switch to ${lang.name}`}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
           </motion.div>
         </div>
 

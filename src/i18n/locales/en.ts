@@ -7,7 +7,9 @@ export default {
     about: 'About',
     contact: 'Contact',
     bookNow: 'Book Now',
-    scroll: 'Scroll',
+    scroll: 'Scroll down',
+    privacy: 'Privacy Policy',
+    terms: 'Terms of Service',
   },
 
   // Hero Section
@@ -270,50 +272,48 @@ export default {
       price: 'From',
     },
     categories: {
-      'studio': {
-        id: 'studio',
-        label: 'Studio',
-        items: [
-          { apartment: 'Studio', size: '30-40 m²', price: '1,200 CZK' },
-        ],
+      'standard': {
+        heading: 'Standard Cleaning',
+        description: 'Regular cleaning for your home. Includes all essentials.',
+        items: {
+          '0': { apartment: '1+kk (studio)' },
+          '1': { apartment: '1+1 (1 bedroom)' },
+          '2': { apartment: '2+kk' },
+          '3': { apartment: '2+1' },
+          '4': { apartment: '3+kk' },
+          '5': { apartment: '3+1' },
+          '6': { apartment: '3+2' },
+          '7': { apartment: '4+kk / larger' },
+        },
       },
-      '1bedroom': {
-        id: '1bedroom',
-        label: '1 Bedroom',
-        items: [
-          { apartment: '1 Bedroom', size: '40-60 m²', price: '1,500 CZK' },
-        ],
-      },
-      '2bedroom': {
-        id: '2bedroom',
-        label: '2 Bedroom',
-        items: [
-          { apartment: '2 Bedroom', size: '60-80 m²', price: '1,800 CZK' },
-        ],
-      },
-      '3bedroom': {
-        id: '3bedroom',
-        label: '3 Bedroom',
-        items: [
-          { apartment: '3 Bedroom', size: '80-100 m²', price: '2,200 CZK' },
-        ],
-      },
-      '4bedroom': {
-        id: '4bedroom',
-        label: '4+ Bedroom',
-        items: [
-          { apartment: '4+ Bedroom', size: '100+ m²', price: '2,600 CZK' },
-        ],
+      'deep': {
+        heading: 'Deep Cleaning',
+        description: 'Thorough cleaning for move-in/move-out or seasonal refresh.',
+        items: {
+          '0': { apartment: '1+kk (studio)' },
+          '1': { apartment: '1+1 (1 bedroom)' },
+          '2': { apartment: '2+kk' },
+          '3': { apartment: '2+1' },
+          '4': { apartment: '3+kk' },
+          '5': { apartment: '3+1' },
+          '6': { apartment: '3+2' },
+          '7': { apartment: '4+kk / larger' },
+        },
       },
     },
     addons: {
       heading: 'Add-on Services',
       items: {
-        'ironing': 'Ironing service (+350 CZK/hour)',
-        'fridge': 'Fridge deep clean (+300 CZK)',
-        'oven': 'Oven deep clean (+300 CZK)',
-        'windows': 'Window cleaning (+50 CZK/window)',
-        'eco': 'Eco-friendly products (+10%)',
+        'ironing': 'Ironing Service',
+        'fridge': 'Fridge Deep Clean',
+        'oven': 'Oven Deep Clean',
+        'windows': 'Window Cleaning',
+        'balcony': 'Balcony/Terrace',
+        'extra-bathroom': 'Additional Bathroom',
+        'pet-fee': 'Pet Fee (hair removal)',
+        'eco-products': 'Eco-friendly Products',
+        'weekend': 'Weekend Service',
+        'express': 'Express Service (<24h)',
       },
     },
   },
@@ -390,21 +390,29 @@ export default {
     heading: 'Airbnb Host Partner',
     subheading: 'Professional turnover service for Prague hosts',
     benefits: {
-      'response': {
-        title: 'Fast Response',
-        description: 'We respond within 2 hours. Urgent turnover available for tight schedules.',
+      'turnover': {
+        title: 'Fast Turnover',
+        description: 'Same-day turnover service available. We respond within 2 hours for urgent requests.',
       },
-      'quality': {
-        title: 'Quality Check',
-        description: 'Every turnover includes a quality inspection. Photo documentation available.',
+      'express': {
+        title: 'Express Service',
+        description: 'Need it fast? Express cleaning within 24 hours available for urgent situations.',
       },
-      'linen': {
-        title: 'Linen Service',
-        description: "Fresh linen change included. We handle the laundry so you don't have to.",
+      'sameday': {
+        title: 'Same-Day Booking',
+        description: 'Book in the morning, we clean by evening. Perfect for unexpected guest arrivals.',
       },
       'keys': {
         title: 'Key Handling',
-        description: 'Key collection and return service available. Flexible access arrangements.',
+        description: 'Key collection and return service available. Flexible access arrangements for hosts.',
+      },
+      'guarantee': {
+        title: 'Quality Guarantee',
+        description: "Not satisfied? We'll re-clean for free within 24 hours. Your guests deserve the best.",
+      },
+      'priority': {
+        title: 'Priority Scheduling',
+        description: 'As a host partner, you get priority booking and dedicated support.',
       },
     },
     cta: 'Partner With Us',
