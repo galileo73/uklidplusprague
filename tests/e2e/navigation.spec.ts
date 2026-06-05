@@ -23,10 +23,20 @@ test.describe('Navigation', () => {
     await expect(page.locator('h1').first()).toContainText(/work/i);
   });
 
-  test('should have working logo link', async ({ page }) => {
-    const logo = page.locator('a').filter({ hasText: /UKLID/i }).first();
+  test('should have working logo link on mobile', async ({ page }) => {
+    // Logo only appears in header on mobile
+    await page.setViewportSize({ width: 390, height: 844 });
+    const logo = page.locator('header a').filter({ hasText: /UKLID/i }).first();
+    await expect(logo).toBeVisible();
     await logo.click();
     await expect(page).toHaveURL('/');
+  });
+
+  test('should have hero logo on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    // On desktop, logo appears in hero, not in header
+    const heroLogo = page.locator('section').first().locator('img[alt*="UKLID"]');
+    await expect(heroLogo).toBeVisible();
   });
 
   test('should scroll to About section when About link clicked', async ({ page }) => {
@@ -81,11 +91,23 @@ test.describe('Header Logo', () => {
     await page.goto('/');
   });
 
-  test('should display logo or branding in header', async ({ page }) => {
+  test('should NOT display logo link in header on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    // On desktop, the logo link should be hidden (it's in hero instead)
     const header = page.locator('header');
-    // Logo should either be an image or contain the brand name
+    const logoLink = header.locator('a[href="/"]').filter({ hasText: /UKLID/i });
+
+    // The logo link should NOT be visible on desktop
+    const isVisible = await logoLink.isVisible().catch(() => false);
+    expect(isVisible).toBe(false);
+  });
+
+  test('should display logo in header on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const header = page.locator('header');
+    // Logo SHOULD be visible in header on mobile (either image or brand text)
     const logoImg = header.locator('img[alt*="UKLID"]');
-    const brandName = header.locator('text=UKLID PLUS PRAHA');
+    const brandName = header.locator('span').filter({ hasText: /UKLID/i });
 
     const hasLogo = await logoImg.count() > 0;
     const hasBrand = await brandName.count() > 0;
@@ -93,16 +115,18 @@ test.describe('Header Logo', () => {
     expect(hasLogo || hasBrand).toBe(true);
   });
 
-  test('should have logo visible on desktop', async ({ page }) => {
+  test('should have navigation visible on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
-    const logoLink = page.locator('header a').first();
-    await expect(logoLink).toBeVisible();
+    // Desktop header has nav links, no logo
+    const navLinks = page.locator('header nav a, header nav div a');
+    const count = await navLinks.count();
+    expect(count).toBeGreaterThan(0);
   });
 
-  test('should have logo visible on mobile', async ({ page }) => {
+  test('should have hamburger menu on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    const logoLink = page.locator('header a').first();
-    await expect(logoLink).toBeVisible();
+    const hamburger = page.locator('header button[aria-label*="menu" i]');
+    await expect(hamburger).toBeVisible();
   });
 });
 

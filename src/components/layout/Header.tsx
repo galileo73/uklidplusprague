@@ -45,31 +45,33 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
         role="navigation"
         aria-label="Main navigation"
       >
-        {/* Logo */}
+        {/* Mobile Logo (visible on mobile/tablet only) */}
         <a
           href="/"
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2 group lg:hidden"
           aria-label="UKLID PLUS PRAHA - Home"
         >
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             className="flex items-center gap-2"
           >
-            <Logo variant="full" size="md" />
+            <Logo variant="full" size="sm" />
           </motion.div>
         </a>
 
-        {/* Desktop Navigation - Center */}
-        <div className="hidden lg:flex items-center gap-8">
-          {mainNavItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              className="text-text-secondary hover:text-accent-primary transition-colors duration-200 font-medium"
-            >
-              {t(`nav.${item.id}`)}
-            </a>
-          ))}
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden lg:flex items-center justify-center flex-1">
+          <div className="flex items-center gap-8">
+            {mainNavItems.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                className="text-text-secondary hover:text-accent-primary transition-colors duration-200 font-medium"
+              >
+                {t(`nav.${item.id}`)}
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Right Section */}

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 /**
  * HeroSection - Full viewport hero with animated entrance
- * Features logo, headline, subheadline, taglines, and CTAs
+ * Features large centered logo, headline, taglines, and CTAs
  */
 export function HeroSection() {
   const { t } = useTranslation();
@@ -129,12 +129,12 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        {/* Logo */}
+        {/* Large Centered Logo */}
         <motion.div
           variants={logoVariants}
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-10"
         >
-          <Logo variant="full" size="lg" />
+          <Logo variant="icon-only" size="hero" />
         </motion.div>
 
         {/* Headline */}
