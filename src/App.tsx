@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -19,21 +19,20 @@ import './i18n'; // Initialize i18n
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Toggle mobile menu and manage body scroll
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => {
-      const newState = !prev;
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = newState ? 'hidden' : '';
-      return newState;
-    });
-  };
-
-  // Close mobile menu and restore body scroll
-  const closeMobileMenu = () => {
+  // Close mobile menu and restore body scroll - wrapped in useCallback for stable reference
+  const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
     document.body.style.overflow = '';
-  };
+  }, []);
+
+  // Toggle mobile menu and manage body scroll - wrapped in useCallback for stable reference
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen((prev) => {
+      const next = !prev;
+      document.body.style.overflow = next ? 'hidden' : '';
+      return next;
+    });
+  }, []);
 
   // Set document title and meta tags for SEO (home page default)
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import { mainNavItems, whatsappLink } from '../../config';
 import { Button } from '../ui/Button';
 import { useLanguage } from '../../i18n/LanguageContext';
@@ -13,12 +13,18 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const location = useLocation();
+  const navigate = useNavigate();
   const { currentLanguage, setLanguage, languageOptions } = useLanguage();
   const { t } = useTranslation();
+  const prevPathnameRef = useRef(location.pathname);
 
-  // Close menu on route change
+  // Close menu only on actual route change (not on initial render or when onClose changes)
   useEffect(() => {
-    onClose();
+    // Only close if pathname actually changed (user navigated to a new page)
+    if (prevPathnameRef.current !== location.pathname) {
+      prevPathnameRef.current = location.pathname;
+      onClose();
+    }
   }, [location.pathname, onClose]);
 
   const handleLanguageChange = (langCode: string) => {
@@ -32,15 +38,29 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     if (href.startsWith('/#')) {
       // Hash link - scroll to section
       const sectionId = href.substring(2);
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else if (href.startsWith('/') && !href.startsWith('/#')) {
-      // Page route - navigation handled by Link/Router, just close menu
-      // The route change will trigger the useEffect above
+
+      // If not on home page, navigate to home first, then scroll
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation and then scroll
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Already on home page, just scroll
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else if (href.startsWith('/')) {
+      // Real route - use react-router navigate
+      navigate(href);
     }
   };
 
@@ -54,7 +74,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-dark-primary/80 backdrop-blur-sm z-[60]"
+            className="fixed inset-0 bg-dark-primary/80 backdrop-blur-sm z-[9998]"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -66,7 +86,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-dark-secondary z-[70] overflow-y-auto"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-dark-secondary z-[9999] overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"

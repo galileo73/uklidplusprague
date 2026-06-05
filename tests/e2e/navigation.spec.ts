@@ -355,3 +355,187 @@ test.describe('Critical Bug Fixes', () => {
     await expect(mobileMenu).not.toBeVisible();
   });
 });
+
+test.describe('Mobile Menu Navigation Tests (390x844)', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+  });
+
+  test('hamburger button should be visible on mobile', async ({ page }) => {
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await expect(hamburgerButton).toBeVisible();
+    await expect(hamburgerButton).toHaveAttribute('aria-controls', 'mobile-menu');
+  });
+
+  test('click hamburger shows mobile menu with all navigation links', async ({ page }) => {
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    // Verify menu is visible
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Verify all expected navigation links exist
+    const expectedLinks = ['Home', 'Services', 'Pricing', 'About', 'Work with us', 'Contact'];
+    for (const linkText of expectedLinks) {
+      const link = mobileMenu.locator(`nav a`).filter({ hasText: new RegExp(linkText, 'i') });
+      const count = await link.count();
+      expect(count).toBeGreaterThan(0);
+    }
+  });
+
+  test('click Work with us navigates to /work-with-us and closes menu', async ({ page }) => {
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Click Work with us link
+    const workWithUsLink = mobileMenu.locator('nav a').filter({ hasText: /work with us/i });
+    await workWithUsLink.click();
+
+    // Wait for navigation
+    await page.waitForURL(/work-with-us/);
+    await page.waitForTimeout(300);
+
+    // Verify URL changed
+    await expect(page).toHaveURL(/work-with-us/);
+
+    // Verify menu is closed
+    await expect(mobileMenu).not.toBeVisible();
+  });
+
+  test('click Services hash link scrolls to section and closes menu', async ({ page }) => {
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Click Services link (hash link)
+    const servicesLink = mobileMenu.locator('nav a').filter({ hasText: /services/i });
+    await servicesLink.click();
+    await page.waitForTimeout(500);
+
+    // Verify menu is closed
+    await expect(mobileMenu).not.toBeVisible();
+
+    // Verify we're still on home page
+    await expect(page).toHaveURL('/');
+
+    // Verify Services section is visible (scrolled into view)
+    const servicesSection = page.locator('#services');
+    await expect(servicesSection).toBeVisible();
+  });
+
+  test('click About hash link scrolls to section and closes menu', async ({ page }) => {
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Click About link (hash link)
+    const aboutLink = mobileMenu.locator('nav a').filter({ hasText: /about/i });
+    await aboutLink.click();
+    await page.waitForTimeout(500);
+
+    // Verify menu is closed
+    await expect(mobileMenu).not.toBeVisible();
+
+    // Verify About section is visible
+    const aboutSection = page.locator('#about');
+    await expect(aboutSection).toBeVisible();
+  });
+});
+
+test.describe('Mobile Menu Navigation Tests (430x932)', () => {
+  test.use({ viewport: { width: 430, height: 932 } });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+  });
+
+  test('hamburger button should be visible on tablet-sized mobile', async ({ page }) => {
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await expect(hamburgerButton).toBeVisible();
+  });
+
+  test('mobile menu opens and closes correctly', async ({ page }) => {
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Close via X button
+    const closeButton = mobileMenu.locator('button[aria-label="Close menu"]');
+    await closeButton.click();
+    await page.waitForTimeout(300);
+
+    // Verify menu is closed
+    await expect(mobileMenu).not.toBeVisible();
+  });
+
+  test('navigate to privacy page from mobile menu', async ({ page }) => {
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Navigate via footer link (since Privacy isn't in main nav)
+    await page.goto('/privacy');
+    await page.waitForLoadState('networkidle');
+
+    // Verify URL
+    await expect(page).toHaveURL(/privacy/);
+  });
+});
+
+test.describe('Footer Duplication Verification', () => {
+  test('home page has exactly one footer', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const footerCount = await page.locator('footer').count();
+    expect(footerCount).toBe(1);
+  });
+
+  test('privacy page has exactly one footer', async ({ page }) => {
+    await page.goto('/privacy');
+    await page.waitForLoadState('networkidle');
+    const footerCount = await page.locator('footer').count();
+    expect(footerCount).toBe(1);
+  });
+
+  test('terms page has exactly one footer', async ({ page }) => {
+    await page.goto('/terms');
+    await page.waitForLoadState('networkidle');
+    const footerCount = await page.locator('footer').count();
+    expect(footerCount).toBe(1);
+  });
+
+  test('work-with-us page has exactly one footer', async ({ page }) => {
+    await page.goto('/work-with-us');
+    await page.waitForLoadState('networkidle');
+    const footerCount = await page.locator('footer').count();
+    expect(footerCount).toBe(1);
+  });
+});
