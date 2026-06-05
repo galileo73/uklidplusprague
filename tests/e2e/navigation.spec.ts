@@ -222,3 +222,136 @@ test.describe('Footer Navigation', () => {
     await expect(page).toHaveURL(/work-with-us/);
   });
 });
+test.describe('Critical Bug Fixes', () => {
+  test('should have exactly one footer on each page', async ({ page }) => {
+    // Home page
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const homeFooters = await page.locator('footer').count();
+    expect(homeFooters).toBe(1);
+
+    // Privacy page
+    await page.goto('/privacy');
+    await page.waitForLoadState('networkidle');
+    const privacyFooters = await page.locator('footer').count();
+    expect(privacyFooters).toBe(1);
+
+    // Terms page
+    await page.goto('/terms');
+    await page.waitForLoadState('networkidle');
+    const termsFooters = await page.locator('footer').count();
+    expect(termsFooters).toBe(1);
+
+    // Work with us page
+    await page.goto('/work-with-us');
+    await page.waitForLoadState('networkidle');
+    const workWithUsFooters = await page.locator('footer').count();
+    expect(workWithUsFooters).toBe(1);
+  });
+
+  test('should have exactly one header on each page', async ({ page }) => {
+    // Home page
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const homeHeaders = await page.locator('header').count();
+    expect(homeHeaders).toBe(1);
+
+    // Privacy page
+    await page.goto('/privacy');
+    await page.waitForLoadState('networkidle');
+    const privacyHeaders = await page.locator('header').count();
+    expect(privacyHeaders).toBe(1);
+
+    // Terms page
+    await page.goto('/terms');
+    await page.waitForLoadState('networkidle');
+    const termsHeaders = await page.locator('header').count();
+    expect(termsHeaders).toBe(1);
+
+    // Work with us page
+    await page.goto('/work-with-us');
+    await page.waitForLoadState('networkidle');
+    const workWithUsHeaders = await page.locator('header').count();
+    expect(workWithUsHeaders).toBe(1);
+  });
+
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test('mobile menu should open when hamburger button is clicked on home page', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Find hamburger button
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await expect(hamburgerButton).toBeVisible();
+
+    // Click hamburger button
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    // Verify mobile menu is visible
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Verify menu has navigation links
+    const menuLinks = mobileMenu.locator('nav a');
+    const linkCount = await menuLinks.count();
+    expect(linkCount).toBeGreaterThan(0);
+  });
+
+  test('mobile menu should open when hamburger button is clicked on privacy page', async ({ page }) => {
+    await page.goto('/privacy');
+    await page.waitForLoadState('networkidle');
+
+    // Find hamburger button
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await expect(hamburgerButton).toBeVisible();
+
+    // Click hamburger button
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    // Verify mobile menu is visible
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+  });
+
+  test('mobile menu should open when hamburger button is clicked on work-with-us page', async ({ page }) => {
+    await page.goto('/work-with-us');
+    await page.waitForLoadState('networkidle');
+
+    // Find hamburger button
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await expect(hamburgerButton).toBeVisible();
+
+    // Click hamburger button
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    // Verify mobile menu is visible
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+  });
+
+  test('mobile menu should close when backdrop is clicked', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Open menu
+    const hamburgerButton = page.locator('header button[aria-label*="menu" i]').first();
+    await hamburgerButton.click();
+    await page.waitForTimeout(300);
+
+    // Verify menu is open
+    const mobileMenu = page.locator('#mobile-menu');
+    await expect(mobileMenu).toBeVisible();
+
+    // Click backdrop - it's the fixed inset-0 div with bg-dark-primary/80
+    // Click on the left side of the screen (backdrop area) - menu is on the right
+    await page.mouse.click(100, 300); // Click in the middle-left area (backdrop)
+    await page.waitForTimeout(300);
+
+    // Menu should close
+    await expect(mobileMenu).not.toBeVisible();
+  });
+});

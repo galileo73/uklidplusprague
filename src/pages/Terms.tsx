@@ -1,6 +1,4 @@
 import { PageSEO } from '../components/seo/PageSEO';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -11,9 +9,8 @@ export function Terms() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-dark-primary">
+    <>
       <PageSEO pageKey="terms" />
-      <Header />
 
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,9 +97,7 @@ export function Terms() {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }
 

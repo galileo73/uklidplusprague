@@ -1,6 +1,4 @@
 import { PageSEO } from '../components/seo/PageSEO';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
 import { Button } from '../components/ui/Button';
 import { getWhatsAppLink } from '../utils/whatsapp';
 import { useTranslation } from 'react-i18next';
@@ -15,9 +13,8 @@ export function WorkWithUs() {
   const whatsappApplyLink = getWhatsAppLink(t('workWithUs.applyMessage'));
 
   return (
-    <div className="min-h-screen bg-dark-primary">
+    <>
       <PageSEO pageKey="workWithUs" />
-      <Header />
 
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -210,9 +207,7 @@ export function WorkWithUs() {
           </motion.div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }
 

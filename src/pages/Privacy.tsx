@@ -1,6 +1,4 @@
 import { PageSEO } from '../components/seo/PageSEO';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
 import { defaultSEO } from '../config';
 import { useTranslation } from 'react-i18next';
 
@@ -13,9 +11,8 @@ export function Privacy() {
   const siteName = defaultSEO.siteUrl.replace('https://', '').replace('http://', '');
 
   return (
-    <div className="min-h-screen bg-dark-primary">
+    <>
       <PageSEO pageKey="privacy" />
-      <Header />
 
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,9 +110,7 @@ export function Privacy() {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }
 
