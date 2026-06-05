@@ -20,10 +20,10 @@ export function Logo({ variant = 'full', size = 'md', className = '' }: LogoProp
   // Size classes for the logo image
   // sm: compact for mobile header (24-28px), md: default, lg: large, hero: responsive for hero
   const sizeClasses = {
-    sm: 'h-6 md:h-7',  // 24px mobile, 28px tablet - compact for header
-    md: 'h-12',        // 48px - default
-    lg: 'h-14',        // 56px
-    hero: 'w-48 md:w-56 lg:w-72 xl:w-80', // Responsive: 192px mobile, 224px tablet, 288px desktop, 320px xl
+     sm: 'h-4 md:h-5',  // 16px mobile, 20px tablet - compact header logo
+	md: 'h-10',
+  lg: 'h-12',
+  hero: 'w-48 md:w-56 lg:w-72 xl:w-80',, // Responsive: 192px mobile, 224px tablet, 288px desktop, 320px xl
   };
 
   // Fallback icon sizes
