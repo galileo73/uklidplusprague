@@ -19,7 +19,7 @@ export function Logo({ variant = 'full', size = 'md', className = '' }: LogoProp
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const sizeClasses = {
-    sm: 'h-6 md:h-7',       // compact mobile/tablet header logo
+    sm: 'h-8 md:h-9',       // compact mobile/tablet header logo
     md: 'h-10',
     lg: 'h-12',
     hero: 'w-56 lg:w-72 xl:w-80 h-auto',
@@ -45,7 +45,7 @@ export function Logo({ variant = 'full', size = 'md', className = '' }: LogoProp
         </div>
 
         {variant === 'full' && !heroSize && (
-          <span className="text-xs md:text-sm font-bold text-text-primary whitespace-nowrap leading-none">
+          <span className="text-base md:text-lg font-bold text-text-primary whitespace-nowrap tracking-wide">
             {businessInfo.name}
           </span>
         )}
