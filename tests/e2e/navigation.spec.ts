@@ -178,15 +178,23 @@ test.describe('Hero Logo Responsive Behavior', () => {
     await expect(headline).toBeVisible();
   });
 
-  test('tablet hero logo should be visible', async ({ page }) => {
+  test('tablet hero logo should be hidden', async ({ page }) => {
     await page.setViewportSize({ width: 820, height: 1180 });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    // Hero logo should be visible on tablet
+    // Hero logo should NOT be visible on tablet (only desktop lg+)
     const heroSection = page.locator('section').first();
     const heroLogo = heroSection.locator('img[alt*="UKLID"]');
-    await expect(heroLogo).toBeVisible();
+    const logoCount = await heroLogo.count();
+
+    // If count is 0, logo is hidden. If count > 0, it should NOT be visible
+    if (logoCount > 0) {
+      const isVisible = await heroLogo.isVisible().catch(() => false);
+      expect(isVisible).toBe(false);
+    } else {
+      expect(logoCount).toBe(0);
+    }
 
     // Headline should be visible without excessive scrolling
     const headline = page.locator('h1');
