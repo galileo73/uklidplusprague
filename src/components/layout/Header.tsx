@@ -55,7 +55,7 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
             whileHover={{ scale: 1.02 }}
             className="flex items-center gap-2"
           >
-            <Logo variant="full" size="sm" className="[&>img]:!h-8 [&>img]:!w-auto"/>
+            <Logo variant="full" size="sm" className="[&_img]:!h-10 [&_img]:md:!h-12 [&_img]:!w-auto [&_span]:!text-base [&_span]:md:!text-lg"/>
           </motion.div>
         </a>
 
