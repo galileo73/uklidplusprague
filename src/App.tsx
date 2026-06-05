@@ -7,6 +7,7 @@ import { MobileMenu } from './components/layout/MobileMenu';
 import { Home } from './pages/Home';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
+import { WorkWithUs } from './pages/WorkWithUs';
 import { defaultSEO, localBusinessSchema } from './config';
 import { LanguageProvider } from './i18n/LanguageContext';
 import './i18n'; // Initialize i18n
@@ -135,6 +136,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/work-with-us" element={<WorkWithUs />} />
           </Routes>
 
           {/* Footer */}

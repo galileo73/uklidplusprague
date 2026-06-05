@@ -14,13 +14,12 @@ export const businessInfo: BusinessInfo = {
 
 /**
  * Contact information
- * Note: Contact details will be provided at launch
  */
 export const contactInfo: ContactInfo = {
-  phone: '', // Contact details available at launch
-  whatsapp: '', // Contact details available at launch
+  phone: '+420 721 960 963',
+  whatsapp: '+420 721 960 963',
   messenger: 'https://m.me/uklidpluspraha',
-  instagram: 'https://www.instagram.com/uklid.plus.praha/',
+  instagram: 'https://www.instagram.com/uklidplus.praha/',
   email: 'info@uklidpluspraha.cz',
 };
 
@@ -57,7 +56,7 @@ export const businessHours = {
  * Social media links
  */
 export const socialLinks = {
-  instagram: 'https://www.instagram.com/uklid.plus.praha/',
+  instagram: 'https://www.instagram.com/uklidplus.praha/',
   facebook: 'https://facebook.com/uklidpluspraha',
   messenger: 'https://m.me/uklidpluspraha',
 };

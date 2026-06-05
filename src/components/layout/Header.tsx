@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { businessInfo, mainNavItems, whatsappLink } from '../../config';
+import { mainNavItems, whatsappLink } from '../../config';
 import { Button } from '../ui/Button';
+import { Logo } from '../ui/Logo';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { useTranslation } from 'react-i18next';
 
@@ -48,19 +49,13 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
         <a
           href="/"
           className="flex items-center gap-2 group"
-          aria-label={`${businessInfo.name} - Home`}
+          aria-label="UKLID PLUS PRAHA - Home"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2"
           >
-            {/* Logo Icon */}
-            <div className="w-10 h-10 bg-accent-primary rounded-lg flex items-center justify-center">
-              <span className="text-dark-primary font-bold text-lg">U+</span>
-            </div>
-            <span className="text-lg font-bold hidden sm:block text-text-primary group-hover:text-accent-primary transition-colors">
-              {businessInfo.name}
-            </span>
+            <Logo variant="full" size="md" />
           </motion.div>
         </a>
 

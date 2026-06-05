@@ -57,6 +57,10 @@ export const pageSEO: Record<string, Partial<SEOConfig>> = {
     title: 'Terms of Service | UKLID PLUS PRAHA',
     description: 'Terms of service for UKLID PLUS PRAHA cleaning services.',
   },
+  workWithUs: {
+    title: 'Work with UKLID PLUS PRAHA | Cleaning Jobs in Prague',
+    description: 'Flexible cleaning opportunities in Prague for reliable cleaners. Join UKLID PLUS PRAHA for recurring cleaning, Airbnb turnover and premium home-care support.',
+  },
 };
 
 /**
@@ -75,7 +79,7 @@ export const organizationSchema: OrganizationSchema = {
     availableLanguage: languages.map((l) => l.name),
   },
   sameAs: [
-    'https://www.instagram.com/uklid.plus.praha/',
+    'https://www.instagram.com/uklidplus.praha/',
     'https://facebook.com/uklidpluspraha',
   ],
 };

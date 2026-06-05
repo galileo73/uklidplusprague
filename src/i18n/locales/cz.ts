@@ -10,6 +10,7 @@ export default {
     scroll: 'Posunout',
     privacy: 'Zásady Ochrany Soukromí',
     terms: 'Obchodní Podmínky',
+    workWithUs: 'Pracujte s námi',
   },
 
   // Hero Section
@@ -827,5 +828,68 @@ export default {
     description: 'Profesionální úklidové služby v Praze pro expaty a mezinárodní klienty. Standardní úklid, hluboký úklid, Airbnb turnover a pravidelné plány. Vícejazyčná podpora CZ/EN/RU/UA.',
     ogTitle: 'Prémiové Úklidové Služby v Praze',
     ogDescription: 'Důvěřují nám expati, profesionálové a Airbnb hostitelé. Vícejazyčná podpora. Garance kvality.',
+  },
+
+  // Work With Us Page
+  workWithUs: {
+    hero: {
+      title: 'Pracujte s UKLID PLUS PRAHA',
+      subtitle: 'Flexibilní úklidové příležitosti v Praze pro spolehlivé a profesionální lidi.',
+      cta: 'Přihlásit se přes WhatsApp',
+    },
+    whyWork: {
+      title: 'Proč s námi pracovat',
+      items: [
+        'Flexibilní spolupráce — vyberte si svůj rozvrh',
+        'Prémioví klienti — dobře udržované byty',
+        'Respektující komunikace — férové zacházení',
+        'Opakované příležitosti — pravidelná týdenní práce',
+        'Podpora Airbnb turnover — flexibilní příjem navíc',
+        'Vícejazyčné prostředí — česky, anglicky, rusky, ukrajinsky',
+      ],
+    },
+    whoWeLook: {
+      title: 'Koho hledáme',
+      items: [
+        'Spolehliví a dochvilí uklízeči',
+        'Lidé dostupní pro opakované týdenní práce',
+        'Lidé dostupní pro příležitostnou flexibilní podporu',
+        'Uklízeči s pozorností k detailům',
+        'Lidé, kteří se cítí dobře pracovat v pražských bytech',
+        'Lidé, kteří komunikují jasně a profesionálně',
+      ],
+    },
+    cooperation: {
+      title: 'Modely spolupráce',
+      dpc: {
+        title: 'DPČ',
+        description: 'Vhodné pro důvěryhodné opakované uklízeče s pravidelnou týdenní spoluprací.',
+      },
+      dpp: {
+        title: 'DPP',
+        description: 'Vhodné pro příležitostnou, víkendovou nebo flexibilní podporu.',
+      },
+      ico: {
+        title: 'IČO',
+        description: 'Vhodné pro nezávislé uklízeče nebo malé týmy poskytující externí flexibilní spolupráci.',
+      },
+      disclaimer: 'Konečný model spolupráce závisí na dostupnosti, právní vhodnosti a individuální dohodě.',
+    },
+    howToApply: {
+      title: 'Jak se přihlásit',
+      steps: [
+        'Pošlete nám zprávu na WhatsApp',
+        'Řekněte nám svou dostupnost a zkušenosti',
+        'Krátký úvodní hovor',
+        'Zkušební úklid / první spolupráce',
+        'Dlouhodobá spolupráce při potvrzení kvality a spolehlivosti',
+      ],
+    },
+    contact: {
+      title: 'Jste připraveni začít?',
+      description: 'Pošlete nám zprávu a ozveme se vám do 24 hodin.',
+      cta: 'Přihlásit se přes WhatsApp',
+    },
+    applyMessage: 'Dobrý den, mám zájem pracovat pro UKLID PLUS PRAHA jako uklízeč/ka. Rád/a bych se dozvěděl/a více o příležitostech.',
   },
 };

@@ -10,6 +10,7 @@ export default {
     scroll: 'Scroll down',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
+    workWithUs: 'Work with us',
   },
 
   // Hero Section
@@ -827,5 +828,68 @@ export default {
     description: 'Professional cleaning services in Prague for expats and international clients. Standard cleaning, deep cleaning, Airbnb turnover, and recurring plans. Multilingual support in EN/CZ/RU/UA.',
     ogTitle: 'Premium Cleaning Services in Prague',
     ogDescription: 'Trusted by expats, professionals, and Airbnb hosts. Multilingual support. Quality guaranteed.',
+  },
+
+  // Work With Us Page
+  workWithUs: {
+    hero: {
+      title: 'Work with UKLID PLUS PRAHA',
+      subtitle: 'Flexible cleaning opportunities in Prague for reliable and professional people.',
+      cta: 'Apply via WhatsApp',
+    },
+    whyWork: {
+      title: 'Why work with us',
+      items: [
+        'Flexible cooperation — choose your schedule',
+        'Premium clients — well-maintained apartments',
+        'Respectful communication — fair treatment',
+        'Recurring opportunities — regular weekly work',
+        'Airbnb turnover support — flexible extra income',
+        'Multilingual environment — English, Czech, Russian, Ukrainian',
+      ],
+    },
+    whoWeLook: {
+      title: 'Who we are looking for',
+      items: [
+        'Reliable and punctual cleaners',
+        'People available for recurring weekly jobs',
+        'People available for occasional flexible support',
+        'Cleaners with attention to detail',
+        'People comfortable working in Prague apartments',
+        'People who communicate clearly and professionally',
+      ],
+    },
+    cooperation: {
+      title: 'Cooperation models',
+      dpc: {
+        title: 'DPČ',
+        description: 'Suitable for trusted recurring cleaners with regular weekly cooperation.',
+      },
+      dpp: {
+        title: 'DPP',
+        description: 'Suitable for occasional, weekend, or flexible support.',
+      },
+      ico: {
+        title: 'IČO',
+        description: 'Suitable for independent cleaners or small teams providing external flexible cooperation.',
+      },
+      disclaimer: 'Final cooperation model depends on availability, legal suitability, and individual agreement.',
+    },
+    howToApply: {
+      title: 'How to apply',
+      steps: [
+        'Send us a WhatsApp message',
+        'Tell us your availability and experience',
+        'Short introduction call',
+        'Trial cleaning / first cooperation',
+        'Long-term cooperation if quality and reliability are confirmed',
+      ],
+    },
+    contact: {
+      title: 'Ready to start?',
+      description: 'Send us a message and we will get back to you within 24 hours.',
+      cta: 'Apply via WhatsApp',
+    },
+    applyMessage: 'Hi! I am interested in working with UKLID PLUS PRAHA as a cleaner. I would like to learn more about the opportunities.',
   },
 };

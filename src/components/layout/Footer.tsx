@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { businessInfo, footerNavItems, socialLinks, contactInfo } from '../../config';
 import { getWhatsAppLink } from '../../utils/whatsapp';
+import { Logo } from '../ui/Logo';
 import { useTranslation } from 'react-i18next';
 
 export function Footer() {
@@ -30,13 +31,8 @@ export function Footer() {
             className="sm:col-span-2 lg:col-span-1"
           >
             {/* Logo */}
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-accent-primary rounded-lg flex items-center justify-center">
-                <span className="text-dark-primary font-bold text-lg">U+</span>
-              </div>
-              <span className="text-lg font-bold text-text-primary">
-                {businessInfo.name}
-              </span>
+            <div className="mb-4">
+              <Logo variant="full" size="md" />
             </div>
 
             {/* Description */}

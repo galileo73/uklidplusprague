@@ -20,6 +20,7 @@ export const footerNavItems: NavItem[] = [
   { id: 'pricing', label: 'Pricing', href: '/#pricing' },
   { id: 'privacy', label: 'Privacy Policy', href: '/privacy' },
   { id: 'terms', label: 'Terms of Service', href: '/terms' },
+  { id: 'workWithUs', label: 'Work with us', href: '/work-with-us' },
 ];
 
 /**
