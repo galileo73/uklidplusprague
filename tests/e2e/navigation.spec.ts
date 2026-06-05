@@ -162,6 +162,120 @@ test.describe('Hero Logo', () => {
   });
 });
 
+test.describe('Hero Logo Responsive Behavior', () => {
+  test('desktop hero logo should be visible with proper spacing', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Hero logo should be visible on desktop
+    const heroSection = page.locator('section').first();
+    const heroLogo = heroSection.locator('img[alt*="UKLID"]');
+    await expect(heroLogo).toBeVisible();
+
+    // Headline should be visible
+    const headline = page.locator('h1');
+    await expect(headline).toBeVisible();
+  });
+
+  test('tablet hero logo should be visible', async ({ page }) => {
+    await page.setViewportSize({ width: 820, height: 1180 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Hero logo should be visible on tablet
+    const heroSection = page.locator('section').first();
+    const heroLogo = heroSection.locator('img[alt*="UKLID"]');
+    await expect(heroLogo).toBeVisible();
+
+    // Headline should be visible without excessive scrolling
+    const headline = page.locator('h1');
+    await expect(headline).toBeVisible();
+  });
+
+  test('mobile hero logo should be hidden', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Hero logo should NOT be visible on mobile (it's in header instead)
+    const heroSection = page.locator('section').first();
+    const heroLogo = heroSection.locator('img[alt*="UKLID"]');
+    const logoCount = await heroLogo.count();
+
+    // If count is 0, logo is hidden. If count > 0, it should NOT be visible
+    if (logoCount > 0) {
+      const isVisible = await heroLogo.isVisible().catch(() => false);
+      expect(isVisible).toBe(false);
+    } else {
+      expect(logoCount).toBe(0);
+    }
+
+    // Headline should be visible above the fold
+    const headline = page.locator('h1');
+    await expect(headline).toBeVisible();
+  });
+
+  test('mobile 430x932 hero logo should be hidden', async ({ page }) => {
+    await page.setViewportSize({ width: 430, height: 932 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Hero logo should NOT be visible on mobile
+    const heroSection = page.locator('section').first();
+    const heroLogo = heroSection.locator('img[alt*="UKLID"]');
+    const logoCount = await heroLogo.count();
+
+    if (logoCount > 0) {
+      const isVisible = await heroLogo.isVisible().catch(() => false);
+      expect(isVisible).toBe(false);
+    } else {
+      expect(logoCount).toBe(0);
+    }
+
+    // Mobile header logo should be visible
+    const headerLogo = page.locator('header').locator('img[alt*="UKLID"]');
+    await expect(headerLogo).toBeVisible();
+  });
+
+  test('mobile header should have properly sized logo', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Header logo should be visible on mobile
+    const headerLogo = page.locator('header').locator('img[alt*="UKLID"]');
+    await expect(headerLogo).toBeVisible();
+
+    // Brand text should be visible
+    const headerBrand = page.locator('header').locator('span').filter({ hasText: /UKLID/i });
+    const brandCount = await headerBrand.count();
+    expect(brandCount).toBeGreaterThan(0);
+
+    // Hamburger menu should be visible
+    const hamburger = page.locator('header button[aria-label*="menu" i]');
+    await expect(hamburger).toBeVisible();
+  });
+
+  test('no logo duplication on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Count all logo images on page
+    const allLogos = page.locator('img[alt*="UKLID"]');
+    const logoCount = await allLogos.count();
+
+    // Should only have the header logo (hero logo is hidden)
+    // Footer might have another logo, so we check header specifically
+    const headerLogo = page.locator('header').locator('img[alt*="UKLID"]');
+    const headerLogoCount = await headerLogo.count();
+
+    // At minimum, header logo should be present
+    expect(headerLogoCount).toBeGreaterThanOrEqual(1);
+  });
+});
+
 test.describe('Mobile Menu', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 

@@ -129,10 +129,10 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        {/* Large Centered Logo */}
+        {/* Large Centered Logo - Hidden on mobile, visible on tablet/desktop */}
         <motion.div
           variants={logoVariants}
-          className="flex justify-center mb-10"
+          className="hidden md:flex justify-center mb-4 lg:mb-5 xl:mb-6"
         >
           <Logo variant="icon-only" size="hero" />
         </motion.div>

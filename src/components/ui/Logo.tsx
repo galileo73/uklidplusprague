@@ -17,11 +17,12 @@ export function Logo({ variant = 'full', size = 'md', className = '' }: LogoProp
   const [imageLoaded, setImageLoaded] = useState(false);
 
   // Size classes for the logo image
+  // sm: 32px for mobile header, hero: responsive width for hero section
   const sizeClasses = {
-    sm: 'h-8',   // 32px - for compact mobile header
-    md: 'h-12',  // 48px - default
-    lg: 'h-14',  // 56px
-    hero: 'w-56 md:w-72', // Fixed width for hero - 220-280px
+    sm: 'h-8',      // 32px - for mobile header (28-34px target range)
+    md: 'h-12',     // 48px - default
+    lg: 'h-14',     // 56px
+    hero: 'w-48 md:w-56 lg:w-72 xl:w-80', // Responsive: 192px mobile, 224px tablet, 288px desktop, 320px xl
   };
 
   // Fallback icon sizes
@@ -57,7 +58,7 @@ export function Logo({ variant = 'full', size = 'md', className = '' }: LogoProp
       <img
         src="/logo.jpg"
         alt="UKLID PLUS PRAHA"
-        className={`${imageSizeClass} ${heroSize ? 'h-auto' : 'h-auto object-contain'} flex-shrink-0 ${imageLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+        className={`${imageSizeClass} ${heroSize ? 'h-auto max-w-full' : 'h-auto'} object-contain flex-shrink-0 ${imageLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
         onError={() => setImageError(true)}
         onLoad={() => setImageLoaded(true)}
       />
