@@ -48,14 +48,14 @@ export function Header({ onMenuToggle, isMenuOpen }: HeaderProps) {
         {/* Mobile Logo (visible on mobile/tablet only) */}
         <a
           href="/"
-          className="flex items-center gap-3 group lg:hidden flex-1 justify-center"
+          className="flex items-center gap-4 group lg:hidden flex-1 justify-center"
           aria-label="UKLID PLUS PRAHA - Home"
         >
           <motion.div
             whileHover={{ scale: 1.02 }}
             className="flex items-center gap-2"
           >
-            <Logo variant="full" size="sm" className="[&_img]:!h-10 [&_img]:md:!h-12 [&_img]:!w-auto [&_span]:!text-base [&_span]:md:!text-lg"/>
+            <Logo variant="full" size="sm" className="[&_img]:!h-11 [&_img]:md:!h-12 [&_img]:!w-auto [&_span]:!text-base [&_span]:md:!text-lg font-bold"/>
           </motion.div>
         </a>
 
