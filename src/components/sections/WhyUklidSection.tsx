@@ -49,7 +49,7 @@ export function WhyUklidSection() {
 
   return (
     <section
-      id="why-uklid"
+      id="about"
       className="py-20 md:py-28 bg-dark-secondary"
       aria-labelledby="why-uklid-heading"
     >

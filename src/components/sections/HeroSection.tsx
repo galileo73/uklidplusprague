@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { businessInfo, whatsappLink } from '../../config';
+import { whatsappLink } from '../../config';
 import { Button } from '../ui/Button';
+import { Logo } from '../ui/Logo';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -131,14 +132,9 @@ export function HeroSection() {
         {/* Logo */}
         <motion.div
           variants={logoVariants}
-          className="flex items-center justify-center gap-3 mb-8"
+          className="flex justify-center mb-8"
         >
-          <div className="w-16 h-16 md:w-20 md:h-20 bg-accent-primary rounded-xl flex items-center justify-center shadow-glow-md">
-            <span className="text-dark-primary font-bold text-2xl md:text-3xl">U+</span>
-          </div>
-          <span className="text-2xl md:text-3xl font-bold text-text-primary">
-            {businessInfo.name}
-          </span>
+          <Logo variant="full" size="lg" />
         </motion.div>
 
         {/* Headline */}
