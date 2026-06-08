@@ -7,10 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build outputs
 dist
 dist-ssr
-*.local
+build
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
 
 # Editor directories and files
 .vscode/*
@@ -23,7 +33,24 @@ dist-ssr
 *.sln
 *.sw?
 
-# Environment files
-.env
-.env.local
-.env.*.local
+# Playwright
+playwright-report
+test-results
+tests/screenshots
+tests/lighthouse-report.json
+
+# Coverage
+coverage
+
+# Deployment
+.netlify
+.vercel
+
+# Asset processing
+raw-assets
+originals
+.cache
+.tmp
+
+# Claude Code
+.remember

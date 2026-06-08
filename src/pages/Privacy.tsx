@@ -1,5 +1,5 @@
 import { PageSEO } from '../components/seo/PageSEO';
-import { defaultSEO } from '../config';
+import { whatsappLink } from '../config';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
  */
 export function Privacy() {
   const { t } = useTranslation();
-  const siteName = defaultSEO.siteUrl.replace('https://', '').replace('http://', '');
 
   return (
     <>
@@ -102,7 +101,7 @@ export function Privacy() {
                 {t('privacy.sections.contact.content')}
               </p>
               <p className="text-text-secondary mt-2">
-                <a href={`https://wa.me/${siteName}`} className="text-accent-primary hover:text-accent-secondary transition-colors">
+                <a href={whatsappLink} className="text-accent-primary hover:text-accent-secondary transition-colors">
                   WhatsApp
                 </a>
               </p>

@@ -1,93 +1,229 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with code in this repository.
 
 ## Project Overview
 
-**Project type:** Commercial cleaning service website for Uklid Plus Prague
+**Project type:** Commercial cleaning service website for UKLID PLUS PRAHA
 
-**Main goal:** Create a professional website for a cleaning company serving Prague and surrounding areas
+**Main goal:** Professional website for a cleaning company serving Prague and surrounding areas
 
 **Business objective:** Generate leads through online presence, showcase services, enable booking inquiries, and establish trust with potential customers
 
 ## Architecture
 
-**Frontend:** React 19 + Tailwind CSS + shadcn/ui + Framer Motion
-**Backend:** FastAPI + MongoDB (for contact forms, booking requests)
-**Build:** Create React App with Craco
-**Deployment:** Netlify (frontend) + cloud backend
+### Tech Stack
 
-### Key Files (to be created)
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 19 |
+| Build | Vite |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Routing | React Router v7 |
+| i18n | i18next + react-i18next |
+| Testing | Playwright (E2E) |
+| Deployment | Netlify (static) |
 
-- `frontend/src/config/company.js` - Company info, services, pricing, contact, SEO meta
-- `frontend/src/config/theme.js` - Colors, fonts, spacing, shadows
-- `frontend/src/config/env.js` - Environment validation and config
-- `frontend/src/context/LanguageContext.js` - i18n translations (cs, en)
-- `backend/server.py` - FastAPI backend with contact/booking API
+### Project Structure
 
-### Environment Variables
-
-**Frontend** (`frontend/.env`):
 ```
-REACT_APP_BACKEND_URL=http://localhost:8000
-REACT_APP_GOOGLE_MAPS_KEY=your_key_here (optional)
+uklidplusprague/
+├── src/
+│   ├── assets/           # Static assets (logo, images)
+│   ├── components/
+│   │   ├── layout/       # Header, Footer, MobileMenu, FloatingWhatsApp
+│   │   ├── sections/    # Homepage sections (Hero, Services, Pricing, etc.)
+│   │   ├── seo/         # PageSEO component
+│   │   └── ui/          # Reusable UI components (Button, Card, etc.)
+│   ├── config/          # Business configuration (centralized)
+│   │   ├── business.ts  # Company info, contact, social links
+│   │   ├── seo.ts       # SEO settings, JSON-LD schemas
+│   │   ├── services.ts  # Service definitions
+│   │   ├── pricing.ts   # Pricing data
+│   │   ├── areas.ts     # Service areas
+│   │   └── ...
+│   ├── i18n/            # Internationalization
+│   │   ├── index.ts     # i18next configuration
+│   │   ├── LanguageContext.tsx
+│   │   └── locales/     # Translation files (en, cz, ru, ua)
+│   ├── pages/           # Route pages (Home, WorkWithUs, Privacy, Terms)
+│   ├── types/           # TypeScript interfaces
+│   ├── utils/          # Utility functions (whatsapp.ts)
+│   ├── App.tsx         # Main app component with routing
+│   ├── index.css       # Tailwind imports + custom styles
+│   └── main.tsx        # Entry point
+├── public/
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── logo.jpg        # Company logo
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── _redirects      # SPA redirects for Netlify
+├── tests/e2e/          # Playwright E2E tests
+├── docs/               # Documentation and reports
+├── netlify.toml        # Netlify configuration
+└── package.json
 ```
 
-**Backend** (`backend/.env`):
-```
-MONGO_URL=mongodb://localhost:27017
-DB_NAME=uklidplusprague_dev
-CORS_ORIGINS=http://localhost:3000
-```
+## Key Configuration Files
 
-### Commands
+All business identity is centralized in config files:
+
+- **`src/config/business.ts`** - Company name, contact info, phone, email, WhatsApp, social links
+- **`src/config/seo.ts`** - SEO settings, meta tags, JSON-LD schemas
+- **`src/config/services.ts`** - Service offerings
+- **`src/config/pricing.ts`** - Pricing data
+- **`src/config/areas.ts`** - Service areas (Prague districts)
+- **`src/config/testimonials.ts`** - Client testimonials
+- **`src/i18n/locales/`** - All UI text in 4 languages (en, cz, ru, ua)
+
+**Important:** Never hardcode business information in components. Always import from config files.
+
+## Development Workflow
 
 ```bash
-# Frontend
-cd frontend && npm start      # Development server (localhost:3000)
-cd frontend && npm run build  # Production build
+# Install dependencies
+npm install
 
-# Backend
-cd backend && python -m uvicorn server:app --reload --port 8000
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linting
+npm run lint
 ```
 
-## Expected Client Features
+## Testing Workflow
 
-- Landing page with hero, services overview, trust indicators
-- Services section (regular cleaning, deep cleaning, move-in/out, office cleaning)
-- Pricing calculator or price list
-- Online booking/request form
-- Contact page with map and service area
-- WhatsApp/contact button
-- Reviews/testimonials
-- Gallery of before/after photos
-- FAQ section
-- Local SEO (JSON-LD schema, meta tags)
-- Mobile-first responsive design
-- Bilingual support (Czech, English)
+```bash
+# Run i18n validation
+npm run test:i18n
 
-## Development Rules
+# Run Playwright E2E tests
+npm run test:e2e
 
-1. **Configuration over hardcoding**: All content in config files
-2. **Use translations**: All UI text via LanguageContext
-3. **Keep components modular**: Reusable sections in `components/sections/`
-4. **Preserve build stability**: Test `npm run build` before commits
-5. **Mobile-first**: Test responsive behavior
-6. **SEO-ready**: Use SEO component for meta tags
-7. **Trust signals**: Emphasize reliability, insurance, reviews
-8. **Clear CTAs**: Booking/contact buttons prominent
+# Run Playwright tests with UI
+npm run test:e2e:ui
 
-## Customization Points
+# View Playwright test report
+npm run test:e2e:report
+```
 
-For similar cleaning service clients, edit:
+## Deployment Workflow
 
-1. `frontend/src/config/company.js` - Name, address, service areas, contact
-2. `frontend/src/config/services.js` - Service offerings and pricing
-3. `frontend/public/index.html` - Replace placeholders before build
-4. `frontend/public/sitemap.xml` - Replace `%SITE_URL%` with domain
-5. `backend/.env` - Database connection
-6. Images in config - Replace URLs with client images
+### Netlify Configuration
 
-## Commercial Direction
+The `netlify.toml` configures:
+- Build command: `npm run build`
+- Publish directory: `dist`
+- SPA redirects: `/* → /index.html`
 
-This website serves as both a production site for Uklid Plus Prague and a potential template for other cleaning service businesses. Target: reusable architecture with client-specific content in config files.
+### Deployment Steps
+
+1. Push to main branch
+2. Netlify auto-deploys from GitHub
+3. Production URL: https://uklidpluspraha.cz
+
+## Localization Workflow
+
+### Supported Languages
+
+| Code | Language | File |
+|------|----------|------|
+| `en` | English | `src/i18n/locales/en.ts` |
+| `cz` | Czech | `src/i18n/locales/cz.ts` |
+| `ru` | Russian | `src/i18n/locales/ru.ts` |
+| `ua` | Ukrainian | `src/i18n/locales/ua.ts` |
+
+### Default Language
+
+- HTML default: `lang="en"`
+- i18next fallback: `en`
+- Language persistence: `sessionStorage` (persists on refresh, clears on tab close)
+
+### Adding/Updating Translations
+
+1. Edit the relevant locale file in `src/i18n/locales/`
+2. Run `npm run test:i18n` to validate key consistency
+3. All 4 locale files must have matching keys
+
+## Business Information
+
+### Contact (from config)
+
+- **Phone:** +420 721 960 963
+- **WhatsApp:** +420 721 960 963
+- **Email:** info@uklidpluspraha.cz
+- **Instagram:** https://www.instagram.com/uklidplus.praha/
+- **Facebook:** `#` (placeholder - page not yet available)
+
+### Notes
+
+- "Founded 2015" removed - not confirmed
+- Testimonials are demo content (not real reviews)
+- Facebook link uses `#` placeholder until page is created
+- Open Graph image temporarily uses logo.jpg (needs proper og-image.jpg: 1200x630px)
+
+## White-Label Architecture
+
+This project is designed to be a template for other cleaning service businesses:
+
+1. **Config-driven content** - All business info in `src/config/`
+2. **i18n-ready** - All text in locale files
+3. **Theme customizable** - Colors in `src/config/theme.ts`
+4. **SEO-ready** - JSON-LD schemas, meta tags
+5. **Mobile-first** - Responsive design
+
+### Customizing for New Clients
+
+To adapt for a new cleaning business:
+
+1. Update `src/config/business.ts` - Name, contact, social links
+2. Update `src/config/seo.ts` - Site URL, meta descriptions
+3. Update `src/i18n/locales/*.ts` - All translated content
+4. Replace `public/logo.jpg` - Client logo
+5. Create `public/og-image.jpg` - Social sharing image
+6. Update `public/robots.txt` and `public/sitemap.xml` - Domain
+7. Update `src/config/pricing.ts` - Client pricing
+8. Update `src/config/areas.ts` - Service areas
+
+## Important Files
+
+| File | Purpose |
+|------|---------|
+| `netlify.toml` | Netlify build config + SPA redirects |
+| `src/i18n/index.ts` | i18next setup, language persistence |
+| `src/i18n/LanguageContext.tsx` | Language provider + useLanguage hook |
+| `src/utils/whatsapp.ts` | WhatsApp link generator |
+| `src/components/seo/PageSEO.tsx` | Per-page SEO component |
+| `tests/e2e/*.spec.ts` | E2E test suites |
+
+## Gitignore
+
+The `.gitignore` excludes:
+- `node_modules/`, `dist/`, `build/`
+- `.env` files
+- `playwright-report/`, `test-results/`, `tests/screenshots/`
+- `tests/lighthouse-report.json`
+- `coverage/`, `.netlify/`, `.vercel/`
+- `.cache/`, `.tmp/`
+
+## Pre-Launch Checklist
+
+- [x] Default language is English (`lang="en"`)
+- [x] Language persistence via sessionStorage
+- [x] All social links centralized in config
+- [x] WhatsApp link uses real number
+- [x] Instagram link uses real URL
+- [x] Facebook uses `#` placeholder
+- [x] Removed unconfirmed "Founded 2015"
+- [x] Testimonials marked as demo content
+- [ ] Create proper og-image.jpg (1200x630px)
+- [ ] Replace logo.jpg with final client logo
+- [ ] Create Facebook page and update link

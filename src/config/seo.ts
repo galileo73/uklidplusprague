@@ -20,7 +20,9 @@ export const defaultSEO: SEOConfig = {
     'uklid praha',
     'cleaning agency Prague',
   ],
-  ogImage: '/images/og-image.jpg',
+  // TODO: Create proper og-image.jpg (1200x630px recommended)
+  // Using logo.jpg as temporary fallback
+  ogImage: '/logo.jpg',
   siteUrl: 'https://uklidpluspraha.cz',
   locale: 'en_US',
 };
@@ -78,9 +80,9 @@ export const organizationSchema: OrganizationSchema = {
     contactType: 'customer service',
     availableLanguage: languages.map((l) => l.name),
   },
+  // Note: Facebook page not yet available - only Instagram is listed
   sameAs: [
     'https://www.instagram.com/uklidplus.praha/',
-    'https://facebook.com/uklidpluspraha',
   ],
 };
 

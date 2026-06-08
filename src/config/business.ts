@@ -8,8 +8,7 @@ export const businessInfo: BusinessInfo = {
   tagline: 'Premium Cleaning Services for Expats in Prague',
   description:
     'Professional cleaning agency serving Prague\'s international community. Multilingual support in English, Czech, Russian, and Ukrainian.',
-  logo: '/images/logo.svg',
-  founded: '2015',
+  logo: '/logo.jpg', // Note: logo.jpg is the actual logo file in public/
 };
 
 /**
@@ -54,9 +53,10 @@ export const businessHours = {
 
 /**
  * Social media links
+ * Note: Facebook page is not available yet, using '#' as placeholder
  */
 export const socialLinks = {
   instagram: 'https://www.instagram.com/uklidplus.praha/',
-  facebook: 'https://facebook.com/uklidpluspraha',
+  facebook: '#', // Placeholder - Facebook page not yet available
   messenger: 'https://m.me/uklidpluspraha',
 };
