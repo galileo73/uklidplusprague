@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import {
   featuredReviews,
   reviewStats,
   reviewGrowthNote,
-  googleReviewsUrl,
-  socialLinks,
+  googleReviews,
+  googleReviewsNotAvailableMessage,
 } from '../../config';
 import { useTranslation } from 'react-i18next';
 
@@ -15,6 +16,16 @@ import { useTranslation } from 'react-i18next';
  */
 export function ReviewsSection() {
   const { t } = useTranslation();
+  const [showToast, setShowToast] = useState(false);
+
+  // Handle button click when Google Reviews are not enabled
+  const handleDisabledClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!googleReviews.enabled) {
+      e.preventDefault();
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+    }
+  };
 
   // Animation variants
   const containerVariants = {
@@ -134,9 +145,10 @@ export function ReviewsSection() {
 
               {/* Google Brand Link */}
               <a
-                href={googleReviewsUrl}
+                href={googleReviews.enabled ? googleReviews.profileUrl : '#'}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleDisabledClick}
                 className="mt-2 text-sm text-google-blue hover:text-google-blue/80 transition-colors flex items-center gap-1"
               >
                 <span>{t('reviews.seeAll')}</span>
@@ -226,24 +238,38 @@ export function ReviewsSection() {
           variants={noteVariants}
         >
           <a
-            href={googleReviewsUrl}
+            href={googleReviews.enabled ? googleReviews.profileUrl : '#'}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleDisabledClick}
             className="btn-primary flex items-center gap-2"
           >
             <span>{t('reviews.cta.seeAll')}</span>
             <ExternalLinkIcon />
           </a>
           <a
-            href={socialLinks.facebook}
+            href={googleReviews.enabled ? googleReviews.reviewUrl : '#'}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleDisabledClick}
             className="btn-secondary flex items-center gap-2"
           >
             <span>{t('reviews.cta.leaveReview')}</span>
             <EditIcon />
           </a>
         </motion.div>
+
+        {/* Toast notification for disabled Google Reviews */}
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-dark-secondary border border-accent-primary/30 text-text-primary px-6 py-3 rounded-lg shadow-lg"
+          >
+            <p className="text-sm">{googleReviewsNotAvailableMessage}</p>
+          </motion.div>
+        )}
       </div>
     </section>
   );

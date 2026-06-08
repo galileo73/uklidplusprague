@@ -2,6 +2,18 @@ import type { Review } from '../types';
 
 /**
  * Google Reviews configuration
+ *
+ * IMPORTANT: Set enabled to true once Google Business Profile is set up
+ * and valid URLs are provided.
+ */
+export const googleReviews = {
+  enabled: false, // Set to true when Google Business Profile is ready
+  profileUrl: '#', // URL to view all reviews (e.g., https://g.page/r/XXXXX/review)
+  reviewUrl: '#', // URL to leave a review (e.g., https://search.google.com/local/writereview?placeid=XXXXX)
+};
+
+/**
+ * Legacy config (deprecated - use googleReviews instead)
  */
 export const googleReviewsConfig = {
   placeId: '', // Add actual Google Place ID
@@ -157,5 +169,11 @@ export const reviewGrowthNote =
 
 /**
  * Google Reviews URL (placeholder - replace with actual Google Place review link)
+ * @deprecated Use googleReviews.profileUrl instead
  */
-export const googleReviewsUrl = 'https://g.page/r/CXXXXX/review'; // Replace with actual Google Place ID
+export const googleReviewsUrl = googleReviews.profileUrl;
+
+/**
+ * Message to show when Google Reviews are not yet enabled
+ */
+export const googleReviewsNotAvailableMessage = 'Google Reviews will be available after launch.';

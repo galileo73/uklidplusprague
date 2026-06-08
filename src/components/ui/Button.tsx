@@ -39,6 +39,13 @@ const sizeStyles: Record<ButtonSize, string> = {
   lg: 'px-8 py-4 text-lg rounded-xl',
 };
 
+/**
+ * Check if a URL is external (starts with http://, https://, or wa.me)
+ */
+function isExternalUrl(href: string): boolean {
+  return href.startsWith('http://') || href.startsWith('https://') || href.startsWith('wa.me');
+}
+
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', children, className = '', ...props }, ref) => {
     const baseStyles =
@@ -48,8 +55,21 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 
     if ('href' in props && props.href) {
       const { href, ...rest } = props;
+      const isExternal = isExternalUrl(href);
+
+      // For external links, add target="_blank" and rel="noopener noreferrer"
+      const externalProps = isExternal
+        ? { target: '_blank', rel: 'noopener noreferrer' }
+        : {};
+
       return (
-        <a ref={ref as React.Ref<HTMLAnchorElement>} href={href} className={combinedClassName} {...rest}>
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          href={href}
+          className={combinedClassName}
+          {...externalProps}
+          {...rest}
+        >
           {children}
         </a>
       );

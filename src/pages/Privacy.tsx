@@ -101,7 +101,12 @@ export function Privacy() {
                 {t('privacy.sections.contact.content')}
               </p>
               <p className="text-text-secondary mt-2">
-                <a href={whatsappLink} className="text-accent-primary hover:text-accent-secondary transition-colors">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-primary hover:text-accent-secondary transition-colors"
+                >
                   WhatsApp
                 </a>
               </p>

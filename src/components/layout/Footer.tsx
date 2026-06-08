@@ -61,6 +61,8 @@ export function Footer() {
               <li>
                 <a
                   href={getWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-text-secondary hover:text-accent-primary transition-colors text-sm flex items-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

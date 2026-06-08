@@ -125,6 +125,8 @@ export {
 
 // Reviews configuration
 export {
+  googleReviews,
+  googleReviewsNotAvailableMessage,
   googleReviewsConfig,
   reviews,
   getFeaturedReviews,

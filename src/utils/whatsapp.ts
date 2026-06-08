@@ -2,11 +2,12 @@ import { contactInfo } from '../config/business';
 
 /**
  * Generate a WhatsApp link with optional pre-filled message
+ * Format: https://wa.me/420721960963 (no spaces, no +, digits only)
  * @param message - Optional message to pre-fill
  * @returns Full WhatsApp URL
  */
 export function getWhatsAppLink(message?: string): string {
-  const baseUrl = `https://wa.me/${contactInfo.whatsapp.replace(/\+/g, '')}`;
+  const baseUrl = `https://wa.me/${contactInfo.whatsapp.replace(/[^0-9]/g, '')}`;
   if (message) {
     return `${baseUrl}?text=${encodeURIComponent(message)}`;
   }
@@ -18,7 +19,7 @@ export function getWhatsAppLink(message?: string): string {
  * @returns WhatsApp number as digits only
  */
 export function getWhatsAppNumber(): string {
-  return contactInfo.whatsapp.replace(/\+/g, '');
+  return contactInfo.whatsapp.replace(/[^0-9]/g, '');
 }
 
 /**

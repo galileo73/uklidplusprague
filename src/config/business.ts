@@ -24,10 +24,10 @@ export const contactInfo: ContactInfo = {
 
 /**
  * WhatsApp link for direct messaging
- * Note: Will be functional once WhatsApp number is provided
+ * Format: https://wa.me/420721960963 (no spaces, no +, digits only)
  */
 export const whatsappLink = contactInfo.whatsapp
-  ? `https://wa.me/${contactInfo.whatsapp.replace(/\+/g, '')}`
+  ? `https://wa.me/${contactInfo.whatsapp.replace(/[^0-9]/g, '')}`
   : '#contact'; // Fallback to contact section
 
 /**
