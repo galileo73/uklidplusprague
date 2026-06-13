@@ -227,3 +227,15 @@ The `.gitignore` excludes:
 - [ ] Create proper og-image.jpg (1200x630px)
 - [ ] Replace logo.jpg with final client logo
 - [ ] Create Facebook page and update link
+
+## Business Plan Review Context
+
+The folder `docs/business-plan/` contains the UKLID PLUS PRAHA business plan presentation and validation prompt.
+
+When reviewing this material:
+- keep the presentation maximum 3 slides
+- validate assumptions, not only wording
+- check revenue realism for a Prague cleaning agency
+- focus on recurring clients and cleaner recruitment
+- consider website, Google Business Profile, Instagram, Facebook groups, WhatsApp, and customer reviews
+- avoid long reports unless explicitly requested
