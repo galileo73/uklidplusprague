@@ -73,12 +73,10 @@ export function ExpatsSection() {
   };
 
   const benefits = [
-    { key: 'english' },
-    { key: 'scheduling' },
-    { key: 'trusted' },
-    { key: 'recurring' },
+    { key: 'language' },
     { key: 'communication' },
     { key: 'quality' },
+    { key: 'trust' },
   ];
 
   return (
