@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { businessInfo } from '../../config';
-import logoImage from '../../assets/branding/uklidplus-logo.jpg';
+import logoImage from '../../assets/branding/uklidplus-logo-transparent.png';
 
 interface LogoProps {
   variant?: 'full' | 'icon-only';

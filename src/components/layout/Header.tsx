@@ -4,7 +4,7 @@ import { mainNavItems, whatsappLink } from '../../config';
 import { Button } from '../ui/Button';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { useTranslation } from 'react-i18next';
-import logoImage from '../../assets/branding/uklidplus-logo.jpg';
+import logoImage from '../../assets/branding/uklidplus-logo-transparent.png';
 
 interface HeaderProps {
   onMenuToggle?: () => void;

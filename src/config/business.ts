@@ -8,7 +8,7 @@ export const businessInfo: BusinessInfo = {
   tagline: 'Premium Cleaning Services for Expats in Prague',
   description:
     'Professional cleaning agency serving Prague\'s international community. Multilingual support in English, Czech, Russian, and Ukrainian.',
-  logo: '/logo.jpg', // Note: logo.jpg is the actual logo file in public/
+  logo: '/uklidplus-logo-transparent.png',
 };
 
 /**

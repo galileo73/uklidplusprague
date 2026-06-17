@@ -20,9 +20,8 @@ export const defaultSEO: SEOConfig = {
     'uklid praha',
     'cleaning agency Prague',
   ],
-  // TODO: Create proper og-image.jpg (1200x630px recommended)
-  // Using logo.jpg as temporary fallback
-  ogImage: '/logo.jpg',
+  // Using transparent PNG logo for social sharing
+  ogImage: '/uklidplus-logo-transparent.png',
   siteUrl: 'https://uklidpluspraha.cz',
   locale: 'en_US',
 };
